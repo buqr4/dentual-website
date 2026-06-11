@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dentualkonya.com)",
+      "WebSearch",
+      "Bash(curl -sL \"https://dentualkonya.com/wp-content/uploads/2021/09/logo_dentual_konya-dis-hekimi.png\" -o assets/logo.png)",
+      "Bash(curl -sL \"https://dentualkonya.com/wp-content/uploads/2026/06/yasintekpinar.png\" -o /tmp/doc.png)",
+      "Read(//tmp/**)",
+      "Bash(cp /tmp/doc.png assets/_tmp_doc.png)",
+      "Bash(curl -sL \"https://dentualkonya.com/wp-content/uploads/2026/06/yasintekpinar.png\" -o assets/_tmp_doc.png)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(rm -f cand_cocuk*.png)",
+      "Bash(python -c \"from PIL import Image; im=Image.open\\('cand_dentual_logo.jpg'\\); print\\(im.size\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -I -L \"https://dentualkonya.com/wp-content/uploads/2023/03/cocuk-dis-hekimi-1.jpg\")",
+      "Bash(mkdir -p doctors treatments)",
+      "Bash(curl -s -o doctors/__TRACKED_VAR__.png -w '%{http_code}' -L __TRACKED_VAR__/__TRACKED_VAR__.png)",
+      "Bash(curl -s -o \"treatments/ortodonti.jpg\" -w \"%{http_code} ortodonti\\\\n\" -L \"https://dentualkonya.com/wp-content/uploads/2021/09/dis-teli-konya-ortodonti.jpg\")",
+      "Bash(curl -s -o \"treatments/implant.jpg\" -w \"%{http_code} implant\\\\n\" -L \"https://dentualkonya.com/wp-content/uploads/2021/09/implant.jpg\")",
+      "Bash(curl -s -o \"treatments/gulus-estetigi.jpg\" -w \"%{http_code} gulus\\\\n\" -L \"https://dentualkonya.com/wp-content/uploads/2021/09/gulus-estetigi-konya-dis-hekimi.jpg\")",
+      "Bash(curl -s -o \"hero/about-dentual.jpg\" -w \"%{http_code}\\\\n\" -L \"https://dentualkonya.com/wp-content/uploads/2023/03/dentualkonya2.jpg\")",
+      "Bash(python -c \"from PIL import Image; print\\(Image.open\\('hero/about-dentual.jpg'\\).size\\)\")",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:tr.revieweuro.com)",
+      "WebFetch(domain:iyifirma.com)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
