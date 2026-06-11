@@ -244,7 +244,7 @@ html[data-theme="dark"] .logo-img { filter: brightness(0) invert(1); }
 
 .nav-links { display: flex; align-items: center; gap: 0.4rem; }
 .nav-link {
-    position: relative; font-weight: 500; font-size: 0.97rem;
+    position: relative; font-weight: 500; font-size: 0.97rem; white-space: nowrap;
     padding: 0.5rem 0.95rem; border-radius: var(--radius-pill);
     color: var(--text-soft); transition: color 0.3s var(--ease), background 0.3s var(--ease);
 }
@@ -825,7 +825,9 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
     .cocuk-logo-card { right: 1rem; }
 }
 
-@media (max-width: 768px) {
+/* Collapse the primary nav to a slide-in menu earlier (≤991px) so the 6-item
+   menu never crowds/wraps in the 769–991px range; full inline nav stays ≥992px. */
+@media (max-width: 991px) {
     .hamburger { display: flex; }
     .btn-nav-cta { display: none; }
     .logo-img { height: 34px; }
@@ -842,6 +844,9 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
     .nav-link.active { background: var(--surface-2); }
     .navbar.transparent .nav-link.active { color: var(--teal-500); }
     .nav-link::after { display: none; }
+}
+
+@media (max-width: 768px) {
     .carousel-btn { display: none; }
     .review-card { flex: 0 0 85vw; max-width: 85vw; }
 }

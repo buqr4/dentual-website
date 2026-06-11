@@ -57,6 +57,9 @@
     const DICT = {
         en: {
             'nav.home': 'Home', 'nav.about': 'About Us', 'nav.treatments': 'Treatments', 'nav.blog': 'Blog', 'nav.contact': 'Contact', 'nav.book': 'Call Us',
+            'nav.emergency': 'Night & Emergency',
+            'hero.h1lead': 'Konya Dental Clinic',
+            'htreat.more': 'See Details →', 'emergency.more': 'Our night-open dental clinic service →', 'branch.detail': 'Branch Page & Directions →',
             'ann.text': 'Our Selçuklu branch is now <strong>open at night!</strong>',
             'blog.heroTitle': 'Knowledge Center', 'blog.heroSub': 'Expert advice and up-to-date articles on oral and dental health.',
             'blog.back': '← All Articles', 'blog.ctaText': 'Looking for professional help on this topic?', 'blog.ctaBtn': 'Contact Us',
@@ -298,13 +301,17 @@
         }
     ];
 
+    // NOTE: This list must stay in sync with the FAQPage JSON-LD in each page's <head>
+    // (Google requires FAQ structured data to match visible on-page content).
     const FAQS = [
-        { q: 'Randevu almadan gelebilir miyim?', a: 'Acil durumlar için kapımız her zaman açık olsa da, bekleme süresini en aza indirmek için gelmeden önce size en yakın şubemizi telefonla aramanızı öneririz. Şube telefon numaralarımıza İletişim sayfamızdan ulaşabilirsiniz.', qEn: 'Can I visit without an appointment?', aEn: 'Although our door is always open for emergencies, we recommend calling your nearest branch by phone before your visit to minimize waiting time. You can find our branch phone numbers on our Contact page.' },
+        { q: 'Konya\'da gece açık diş kliniği var mı?', a: 'Evet. Dentual Konya olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:30\'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir. Çağrı merkezi: 444 34 42.', qEn: 'Is there a night-open dental clinic in Konya?', aEn: 'Yes. At Dentual Konya, our Karatay, Selçuklu and Meram branches are open until 23:30 every day, Sundays included. Our on-call dentist serves you for night-time toothaches. Call center: 444 34 42.' },
+        { q: 'Selçuklu\'da nöbetçi diş hekimi nerede?', a: 'Selçuklu şubemiz Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi\'nde gece nöbetinde hizmet verir. Pazar dahil her gün 23:30\'a kadar açıktır. Randevu ve acil için: 0551 342 44 42.', qEn: 'Where is the on-call dentist in Selçuklu?', aEn: 'Our Selçuklu branch serves on night duty at Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi. Open until 23:30 every day including Sunday. Appointments & emergencies: 0551 342 44 42.' },
+        { q: 'Konya\'da acil diş tedavisi nereden alınır?', a: 'Acil diş tedavisi için üç şubemize de başvurabilirsiniz. Gece geç saatlerde bastıran diş ağrısı, kırık diş veya apse gibi durumlarda 23:30\'a kadar açığız; gelmeden önce size en yakın şubeyi aramanızı öneririz.', qEn: 'Where can I get emergency dental treatment in Konya?', aEn: 'You can visit any of our three branches for emergency dental care. For late-night toothache, a broken tooth or an abscess we are open until 23:30; we recommend calling your nearest branch before coming.' },
+        { q: 'Hafta sonu ve pazar günü açık diş hekimi var mı?', a: 'Evet. Cumartesi ve pazar dahil haftanın her günü 09:00–23:30 arası hizmet veriyoruz. Hafta sonu diş ağrınızda da yanınızdayız.', qEn: 'Is there a dentist open on weekends and Sundays?', aEn: 'Yes. We serve every day of the week, including Saturday and Sunday, from 09:00 to 23:30. We are by your side for weekend toothaches too.' },
+        { q: 'Randevu almadan gelebilir miyim?', a: 'Acil durumlar için kapımız her zaman açık olsa da, bekleme süresini en aza indirmek için gelmeden önce size en yakın şubemizi telefonla aramanızı öneririz.', qEn: 'Can I visit without an appointment?', aEn: 'Although our door is always open for emergencies, we recommend calling your nearest branch by phone before your visit to minimize waiting time.' },
         { q: 'İmplant tedavisi ağrılı mıdır?', a: 'İmplant işlemi lokal anestezi altında yapıldığı için işlem sırasında ağrı hissetmezsiniz. İşlem sonrası oluşabilecek hafif hassasiyet ise basit ağrı kesicilerle kolayca kontrol altına alınır.', qEn: 'Is implant treatment painful?', aEn: 'Because the implant procedure is performed under local anesthesia, you do not feel pain during the procedure. Any mild sensitivity afterwards is easily controlled with simple painkillers.' },
         { q: 'Tedavi ücretlerini taksitlendirebiliyor musunuz?', a: 'Evet. Hastalarımızın tedaviye kolay erişebilmesi için çeşitli ödeme kolaylıkları ve taksit seçenekleri sunuyoruz. Detaylı bilgi için kliniklerimizle iletişime geçebilirsiniz.', qEn: 'Do you offer installment payment options?', aEn: 'Yes. To make treatment easily accessible for our patients, we offer various payment conveniences and installment options. Please contact our clinics for detailed information.' },
-        { q: 'Diş beyazlatma dişlere zarar verir mi?', a: 'Profesyonel olarak klinik ortamında uygulanan beyazlatma işlemleri diş minesine zarar vermez. İşlem öncesi diş sağlığınız değerlendirilir ve size en uygun yöntem belirlenir.', qEn: 'Does teeth whitening damage the teeth?', aEn: 'Whitening procedures performed professionally in a clinical setting do not harm tooth enamel. Your dental health is assessed beforehand and the most suitable method is determined for you.' },
-        { q: 'Çocuğumu ilk diş kontrolüne ne zaman getirmeliyim?', a: 'İlk diş çıktıktan sonra veya en geç 1 yaşına kadar ilk diş hekimi kontrolünün yapılması önerilir. Erken kontroller, çocuğunuzun diş sağlığı için koruyucu bir temel oluşturur.', qEn: 'When should I bring my child for their first dental check-up?', aEn: 'The first dental check-up is recommended after the first tooth erupts, or by the age of 1 at the latest. Early check-ups build a preventive foundation for your child\'s dental health.' },
-        { q: 'Hangi şubeleriniz var ve çalışma saatleriniz nedir?', a: 'Karatay, Selçuklu ve Meram olmak üzere üç şubemiz bulunmaktadır. Pazar günleri dahil her gün gece 23:30\'a kadar hizmet veriyoruz; acil diş tedavileriniz için geç saatlerde de yanınızdayız.', qEn: 'Which branches do you have and what are your hours?', aEn: 'We have three branches: Karatay, Selçuklu and Meram. We serve every day until 23:30, including Sundays; we are by your side at late hours for your emergency dental needs.' }
+        { q: 'Çocuğumu ilk diş kontrolüne ne zaman getirmeliyim?', a: 'İlk diş çıktıktan sonra veya en geç 1 yaşına kadar ilk diş hekimi kontrolünün yapılması önerilir. Erken kontroller, çocuğunuzun diş sağlığı için koruyucu bir temel oluşturur.', qEn: 'When should I bring my child for their first dental check-up?', aEn: 'The first dental check-up is recommended after the first tooth erupts, or by the age of 1 at the latest. Early check-ups build a preventive foundation for your child\'s dental health.' }
     ];
 
     const BLOG = [
@@ -425,7 +432,8 @@
     }
 
     /* ---------- NAVBAR STATE ---------- */
-    let currentPage = 'home';
+    // Multipage: each document declares its own page id on <body data-page="...">.
+    let currentPage = (document.body && document.body.dataset.page) || 'home';
     function updateNavbar() {
         const nav = $('#navbar');
         if (!nav) return;
@@ -1043,7 +1051,15 @@
         document.documentElement.dir = RTL_LANGS.indexOf(lang) !== -1 ? 'rtl' : 'ltr';
         const cur = $('#langCurrent'); if (cur) cur.textContent = lang.toUpperCase();
         $$('.lang-option').forEach(o => o.classList.toggle('active', o.dataset.lang === lang));
-        document.title = pageTitle(currentPage);
+        // Multipage SEO: localized <title> and meta description are declared per page
+        // on <body data-title-tr/-en> and <body data-desc-tr/-en>. Keep them in sync
+        // when the visitor switches language so each URL stays correctly optimized.
+        const suffix = lang === 'en' ? 'En' : 'Tr';
+        const t = document.body.dataset['title' + suffix];
+        if (t) document.title = t;
+        const d = document.body.dataset['desc' + suffix];
+        const md = $('meta[name="description"]');
+        if (d && md) md.setAttribute('content', d);
     }
     function setLanguage(lang) {
         if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'tr';
