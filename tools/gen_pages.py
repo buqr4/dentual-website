@@ -693,6 +693,36 @@ sm.append("</urlset>")
 with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
     fh.write("\n".join(sm) + "\n")
 
-print("Generated %d sub-pages + sitemap (%d urls)." % (len(ROUTES), len(SITEMAP_URLS)))
+# ============================================================ 404
+nf_content = hero(
+    "Sayfa Bulunamadı (404)",
+    "Aradığınız sayfa taşınmış veya kaldırılmış olabilir.",
+    [("Ana Sayfa", "/"), ("404", "/404.html")]
+) + ('<div class="section"><div class="container container-narrow">'
+     '<p>Üzgünüz, aradığınız sayfaya ulaşılamadı. Aşağıdaki bağlantılardan devam edebilirsiniz:</p>'
+     '<ul class="tm-list">'
+     '<li><a href="/">Ana Sayfa</a></li>'
+     '<li><a href="/tedaviler/">Tedavilerimiz</a></li>'
+     '<li><a href="/gece-acik-dis-klinigi-konya/">Gece Açık &amp; Acil Diş</a></li>'
+     '<li><a href="/blog/">Blog</a></li>'
+     '<li><a href="/iletisim/">İletişim</a></li></ul>' + cta() + '</div></div>')
+nf_head = (HEAD_TMPL
+           .replace("{{TITLE}}", "Sayfa Bulunamadı – Dentual Konya")
+           .replace("{{DESC}}", "Aradığınız sayfa bulunamadı. Ana sayfa, tedaviler veya iletişim sayfamızdan devam edebilirsiniz.")
+           .replace("{{CANON}}", ORIGIN + "/404.html")
+           .replace("{{OGTYPE}}", "website")
+           .replace("{{OGIMG}}", ORIGIN + "/assets/hero/hero1.jpg")
+           .replace("{{SCHEMA}}", json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "404 – Sayfa Bulunamadı"}, ensure_ascii=False, indent=2))
+           .replace("index, follow", "noindex, follow"))
+nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Dentual Konya" '
+           'data-title-en="Page Not Found – Dentual Konya" '
+           'data-desc-tr="Aradığınız sayfa bulunamadı." data-desc-en="Page not found."')
+nf_top = CHROME_TOP.replace('class="nav-link active"', 'class="nav-link"')
+nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\">\n" + nf_head + "\n<body " + nf_body +
+           ">\n\n    " + nf_top + '<main id="main">\n' + nf_content + "\n    " + CHROME_BOTTOM)
+with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as fh:
+    fh.write(nf_html)
+
+print("Generated %d sub-pages + 404 + sitemap (%d urls)." % (len(ROUTES), len(SITEMAP_URLS)))
 for r in ROUTES:
     print("  ", r)

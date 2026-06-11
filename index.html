@@ -41,6 +41,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- LCP: preload the first hero image (CSS background) so it paints sooner -->
+    <link rel="preload" as="image" href="/assets/hero/hero1.jpg" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
@@ -80,9 +82,11 @@
           "@id": "https://dentualkonya.com/#meram",
           "name": "Dentual Ağız ve Diş Sağlığı Polikliniği - Meram",
           "image": "https://dentualkonya.com/assets/hero/about-dentual.jpg",
-          "url": "https://dentualkonya.com/",
+          "url": "https://dentualkonya.com/subeler/meram/",
           "telephone": "+90-552-599-49-59",
           "priceRange": "₺₺",
+          "medicalSpecialty": "Dentistry",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Meram" },
           "parentOrganization": { "@id": "https://dentualkonya.com/#organization" },
           "address": {
             "@type": "PostalAddress",
@@ -104,9 +108,11 @@
           "@type": "Dentist",
           "@id": "https://dentualkonya.com/#karatay",
           "name": "Dentual Ağız ve Diş Sağlığı Polikliniği - Karatay",
-          "url": "https://dentualkonya.com/",
+          "url": "https://dentualkonya.com/subeler/karatay/",
           "telephone": "+90-546-733-27-13",
           "priceRange": "₺₺",
+          "medicalSpecialty": "Dentistry",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Karatay" },
           "parentOrganization": { "@id": "https://dentualkonya.com/#organization" },
           "address": {
             "@type": "PostalAddress",
@@ -126,9 +132,11 @@
           "@id": "https://dentualkonya.com/#selcuklu",
           "name": "Dentual Ağız ve Diş Sağlığı Polikliniği - Selçuklu",
           "description": "Selçuklu'da gece açık nöbetçi diş hekimi. Pazar dahil her gün 23:30'a kadar acil ve planlı diş tedavisi hizmeti.",
-          "url": "https://dentualkonya.com/",
+          "url": "https://dentualkonya.com/subeler/selcuklu/",
           "telephone": "+90-551-342-44-42",
           "priceRange": "₺₺",
+          "medicalSpecialty": "Dentistry",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Selçuklu" },
           "parentOrganization": { "@id": "https://dentualkonya.com/#organization" },
           "address": {
             "@type": "PostalAddress",
