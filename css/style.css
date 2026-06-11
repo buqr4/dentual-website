@@ -825,9 +825,9 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
     .cocuk-logo-card { right: 1rem; }
 }
 
-/* Collapse the primary nav to a slide-in menu earlier (≤991px) so the 6-item
-   menu never crowds/wraps in the 769–991px range; full inline nav stays ≥992px. */
-@media (max-width: 991px) {
+/* Collapse the primary nav to a slide-in menu up to 1024px so the 6-item menu
+   never crowds/wraps on tablets and small laptops; full inline nav stays ≥1025px. */
+@media (max-width: 1024px) {
     .hamburger { display: flex; }
     .btn-nav-cta { display: none; }
     .logo-img { height: 34px; }

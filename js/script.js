@@ -673,21 +673,26 @@
                 <button class="faq-q">${en && f.qEn ? f.qEn : f.q}<span class="faq-icon">+</span></button>
                 <div class="faq-a"><div class="faq-a-inner">${en && f.aEn ? f.aEn : f.a}</div></div>
             </div>`).join('');
-        $$('.faq-q', list).forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.parentElement;
-                const ans = $('.faq-a', item);
-                const isOpen = item.classList.contains('open');
-                // close all
-                $$('.faq-item', list).forEach(i => {
-                    i.classList.remove('open');
-                    $('.faq-a', i).style.maxHeight = null;
-                });
-                if (!isOpen) {
-                    item.classList.add('open');
-                    ans.style.maxHeight = ans.scrollHeight + 'px';
-                }
+        // Toggling is handled globally by initFaqToggle so both JS-rendered (#faqList)
+        // and server-rendered static FAQs (on sub-pages) behave identically.
+    }
+    function initFaqToggle() {
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.faq-q');
+            if (!btn) return;
+            const item = btn.parentElement;
+            const ans = $('.faq-a', item);
+            const list = item.parentElement;
+            const isOpen = item.classList.contains('open');
+            $$('.faq-item', list).forEach(i => {
+                i.classList.remove('open');
+                const a = $('.faq-a', i);
+                if (a) a.style.maxHeight = null;
             });
+            if (!isOpen) {
+                item.classList.add('open');
+                if (ans) ans.style.maxHeight = ans.scrollHeight + 'px';
+            }
         });
     }
 
@@ -1105,6 +1110,7 @@
         renderReviews();
         initReviewCarousel();
         renderFaq();
+        initFaqToggle();
         renderTreatments();
         initBlog();
         initModals();
