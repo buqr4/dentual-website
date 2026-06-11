@@ -27,7 +27,8 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git config *)",
-      "Bash(python tools/gen_pages.py)"
+      "Bash(python tools/gen_pages.py)",
+      "PowerShell($conn = Get-NetTCPConnection -LocalPort 5500 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { \"PORT 5500 LISTENING \\(PID\\(s\\): \" + \\(\\($conn.OwningProcess | Sort-Object -Unique\\) -join ', '\\) + \"\\)\" } else { \"PORT 5500 NOT LISTENING\" }; \"--- python processes ---\"; Get-Process python -ErrorAction SilentlyContinue | Select-Object Id, StartTime | Format-Table -AutoSize | Out-String)"
     ]
   }
 }

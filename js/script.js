@@ -478,9 +478,12 @@
         if (page === 'home') restartTypewriter();
     }
 
+    // Multipage: navigation is via real <a href> links, so SPA routing is disabled.
+    // The selector is scoped to anchors only — matching the bare [data-page] used to
+    // catch <body data-page="home">, which preventDefault'd every click on the page.
     function initRouting() {
         document.addEventListener('click', (e) => {
-            const link = e.target.closest('[data-page]');
+            const link = e.target.closest('a[data-page]');
             if (link) {
                 e.preventDefault();
                 navigate(link.dataset.page);
