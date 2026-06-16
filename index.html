@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- LCP: preload the first hero image (CSS background) so it paints sooner -->
-    <link rel="preload" as="image" href="/assets/hero/hero1.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/hero/hero1.webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
@@ -279,10 +279,10 @@
             <!-- HERO -->
             <div class="hero">
                 <div class="hero-slider" id="heroSlider">
-                    <div class="hero-slide active" style="background-image:url('/assets/hero/hero1.jpg')"></div>
-                    <div class="hero-slide" style="background-image:url('/assets/hero/hero2.jpg')"></div>
-                    <div class="hero-slide" style="background-image:url('/assets/hero/hero3.jpg')"></div>
-                    <div class="hero-slide" style="background-image:url('/assets/hero/hero4.jpg')"></div>
+                    <div class="hero-slide active" style="background-image:url('/assets/hero/hero1.webp')"></div>
+                    <div class="hero-slide" data-bg="/assets/hero/hero2.webp"></div>
+                    <div class="hero-slide" data-bg="/assets/hero/hero3.webp"></div>
+                    <div class="hero-slide" data-bg="/assets/hero/hero4.webp"></div>
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="container hero-content">
@@ -294,8 +294,8 @@
                         </span>
                     </div>
                     <h1 class="hero-title">
-                        <span class="hero-title-lead" data-i18n="hero.h1lead">Konya Diş Kliniği</span><br>
-                        <span class="typewriter" id="typewriter"></span><span class="cursor">|</span>
+                        <span class="hero-title-lead" data-i18n="hero.h1lead">Konya Diş Kliniği</span>
+                        <span class="hero-tw"><span class="typewriter" id="typewriter"></span><span class="cursor">|</span></span>
                     </h1>
                     <p class="hero-subtitle reveal" data-i18n="hero.subtitle">Konya'nın güvenilir diş kliniği Dentual; modern teknoloji ve uzman kadrosuyla sağlıklı gülüşler için yanınızda. Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:30'a kadar nöbetçi diş hekimi.</p>
                     <div class="hero-cta reveal">
@@ -376,7 +376,7 @@
                     </div>
                     <div class="treatments-grid">
                         <a href="/tedaviler/implant/" class="treatment-card reveal">
-                            <div class="treatment-img"><img src="/assets/treatments/implant.jpg" alt="İmplant tedavisi Konya — Dentual diş kliniği" loading="lazy" width="400" height="190" /></div>
+                            <div class="treatment-img"><img src="/assets/treatments/implant.webp" alt="İmplant tedavisi Konya — Dentual diş kliniği" loading="lazy" width="400" height="190" /></div>
                             <div class="treatment-body">
                                 <h3>İmplant Tedavisi</h3>
                                 <p>Tek diş eksikliğinden tam dişsizliğe kadar en iyi ve kalıcı çözüm.</p>
@@ -384,7 +384,7 @@
                             </div>
                         </a>
                         <a href="/tedaviler/gulus-estetigi/" class="treatment-card reveal">
-                            <div class="treatment-img"><img src="/assets/treatments/gulus-estetigi.jpg" alt="Gülüş estetiği Konya — zirkonyum, lamina, diş beyazlatma" loading="lazy" width="400" height="190" /></div>
+                            <div class="treatment-img"><img src="/assets/treatments/gulus-estetigi.webp" alt="Gülüş estetiği Konya — zirkonyum, lamina, diş beyazlatma" loading="lazy" width="400" height="190" /></div>
                             <div class="treatment-body">
                                 <h3>Gülüş Estetiği</h3>
                                 <p>Güldüğünüzde ilk göze çarpan ön dişleriniz için kişiye özel estetik planlama.</p>
@@ -392,7 +392,7 @@
                             </div>
                         </a>
                         <a href="/tedaviler/ortodonti/" class="treatment-card reveal">
-                            <div class="treatment-img"><img src="/assets/treatments/ortodonti.jpg" alt="Ortodonti Konya — diş teli ve şeffaf plak tedavisi" loading="lazy" width="400" height="190" /></div>
+                            <div class="treatment-img"><img src="/assets/treatments/ortodonti.webp" alt="Ortodonti Konya — diş teli ve şeffaf plak tedavisi" loading="lazy" width="400" height="190" /></div>
                             <div class="treatment-body">
                                 <h3>Ortodonti (Diş Teli & Şeffaf Plak)</h3>
                                 <p>Diş çapraşıklıkları, boşluklar ve ısırma problemleri için tel ve şeffaf plak tedavileri.</p>
@@ -432,7 +432,7 @@
                 <span class="cocuk-blob cb3" aria-hidden="true"></span>
                 <div class="container cocuk-inner">
                     <div class="cocuk-visual reveal">
-                        <img class="cocuk-photo" src="/assets/treatments/pedodonti.jpg" alt="Dentual Çocuk - Çocuk Diş Hekimliği" loading="lazy" />
+                        <img class="cocuk-photo" src="/assets/treatments/pedodonti.webp" alt="Dentual Çocuk - Çocuk Diş Hekimliği" loading="lazy" />
                         <div class="cocuk-logo-card">
                             <img src="/assets/logo-cocuk.png" alt="Dentual Çocuk" />
                         </div>

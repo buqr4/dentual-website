@@ -25,6 +25,11 @@ import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGIN = "https://dentualkonya.com"
 
+# Photographic assets are served as WebP for <img> tags (huge size win); the
+# original .jpg is kept for og:image / schema image (broadest social support).
+def web(fn):
+    return fn.rsplit(".", 1)[0] + ".webp"
+
 # ---------------------------------------------------------------- chrome reuse
 with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
     HOME = f.read()
@@ -184,7 +189,7 @@ about_content = hero(
     <p>Hastalarımızı uzun uzun dinler, modern ve güncel tedavi yöntemleriyle mutlu sona ulaşırız. Üstelik <strong>pazar dahil her gün gece 23:30'a kadar</strong> açık olarak, Konya'da gece açık nöbetçi diş hekimi hizmeti sunuyoruz.</p>
   </div>
   <div class="about-image reveal">
-    <img src="/assets/hero/about-dentual.jpg" alt="Dentual Konya diş kliniğinde hekim ve hasta" loading="lazy" width="600" height="450" />
+    <img src="/assets/hero/about-dentual.webp" alt="Dentual Konya diş kliniğinde hekim ve hasta" loading="lazy" width="600" height="450" />
   </div>
 </div></div>
 <div class="section section-alt"><div class="container">
@@ -304,7 +309,7 @@ def treatment_card(t):
             '<div class="treatment-img"><img src="/assets/treatments/%s" alt="%s — Konya Dentual diş kliniği" loading="lazy" width="400" height="190" /></div>'
             '<div class="treatment-body"><h3>%s</h3><p>%s</p>'
             '<span class="treatment-more">Detayları Gör &rarr;</span></div></a>'
-            % (t["slug"], t["img"], t["title"], t["title"], t["sub"]))
+            % (t["slug"], web(t["img"]), t["title"], t["title"], t["sub"]))
 
 # tedaviler index
 tindex_content = hero(
@@ -347,7 +352,7 @@ for t in TREATMENTS:
         '<p style="display:flex;flex-wrap:wrap;gap:1rem">%s</p>'
         '<p style="margin-top:1.4rem">Gece bastıran diş ağrısı veya acil bir durumda <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> hizmetimizden yararlanabilirsiniz.</p>'
         '%s</div></div>'
-        % (t["img"], t["title"], t["desc"], t["candidates"], proc, pts, related_html, cta())
+        % (web(t["img"]), t["title"], t["desc"], t["candidates"], proc, pts, related_html, cta())
     )
     ROUTES.append(page(
         "/tedaviler/%s/" % t["slug"], "treatments",
@@ -589,7 +594,7 @@ def blog_card(b):
             '<img src="/assets/treatments/%s" alt="%s" loading="lazy" width="400" height="220" /></div>'
             '<div class="blog-card-body"><div class="blog-card-meta">%s &middot; %d dk okuma</div>'
             '<h3>%s</h3><p>%s</p><span class="blog-more">Devamını Oku &rarr;</span></div></a>'
-            % (b["slug"], b["cat"], b["img"], b["title"], fmt_date(b["date"]), b["read"], b["title"], b["excerpt"]))
+            % (b["slug"], b["cat"], web(b["img"]), b["title"], fmt_date(b["date"]), b["read"], b["title"], b["excerpt"]))
 
 blog_index = hero("Diş Sağlığı Blogu — Bilgi Merkezi",
                   "Ağız ve diş sağlığı hakkında uzman tavsiyeleri ve güncel yazılar.",
@@ -616,7 +621,7 @@ for b in BLOG:
         '<div class="section"><div class="container container-narrow">'
         '<img src="/assets/treatments/%s" alt="%s" loading="lazy" width="760" height="380" style="width:100%%;height:auto;border-radius:16px;margin-bottom:1.6rem" />'
         '<div class="blog-article-body">%s</div>%s</div></div>'
-        % (b["img"], b["title"], b["body"], cta()))
+        % (web(b["img"]), b["title"], b["body"], cta()))
     ROUTES.append(page(
         "/blog/%s/" % b["slug"], "blog",
         b["title"] + " | Dentual Konya", b["excerpt"], b["title"], content,

@@ -127,16 +127,16 @@
     };
 
     const DOCTORS = [
-        { name: 'Dt. M. Yasin Tekpınar', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/yasintekpinar.png' },
-        { name: 'Dt. M. Emre Atalay', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/emreatalay.png' },
-        { name: 'Uzm. Dt. Zeynep Tuğran', role: 'Pedodonti (Çocuk Diş) Uzmanı', roleEn: 'Pediatric Dentistry Specialist', img: 'assets/doctors/zeyneptugran.png' },
-        { name: 'Uzm. Dt. Yahya Çubukçu', role: 'Çene Cerrahisi Uzmanı', roleEn: 'Oral & Maxillofacial Surgery Specialist', img: 'assets/doctors/yahyacubukcu.png' },
-        { name: 'Uzm. Dt. Esra Pilancı', role: 'Ortodonti Uzmanı', roleEn: 'Orthodontics Specialist', img: 'assets/doctors/esrapilanci.png' },
-        { name: 'Dt. Zuhal Karataş', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/zuhalkaratas.png' },
-        { name: 'Dt. Rafet Bayrakçı', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/rafet.png' },
-        { name: 'Dt. Bilal Kameroğlu', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/bilalkameroglu.png' },
-        { name: 'Dt. Sena Kocabaş', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/senakocabas.png' },
-        { name: 'Dt. Emre Alabay', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/emrealabay.png' }
+        { name: 'Dt. M. Yasin Tekpınar', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/yasintekpinar.webp' },
+        { name: 'Dt. M. Emre Atalay', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/emreatalay.webp' },
+        { name: 'Uzm. Dt. Zeynep Tuğran', role: 'Pedodonti (Çocuk Diş) Uzmanı', roleEn: 'Pediatric Dentistry Specialist', img: 'assets/doctors/zeyneptugran.webp' },
+        { name: 'Uzm. Dt. Yahya Çubukçu', role: 'Çene Cerrahisi Uzmanı', roleEn: 'Oral & Maxillofacial Surgery Specialist', img: 'assets/doctors/yahyacubukcu.webp' },
+        { name: 'Uzm. Dt. Esra Pilancı', role: 'Ortodonti Uzmanı', roleEn: 'Orthodontics Specialist', img: 'assets/doctors/esrapilanci.webp' },
+        { name: 'Dt. Zuhal Karataş', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/zuhalkaratas.webp' },
+        { name: 'Dt. Rafet Bayrakçı', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/rafet.webp' },
+        { name: 'Dt. Bilal Kameroğlu', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/bilalkameroglu.webp' },
+        { name: 'Dt. Sena Kocabaş', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/senakocabas.webp' },
+        { name: 'Dt. Emre Alabay', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/emrealabay.webp' }
     ];
 
     const REVIEWS = [
@@ -151,7 +151,7 @@
     const TREATMENTS = [
         {
             title: 'Ortodonti (Diş Teli & Şeffaf Plak)',
-            img: 'assets/treatments/ortodonti.jpg',
+            img: 'assets/treatments/ortodonti.webp',
             short: 'Diş çapraşıklıkları, dişler arası boşluklar ve ısırma problemleri için tel ve şeffaf plak tedavileri.',
             desc: 'Ortodonti tedavisi, dişlerin ve çenenin düzgün hizalanmasını sağlamak amacıyla yapılan bir dizi işlemdir. Çapraşık dişlerin düzeltilmesi, boşlukların kapatılması ve ısırık problemlerinin çözülmesini içerir. Tedavide metal teller, seramik aparatlar ve şeffaf plaklar gibi çeşitli araçlar kullanılır. Çocukluk ve ergenlik dönemlerinde başlayabileceği gibi yetişkinler de bu tedaviden faydalanabilir.',
             candidates: 'Çapraşık dişler, ısırık (kapanış) sorunları, dişler arasında anormal boşluklar veya çene pozisyonunda bozukluk olan her yaştan hasta uygun adaydır.',
@@ -176,7 +176,7 @@
         },
         {
             title: 'İmplant Tedavisi',
-            img: 'assets/treatments/implant.jpg',
+            img: 'assets/treatments/implant.webp',
             short: 'Tek diş eksikliğinden tam dişsizliğe kadar en iyi ve kalıcı çözüm.',
             desc: 'İmplantlar günümüzde tek diş eksikliklerinin giderilmesinde olduğu kadar, tamamen veya kısmi dişsizliği olan bireylerin tedavisinde de en iyi seçenek haline gelmiştir. Çene kemiğine yerleştirilen titanyum yapay kök, kemik dokusuyla kaynaşarak doğal dişe en yakın sağlam bir temel oluşturur.',
             candidates: 'Bir veya birden fazla dişi eksik olan, çene kemiği implant için yeterli olan ve sabit, doğal bir çözüm isteyen yetişkin hastalar için uygundur.',
@@ -201,7 +201,7 @@
         },
         {
             title: 'Gülüş Estetiği',
-            img: 'assets/treatments/gulus-estetigi.jpg',
+            img: 'assets/treatments/gulus-estetigi.webp',
             short: 'Güldüğünüzde ilk göze çarpan ön dişleriniz için kişiye özel estetik planlama.',
             desc: 'Ön bölge, yani güldüğümüzde ilk göze çarpan dişlerimiz bizim için çok önemlidir. Gülüş estetiği; yüz şekli, dudak yapısı ve diş eti çizgisi göz önünde bulundurularak kişiye özel planlanan bir uygulamadır. Lamina, zirkonyum kaplama ve diş beyazlatma gibi yöntemlerle dişlerin rengi, formu ve dizilimi yeniden tasarlanır.',
             candidates: 'Diş renginden, formundan veya diziliminden memnun olmayan; daha estetik ve simetrik bir gülüş isteyen herkes için planlanabilir.',
@@ -226,7 +226,7 @@
         },
         {
             title: 'Kanal Tedavisi (Endodonti)',
-            img: 'assets/treatments/kanal-tedavisi.jpg',
+            img: 'assets/treatments/kanal-tedavisi.webp',
             short: 'İltihaplı dişleri çekmeden kurtaran modern endodonti uygulamaları.',
             desc: 'Kanal tedavisi, dişin merkezindeki canlı dokunun (pulpa) çıkartılarak yerine uygun dolgu maddeleriyle kanalın doldurulması işlemidir. Çürük veya travma nedeniyle iltihaplanan diş sinirinin temizlenmesiyle, çekilmesi gereken dişler kurtarılır ve ağrı ortadan kaldırılır.',
             candidates: 'Derin çürük, diş ağrısı, sıcak-soğuğa aşırı hassasiyet veya travma nedeniyle siniri iltihaplanan dişe sahip hastalar için uygundur.',
@@ -251,7 +251,7 @@
         },
         {
             title: 'Cerrahi Uygulamalar',
-            img: 'assets/treatments/cerrahi.jpg',
+            img: 'assets/treatments/cerrahi.webp',
             short: 'Diş çekiminden gömülü diş ve kist ameliyatlarına kadar ağız-çene cerrahisi.',
             desc: 'Ağız, diş ve çene cerrahisi uygulamalarının kapsamı diş çekimi ile başlayıp; gömülü 20\'lik diş ameliyatları, implant cerrahisi, kist ameliyatları ve çene cerrahisi gibi işlemleri kapsar. Tüm uygulamalar uzman hekimlerimiz tarafından steril koşullarda ve lokal anestezi ile konforlu şekilde gerçekleştirilir.',
             candidates: 'Gömülü 20\'lik dişi olan, çekilmesi gereken dişe veya kist gibi cerrahi müdahale gerektiren bir duruma sahip hastalar için uygundur.',
@@ -276,7 +276,7 @@
         },
         {
             title: 'Pedodonti (Çocuk Diş Hekimliği)',
-            img: 'assets/treatments/pedodonti.jpg',
+            img: 'assets/treatments/pedodonti.webp',
             short: '0-14 yaş çocukların süt ve daimi dişlerinin sağlığı için özel yaklaşım.',
             desc: 'Pedodonti, 0-14 yaş çocukların süt ve daimi dişlerinin sağlığını korumanın yanı sıra meydana gelen problemleri tedavi etmeyi amaçlayan diş hekimliği dalıdır. Uzman hekimlerimiz, çocukların diş hekimi korkusu yaşamadan sağlıklı dişlere sahip olması için özel teknikler kullanır. Dentual Çocuk kliniğimizde minik hastalarımıza özel bir ortam sunuyoruz.',
             candidates: '0-14 yaş aralığındaki, koruyucu diş hekimliği veya süt/daimi diş tedavisi ihtiyacı olan tüm çocuklar için uygundur.',
@@ -320,7 +320,7 @@
             cat: 'İmplant',
             title: 'İmplant Tedavisi Sonrası Bakım: 7 Altın Kural',
             excerpt: 'İmplantınızın ömrünü uzatmak büyük ölçüde işlem sonrası bakıma bağlı. İlk günlerden uzun vadeye dikkat etmeniz gereken her şey.',
-            date: '2026-05-28', readTime: 5, image: 'assets/treatments/implant.jpg',
+            date: '2026-05-28', readTime: 5, image: 'assets/treatments/implant.webp',
             body: `<p>Diş implantı, doğru bakıldığında ömür boyu kullanılabilen kalıcı bir çözümdür. Tedavinin başarısı yalnızca cerrahi aşamaya değil, sonrasındaki bakıma da bağlıdır. İşte implant sonrası dikkat etmeniz gereken altın kurallar.</p>
             <h3>İlk 24-48 Saat</h3>
             <p>İşlemden hemen sonra bölgeye soğuk kompres uygulamak şişliği azaltır. İlk gün sigara ve alkolden uzak durun, çok sıcak yiyecek-içeceklerden kaçının ve hekiminizin önerdiği ilaçları düzenli kullanın.</p>
@@ -339,7 +339,7 @@
             cat: 'Pedodonti',
             title: 'Çocuğumu İlk Diş Kontrolüne Ne Zaman Götürmeliyim?',
             excerpt: 'Erken başlayan diş kontrolleri, çocuğunuzun ömür boyu sağlıklı dişlere sahip olmasının temelini atar. İşte bilmeniz gerekenler.',
-            date: '2026-05-20', readTime: 4, image: 'assets/treatments/pedodonti.jpg',
+            date: '2026-05-20', readTime: 4, image: 'assets/treatments/pedodonti.webp',
             body: `<p>Birçok ebeveyn, çocuğunu diş hekimine ne zaman götüreceği konusunda kararsız kalır. Oysa erken tanışma, hem korkuyu önler hem de olası problemleri başlamadan durdurur.</p>
             <h3>İlk Ziyaret: 1 Yaş</h3>
             <p>Uzmanlar, ilk diş çıktıktan sonra ya da en geç 1 yaşına kadar ilk diş hekimi kontrolünün yapılmasını önerir. Bu ziyaret çoğunlukla bir muayene ve ebeveyne yönelik bilgilendirme şeklinde geçer.</p>
@@ -357,7 +357,7 @@
             cat: 'Estetik',
             title: 'Gülüş Tasarımı Nedir? Kimler İçin Uygundur?',
             excerpt: 'Gülüş tasarımı sadece beyaz dişler değildir; yüzünüze özel, doğal ve simetrik bir gülümsemenin bütüncül planıdır.',
-            date: '2026-05-12', readTime: 6, image: 'assets/treatments/gulus-estetigi.jpg',
+            date: '2026-05-12', readTime: 6, image: 'assets/treatments/gulus-estetigi.webp',
             body: `<p>Gülüş tasarımı; diş rengi, formu, dizilimi ve diş eti çizgisinin yüz hatlarınızla uyumlu olacak şekilde yeniden planlanmasıdır. Amaç, "yapay" değil, size en doğal şekilde yakışan gülümsemeyi oluşturmaktır.</p>
             <h3>Hangi Yöntemler Kullanılır?</h3>
             <ul>
@@ -375,7 +375,7 @@
             cat: 'Acil',
             title: 'Gece Diş Ağrısı Bastırınca Ne Yapmalı?',
             excerpt: 'Diş ağrısı çoğu zaman en kötü anda, gece bastırır. Hekime ulaşana kadar ağrıyı hafifletecek pratik ve güvenli öneriler.',
-            date: '2026-05-03', readTime: 4, image: 'assets/treatments/kanal-tedavisi.jpg',
+            date: '2026-05-03', readTime: 4, image: 'assets/treatments/kanal-tedavisi.webp',
             body: `<p>Ani gelişen diş ağrısı, özellikle gece saatlerinde dayanılmaz olabilir. Kalıcı çözüm mutlaka bir diş hekimi muayenesidir; ancak hekime ulaşana kadar ağrıyı hafifletmek için yapabilecekleriniz var.</p>
             <h3>Evde Yapabilecekleriniz</h3>
             <ul>
@@ -399,9 +399,16 @@
         const pre = $('#preloader');
         if (!pre) return;
         const hide = () => pre.classList.add('hidden');
-        window.addEventListener('load', () => setTimeout(hide, 800));
-        // Fallback
-        setTimeout(hide, 2500);
+        // Hide as soon as the DOM + CSS are ready. Do NOT wait for window.load
+        // (all images): on throttled mobile that kept this full-screen overlay
+        // over the hero until ~9s, making the preloader the LCP bottleneck.
+        // CSS is render-blocking, so there is no flash of unstyled content.
+        if (document.readyState !== 'loading') {
+            setTimeout(hide, 150);
+        } else {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(hide, 150));
+        }
+        setTimeout(hide, 1200); // safety fallback
     }
 
     /* ---------- THEME (DARK MODE) ---------- */
@@ -512,6 +519,13 @@
         const slides = $$('.hero-slide');
         const dotsWrap = $('#heroDots');
         if (!slides.length) return;
+        // Lazily attach background images for non-first slides (data-bg) so the
+        // ~600KB of slides 2-4 do not compete with the LCP (first) hero image.
+        const loadBgs = () => slides.forEach(s => {
+            if (s.dataset.bg) { s.style.backgroundImage = "url('" + s.dataset.bg + "')"; s.removeAttribute('data-bg'); }
+        });
+        if ('requestIdleCallback' in window) requestIdleCallback(loadBgs, { timeout: 2500 });
+        else setTimeout(loadBgs, 1500);
         let idx = 0;
         slides.forEach((_, i) => {
             const b = document.createElement('button');

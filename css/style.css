@@ -328,8 +328,13 @@ html[dir="rtl"] .lang-option { text-align: right; }
 .hero-badge-night svg { width: 15px; height: 15px; color: var(--teal-300); }
 .hero-title {
     font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: -0.03em;
-    margin-bottom: 1.3rem; min-height: 1.2em; text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    margin-bottom: 1.3rem; text-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
+.hero-title-lead { display: block; }
+/* Reserve the typewriter line's height so the typing/cycling text and webfont
+   swap don't shift the content below it (CLS). One line on desktop, two on the
+   narrow viewports where the longest phrase wraps. */
+.hero-tw { display: block; min-height: 1.2em; }
 .typewriter { background: linear-gradient(120deg, #fff 30%, var(--teal-300)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .cursor { animation: blink 0.9s steps(1) infinite; font-weight: 300; -webkit-text-fill-color: var(--teal-300); color: var(--teal-300); }
 @keyframes blink { 50% { opacity: 0; } }
@@ -849,6 +854,9 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
 @media (max-width: 768px) {
     .carousel-btn { display: none; }
     .review-card { flex: 0 0 85vw; max-width: 85vw; }
+    /* Longest typewriter phrase wraps to 2 lines on narrow screens — reserve it
+       so cycling phrases / webfont swap don't shift the hero (CLS). */
+    .hero-tw { min-height: 2.4em; }
 }
 
 @media (max-width: 560px) {
