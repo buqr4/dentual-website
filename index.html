@@ -42,8 +42,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- LCP: preload the first hero image (CSS background) so it paints sooner -->
-    <link rel="preload" as="image" href="/assets/hero/hero1.webp" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/assets/hero/hero1.avif" type="image/avif" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
@@ -200,12 +200,21 @@
       ]
     }
     </script>
+    <!-- Search-engine ownership verification. DNS TXT is preferred; otherwise
+         uncomment and paste your tokens here AND in tools/gen_pages.py (HEAD_TMPL):
+    <meta name="google-site-verification" content="PASTE_GSC_TOKEN" />
+    <meta name="msvalidate.01" content="PASTE_BING_TOKEN" /> -->
+
+    <!-- Analytics + conversion tracking (GA4 / Clarity / Sentry / WhatsApp+tel events) -->
+    <script defer src="/js/analytics.js"></script>
 </head>
 <body data-page="home"
       data-title-tr="Konya Diş Kliniği | Gece Açık Nöbetçi Diş Hekimi – Dentual"
       data-title-en="Konya Dental Clinic | Night-Open Emergency Dentist – Dentual"
       data-desc-tr="Dentual Konya: Karatay, Selçuklu, Meram şubeleriyle gece açık diş kliniği. Pazar dahil her gün 23:30'a kadar nöbetçi diş hekimi. Hemen arayın: 444 34 42."
       data-desc-en="Dentual Konya: night-open dental clinic with Karatay, Selçuklu and Meram branches. Emergency dentist until 23:30 every day, Sundays included. Call 444 34 42.">
+
+    <a class="skip-link" href="#main">İçeriğe geç</a>
 
     <!-- ============ ANNOUNCEMENT BAR ============ -->
     <div class="announce-bar" id="announceBar" role="region" aria-label="Duyuru">
@@ -271,7 +280,7 @@
         </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
 
         <!-- ================= HOME PAGE ================= -->
         <section class="page active" id="page-home">
@@ -279,7 +288,7 @@
             <!-- HERO -->
             <div class="hero">
                 <div class="hero-slider" id="heroSlider">
-                    <div class="hero-slide active" style="background-image:url('/assets/hero/hero1.webp')"></div>
+                    <div class="hero-slide active" style="background-image:url('/assets/hero/hero1.webp');background-image:image-set(url('/assets/hero/hero1.avif') type('image/avif'),url('/assets/hero/hero1.webp') type('image/webp'))"></div>
                     <div class="hero-slide" data-bg="/assets/hero/hero2.webp"></div>
                     <div class="hero-slide" data-bg="/assets/hero/hero3.webp"></div>
                     <div class="hero-slide" data-bg="/assets/hero/hero4.webp"></div>
@@ -620,7 +629,7 @@
                                 <textarea id="hc-msg" name="message" rows="4" required placeholder="Mesajınızı yazın..." data-i18n-ph="form.messagePh"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block" data-i18n="form.send">Mesajı Gönder</button>
-                            <p class="form-status" id="hcStatus"></p>
+                            <p class="form-status" id="hcStatus" role="status" aria-live="polite"></p>
                         </form>
                     </div>
                 </div>

@@ -4,6 +4,17 @@
 > üretim ortamına/kurumsal ölçeğe taşınması için uygulanabilir yol haritası.
 > Tarih: 2026-06. Kapsam: mevcut **statik çok-sayfalı** site + hedef evrim mimarisi.
 
+> ## ⚠️ REVİZYON (resmî karar)
+> **Bu projede ONLINE RANDEVU SİSTEMİ OLMAYACAK.** Sitenin amacı: klinik tanıtımı, SEO ile
+> hasta kazanımı ve kullanıcıyı **telefon araması** ile **şube bazlı WhatsApp görüşmesine**
+> yönlendirmek. Bu nedenle **kapsam dışı:** appointment sistemi/API/DB tabloları, doktor takvimi,
+> online rezervasyon, slot yönetimi, hasta paneli, admin randevu paneli.
+> **Bunların yerine odak:** WhatsApp dönüşüm optimizasyonu, lead toplama, iletişim formları,
+> telefon dönüşümleri, WhatsApp tıklama takibi, GA4 dönüşüm ölçümü.
+> Aşağıdaki Bölüm 3 (DB) ve Bölüm 9'daki randevu maddeleri bu kararla **geçersizdir**; ilgili
+> yerlerde "KAPSAM DIŞI" notu eklenmiştir. Backend yalnızca *lead kaydı* (hafif serverless) ve
+> opsiyonel *Headless CMS (içerik)* için düşünülür — tam randevu backend'i değil.
+
 ---
 
 ## 🎯 Yönetici Özeti (CTO Verdict)

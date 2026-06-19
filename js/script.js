@@ -522,7 +522,13 @@
         // Lazily attach background images for non-first slides (data-bg) so the
         // ~600KB of slides 2-4 do not compete with the LCP (first) hero image.
         const loadBgs = () => slides.forEach(s => {
-            if (s.dataset.bg) { s.style.backgroundImage = "url('" + s.dataset.bg + "')"; s.removeAttribute('data-bg'); }
+            const webp = s.dataset.bg;
+            if (!webp) return;
+            const avif = webp.replace(/\.webp$/, '.avif');
+            s.style.backgroundImage = "url('" + webp + "')"; // universal fallback
+            // Upgrade to AVIF where supported; invalid value is ignored → webp stays.
+            s.style.backgroundImage = "image-set(url('" + avif + "') type('image/avif'), url('" + webp + "') type('image/webp'))";
+            s.removeAttribute('data-bg');
         });
         if ('requestIdleCallback' in window) requestIdleCallback(loadBgs, { timeout: 2500 });
         else setTimeout(loadBgs, 1500);
@@ -1030,6 +1036,8 @@
                 const text = encodeURIComponent(lines.join('\n'));
                 const num = WA_NUMBERS[data.branch] || WA_DEFAULT;
                 window.open('https://wa.me/' + num + '?text=' + text, '_blank');
+                // Conversion tracking (no-op if analytics.js not configured yet)
+                if (window.dentualTrack) window.dentualTrack('lead_form_submit', { branch: data.branch || 'Bilinmeyen', form: formId });
 
                 const status = $('#' + statusId);
                 if (status) {

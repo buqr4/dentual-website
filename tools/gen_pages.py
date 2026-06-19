@@ -34,7 +34,7 @@ def web(fn):
 with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
     HOME = f.read()
 
-CHROME_TOP = HOME[HOME.index("<!-- ============ ANNOUNCEMENT BAR"):HOME.index('<main id="main">')]
+CHROME_TOP = HOME[HOME.index("<!-- ============ ANNOUNCEMENT BAR"):HOME.index('<main id="main"')]
 CHROME_BOTTOM = HOME[HOME.index("</main>"):]  # footer + widget + scroll-top + script + </body></html>
 
 # ---------------------------------------------------------------- head template
@@ -75,7 +75,7 @@ HEAD_TMPL = """<head>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
@@ -83,6 +83,12 @@ HEAD_TMPL = """<head>
     <script type="application/ld+json">
 {{SCHEMA}}
     </script>
+
+    <!-- Search-engine verification (uncomment & fill, or use DNS TXT — preferred):
+    <meta name="google-site-verification" content="PASTE_GSC_TOKEN" />
+    <meta name="msvalidate.01" content="PASTE_BING_TOKEN" /> -->
+    <!-- Analytics + conversion tracking -->
+    <script defer src="/js/analytics.js"></script>
 </head>"""
 
 ORG_REF = {"@id": ORIGIN + "/#organization"}
@@ -156,7 +162,8 @@ def page(route, page_id, title_tr, desc_tr, h1, content, schema_graph,
         top = top.replace('href="%s" class="nav-link"' % active_href,
                           'href="%s" class="nav-link active"' % active_href, 1)
     html = ("<!DOCTYPE html>\n<html lang=\"tr\">\n" + head + "\n<body " + body_attrs +
-            ">\n\n    " + top + '<main id="main">\n' + content + "\n    " + CHROME_BOTTOM)
+            ">\n\n    <a class=\"skip-link\" href=\"#main\">İçeriğe geç</a>\n\n    " + top +
+            '<main id="main" tabindex="-1">\n' + content + "\n    " + CHROME_BOTTOM)
     out_dir = os.path.join(ROOT, route.strip("/").replace("/", os.sep))
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as fh:
@@ -661,7 +668,7 @@ contact_content = hero("İletişim – Dentual Konya",
       <div class="form-group"><label for="pc-branch">Şube</label><select id="pc-branch" name="branch"><option value="Karatay">Karatay</option><option value="Selçuklu">Selçuklu</option><option value="Meram">Meram</option></select></div>
       <div class="form-group"><label for="pc-msg">Mesajınız</label><textarea id="pc-msg" name="message" rows="4" required placeholder="Mesajınızı yazın..."></textarea></div>
       <button type="submit" class="btn btn-primary btn-block">Gönder</button>
-      <p class="form-status" id="pcStatus"></p>
+      <p class="form-status" id="pcStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </div></div>

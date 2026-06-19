@@ -1,0 +1,26 @@
+# Cloudflare Pages / Netlify "_headers" — security headers, CSP, caching.
+# Applies at the CDN edge for every response. No app/server code needed.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://wa.me; img-src 'self' data: https://www.google.com https://maps.gstatic.com https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://*.clarity.ms; script-src 'self' 'sha256-CWSUvqYdcKivRziLSNKOcMD0P1PZQMgAx2GPyxo85ak=' https://www.googletagmanager.com https://*.clarity.ms https://browser.sentry-cdn.com https://js.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://*.sentry.io https://*.ingest.sentry.io https://*.ingest.de.sentry.io; frame-src https://www.google.com; upgrade-insecure-requests
+
+# Long-cache immutable static assets (images/webp/avif/fonts/favicons)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS/JS are not fingerprinted yet → moderate cache so deploys propagate.
+# TODO (CI): fingerprint (style.[hash].css) then switch these to immutable.
+/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML must always revalidate so new deploys are seen immediately.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

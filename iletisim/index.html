@@ -37,7 +37,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
@@ -78,12 +78,20 @@
   ]
 }
     </script>
+
+    <!-- Search-engine verification (uncomment & fill, or use DNS TXT — preferred):
+    <meta name="google-site-verification" content="PASTE_GSC_TOKEN" />
+    <meta name="msvalidate.01" content="PASTE_BING_TOKEN" /> -->
+    <!-- Analytics + conversion tracking -->
+    <script defer src="/js/analytics.js"></script>
 </head>
 <body data-page="contact"
       data-title-tr="İletişim – Karatay, Selçuklu, Meram Şubeleri | Dentual Konya"
       data-title-en="Contact – Karatay, Selçuklu, Meram Branches | Dentual Konya"
       data-desc-tr="Dentual Konya iletişim: 3 şube telefon ve adresleri. Çağrı merkezi 444 34 42. Pazar dahil 23:30'a kadar açığız. Hemen randevu alın."
       data-desc-en="Contact Dentual Konya: 3 branch phones and addresses. Call center 444 34 42. Open until 23:30 every day, Sundays included.">
+
+    <a class="skip-link" href="#main">İçeriğe geç</a>
 
     <!-- ============ ANNOUNCEMENT BAR ============ -->
     <div class="announce-bar" id="announceBar" role="region" aria-label="Duyuru">
@@ -149,7 +157,7 @@
         </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
 <div class="page-hero"><div class="container"><nav class="crumb" aria-label="breadcrumb" style="font-size:.85rem;opacity:.75;margin-bottom:.7rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center"><a href="/">Ana Sayfa</a> <span aria-hidden="true">&rsaquo;</span> <span>İletişim</span></nav><h1 class="page-hero-title reveal">İletişim – Dentual Konya</h1><p class="page-hero-sub reveal">Bize ulaşın, gülüşünüze birlikte yön verelim. Çağrı merkezi: 444 34 42.</p></div></div>
 <div class="section"><div class="container">
   <div class="contact-wrap">
@@ -172,7 +180,7 @@
       <div class="form-group"><label for="pc-branch">Şube</label><select id="pc-branch" name="branch"><option value="Karatay">Karatay</option><option value="Selçuklu">Selçuklu</option><option value="Meram">Meram</option></select></div>
       <div class="form-group"><label for="pc-msg">Mesajınız</label><textarea id="pc-msg" name="message" rows="4" required placeholder="Mesajınızı yazın..."></textarea></div>
       <button type="submit" class="btn btn-primary btn-block">Gönder</button>
-      <p class="form-status" id="pcStatus"></p>
+      <p class="form-status" id="pcStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </div></div>

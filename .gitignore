@@ -1,0 +1,22 @@
+# Secrets / environment — NEVER commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log
+
+# Node (future tooling)
+node_modules/
+dist/
+.wrangler/

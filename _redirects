@@ -1,0 +1,5 @@
+# Cloudflare Pages / Netlify "_redirects".
+# Force the canonical apex host (matches <link rel="canonical"> = https://dentualkonya.com).
+https://www.dentualkonya.com/* https://dentualkonya.com/:splat 301
+# (HTTP→HTTPS is handled automatically by Cloudflare/Netlify.)
+# 404s automatically serve /404.html (already in the project).
