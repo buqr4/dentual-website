@@ -193,7 +193,7 @@ about_content = hero(
     <h2 class="section-title" style="text-align:left">Güvenle Tedavi Ediyoruz</h2>
     <p>Dentual, Karatay, Selçuklu ve Meram şubeleriyle Konya'nın güvenilir ağız ve diş sağlığı polikliniğidir. En değerli varlık olan insan, kuruluşumuzun merkezinde yer alır; güven ve mutlu çözümler odak noktamızı oluşturur.</p>
     <p>Tecrübeli hekimlerimizle multidisipliner yaklaşıma önem veriyoruz. Ağız ve diş sağlığında teşhis ve tedavide çok yönlü yaklaşım, disiplinli çalışma ve en önemlisi hastanın ne istediği bizim için önceliklidir.</p>
-    <p>Hastalarımızı uzun uzun dinler, modern ve güncel tedavi yöntemleriyle mutlu sona ulaşırız. Üstelik <strong>pazar dahil her gün gece 23:30'a kadar</strong> açık olarak, Konya'da gece açık nöbetçi diş hekimi hizmeti sunuyoruz.</p>
+    <p>Hastalarımızı uzun uzun dinler, modern ve güncel tedavi yöntemleriyle mutlu sona ulaşırız. Üstelik <strong>pazar dahil her gün gece 23:00'a kadar</strong> açık olarak, Konya'da gece açık nöbetçi diş hekimi hizmeti sunuyoruz.</p>
   </div>
   <div class="about-image reveal">
     <img src="/assets/hero/about-dentual.webp" alt="Dentual Konya diş kliniğinde hekim ve hasta" loading="lazy" width="600" height="450" />
@@ -393,24 +393,34 @@ def call_card(b, note=""):
             '<span class="ebb-label"><small>%s%s</small><strong>%s</strong></span></a>'
             % (b["telraw"], b["name"], note, b["tel"]))
 
+WA_SVG = ('<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.3C2.6 8.6 8.6 2.6 16 2.6c3.6 0 6.9 1.4 9.5 3.9 2.5 2.5 3.9 5.9 3.9 9.5 0 7.4-6 13.4-13.4 13.4zm7.4-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.3-2-1.2-1.1-2-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.2s1.4 3.7 1.5 3.9c.2.2 2.7 4.2 6.6 5.9.9.4 1.6.6 2.2.8.9.3 1.7.2 2.4.1.7-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>')
+WA_TEXT = "?text=Merhaba%2C%20acil%20di%C5%9F%20tedavisi%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+
+def wa_card(b):
+    # Per-branch WhatsApp button — routes only to this branch's number.
+    return ('<a href="https://wa.me/%s%s" target="_blank" rel="noopener" '
+            'class="btn btn-wa emergency-branch-btn" aria-label="%s şubesi WhatsApp">%s'
+            '<span class="ebb-label"><small>%s</small><strong>WhatsApp</strong></span></a>'
+            % (b["telraw"].replace("+", ""), WA_TEXT, b["name"], WA_SVG, b["name"]))
+
 gece_faq_qa = [
     ("Konya'da gece açık diş kliniği var mı?",
-     "Evet. Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:30'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir."),
+     "Evet. Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir."),
     ("Gece diş ağrısı için hemen ne yapmalıyım?",
-     "Ilık tuzlu su ile gargara yapın, yanağınıza dışarıdan soğuk kompres uygulayın ve hekiminizin önerdiği bir ağrı kesici alın. Kalıcı çözüm için 23:30'a kadar açık şubemizi arayın."),
+     "Ilık tuzlu su ile gargara yapın, yanağınıza dışarıdan soğuk kompres uygulayın ve hekiminizin önerdiği bir ağrı kesici alın. Kalıcı çözüm için 23:00'a kadar açık şubemizi arayın."),
     ("Acil diş tedavisi için randevu gerekir mi?",
      "Acil durumlarda kapımız açıktır; ancak bekleme süresini en aza indirmek için gelmeden önce size en yakın şubeyi aramanızı öneririz."),
     ("Hafta sonu ve pazar günü açık mısınız?",
-     "Evet, cumartesi ve pazar dahil her gün 09:00–23:30 arası hizmet veriyoruz."),
+     "Evet, cumartesi ve pazar dahil her gün 09:00–23:00 arası hizmet veriyoruz."),
 ]
 gf_html, gf_node = faq_block("Gece Açık & Acil Diş — Sıkça Sorulanlar", gece_faq_qa)
 gece_content = hero(
     "Konya Gece Açık Diş Kliniği — Nöbetçi & Acil Diş Hekimi",
-    "Diş ağrısı beklemez. Pazar dahil her gün gece 23:30'a kadar acil diş tedavisi.",
+    "Diş ağrısı beklemez. Pazar dahil her gün gece 23:00'a kadar acil diş tedavisi.",
     [("Ana Sayfa", "/"), ("Gece Açık & Acil", "/gece-acik-dis-klinigi-konya/")]
 ) + """
 <div class="section"><div class="container container-narrow">
-  <p>Diş ağrısı çoğu zaman en kötü anda, akşam veya gece bastırır. <strong>Dentual olarak Konya'da gece açık nöbetçi diş hekimi</strong> hizmetiyle yanınızdayız: Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün 09:00–23:30 arası</strong> acil ve planlı diş tedavileriniz için buradayız.</p>
+  <p>Diş ağrısı çoğu zaman en kötü anda, akşam veya gece bastırır. <strong>Dentual olarak Konya'da gece açık nöbetçi diş hekimi</strong> hizmetiyle yanınızdayız: Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün 09:00–23:00 arası</strong> acil ve planlı diş tedavileriniz için buradayız.</p>
   <h2 class="section-title" style="text-align:left;margin-top:2rem">Hangi Durumlar Acildir?</h2>
   <ul class="tm-list">
     <li>Şiddetli ve geçmeyen diş ağrısı</li>
@@ -421,7 +431,8 @@ gece_content = hero(
   </ul>
   <h2 class="section-title" style="text-align:left;margin-top:2rem">Gece Hemen Arayın</h2>
   <div class="emergency-actions" style="margin-top:1rem">
-""" + call_card(BRANCHES[1], " (Gece Nöbetçi)") + call_card(BRANCHES[0]) + call_card(BRANCHES[2]) + """
+""" + call_card(BRANCHES[1], " (Gece Nöbetçi)") + call_card(BRANCHES[0]) + call_card(BRANCHES[2]) \
+    + wa_card(BRANCHES[1]) + wa_card(BRANCHES[0]) + wa_card(BRANCHES[2]) + """
   </div>
   <p style="margin-top:1.2rem"><strong>Selçuklu şubemiz artık gece nöbetinde!</strong> Selçuklu ve çevresinde gece açık nöbetçi diş hekimi için <a href="/subeler/selcuklu/">Selçuklu Diş Kliniği</a> sayfamıza göz atın. Çağrı merkezi: <a href="tel:+904443442">444 34 42</a>.</p>
   <p>Geç saatte bastıran ağrılarda evde yapabileceklerinizi <a href="/blog/gece-dis-agrisi-ne-yapmali/">Gece Diş Ağrısı Bastığında Ne Yapmalı?</a> yazımızda anlattık.</p>
@@ -430,23 +441,23 @@ gece_content = hero(
 ROUTES.append(page(
     "/gece-acik-dis-klinigi-konya/", "emergency",
     "Konya Gece Açık Diş Kliniği – 24'e Kadar Nöbetçi Diş Hekimi",
-    "Konya'da gece açık nöbetçi diş hekimi. Pazar dahil her gün 23:30'a kadar acil diş tedavisi. Selçuklu, Karatay, Meram. Gece diş ağrısında hemen arayın: 444 34 42.",
+    "Konya'da gece açık nöbetçi diş hekimi. Pazar dahil her gün 23:00'a kadar acil diş tedavisi. Selçuklu, Karatay, Meram. Gece diş ağrısında hemen arayın: 444 34 42.",
     "Gece Açık & Acil Diş", gece_content,
     [breadcrumb([("Ana Sayfa", "/"), ("Gece Açık & Acil", "/gece-acik-dis-klinigi-konya/")]),
      {"@type": "MedicalClinic", "@id": ORIGIN + "/gece-acik-dis-klinigi-konya/#clinic",
       "name": "Dentual Konya – Gece Açık Nöbetçi Diş Kliniği",
       "url": ORIGIN + "/gece-acik-dis-klinigi-konya/",
-      "description": "Konya'da pazar dahil her gün gece 23:30'a kadar açık nöbetçi ve acil diş hekimi hizmeti.",
+      "description": "Konya'da pazar dahil her gün gece 23:00'a kadar açık nöbetçi ve acil diş hekimi hizmeti.",
       "parentOrganization": ORG_REF, "telephone": "+90-444-34-42", "priceRange": "₺₺",
       "areaServed": [{"@type": "City", "name": "Konya"}, {"@type": "AdministrativeArea", "name": "Selçuklu"}],
       "availableService": {"@type": "MedicalProcedure", "name": "Acil Diş Tedavisi"},
       "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00", "closes": "23:30"}]},
+        "opens": "09:00", "closes": "23:00"}]},
      gf_node],
     "/gece-acik-dis-klinigi-konya/",
     title_en="Konya Night-Open Dental Clinic – Emergency Dentist Until Late",
-    desc_en="Night-open emergency dentist in Konya. Open until 23:30 every day, Sundays included. Selçuklu, Karatay, Meram. Call now: 444 34 42."))
+    desc_en="Night-open emergency dentist in Konya. Open until 23:00 every day, Sundays included. Selçuklu, Karatay, Meram. Call now: 444 34 42."))
 
 # ============================================================ ŞUBELER
 B_TITLE = {
@@ -455,9 +466,9 @@ B_TITLE = {
     "meram": "Meram Diş Kliniği Konya – Diş Hekimi | Dentual",
 }
 B_DESC = {
-    "karatay": "Karatay diş kliniği Dentual: Çimenlik Mah. Fetih Cad. Pazar dahil her gün 23:30'a kadar açık nöbetçi diş hekimi. Randevu: 0546 733 27 13.",
-    "selcuklu": "Selçuklu'da gece açık diş kliniği. Parsana Mah. Kaletaş Cad. Pazar dahil 23:30'a kadar nöbetçi diş hekimi. Randevu ve acil: 0551 342 44 42.",
-    "meram": "Meram diş kliniği Dentual: Melikşah Mah. Akkonak Sk. Pazar dahil her gün 23:30'a kadar açık diş hekimi. Randevu: 0552 599 49 59.",
+    "karatay": "Karatay diş kliniği Dentual: Çimenlik Mah. Fetih Cad. Pazar dahil her gün 23:00'a kadar açık nöbetçi diş hekimi. Randevu: 0546 733 27 13.",
+    "selcuklu": "Selçuklu'da gece açık diş kliniği. Parsana Mah. Kaletaş Cad. Pazar dahil 23:00'a kadar nöbetçi diş hekimi. Randevu ve acil: 0551 342 44 42.",
+    "meram": "Meram diş kliniği Dentual: Melikşah Mah. Akkonak Sk. Pazar dahil her gün 23:00'a kadar açık diş hekimi. Randevu: 0552 599 49 59.",
 }
 B_H1 = {
     "karatay": "Karatay Diş Kliniği — Dentual Konya",
@@ -465,15 +476,15 @@ B_H1 = {
     "meram": "Meram Diş Kliniği — Dentual Konya",
 }
 B_SUB = {
-    "karatay": "Karatay'da ağız ve diş sağlığı; pazar dahil her gün gece 23:30'a kadar açık.",
-    "selcuklu": "Selçuklu'da gece nöbetçi diş hekimi; pazar dahil her gün 23:30'a kadar açık.",
-    "meram": "Meram'da ağız ve diş sağlığı; pazar dahil her gün gece 23:30'a kadar açık.",
+    "karatay": "Karatay'da ağız ve diş sağlığı; pazar dahil her gün gece 23:00'a kadar açık.",
+    "selcuklu": "Selçuklu'da gece nöbetçi diş hekimi; pazar dahil her gün 23:00'a kadar açık.",
+    "meram": "Meram'da ağız ve diş sağlığı; pazar dahil her gün gece 23:00'a kadar açık.",
 }
 for b in BRANCHES:
     night = " Selçuklu şubemiz gece nöbetindedir." if b["slug"] == "selcuklu" else ""
     bfaq = [
         ("%s şubeniz kaça kadar açık?" % b["name"],
-         "%s şubemiz pazar dahil her gün 09:00–23:30 arası açıktır.%s" % (b["name"], night)),
+         "%s şubemiz pazar dahil her gün 09:00–23:00 arası açıktır.%s" % (b["name"], night)),
         ("%s diş kliniği randevu numarası nedir?" % b["name"],
          "%s şubemize %s numarasından ulaşabilir, randevu ve acil diş için arayabilirsiniz." % (b["name"], b["tel"])),
         ("Adresiniz ve yol tarifi nasıl?",
@@ -490,13 +501,13 @@ for b in BRANCHES:
         '<h2 style="margin-bottom:1rem">%s Şubesi</h2>'
         '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>%s</p>'
         '<p class="branch-phone"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:%s">%s</a></p>'
-        '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pazar dahil her gün 09:00 – 23:30</p>'
+        '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pazar dahil her gün 09:00 – 23:00</p>'
         '<a href="https://wa.me/%s" class="branch-link" target="_blank" rel="noopener">WhatsApp ile İletişim &rarr;</a></div></div>'
         '<div class="container container-narrow" style="margin-top:2.4rem">'
         '<p>%s şubemiz, Dentual güvencesiyle ağız ve diş sağlığınız için hizmetinizdedir. İmplant, gülüş estetiği, ortodonti, kanal tedavisi ve çocuk diş hekimliği dahil tüm tedavilerimiz bu şubemizde sunulur. %s</p>'
         '<p>Gece bastıran acil durumlar için <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> sayfamıza bakabilirsiniz.</p>'
         '</div></div></div>'
-        % (b["map"], b["name"], b["name"], b["addr"], b["telraw"], b["tel"], b["telraw"], b["name"],
+        % (b["map"], b["name"], b["name"], b["addr"], b["telraw"], b["tel"], b["telraw"].replace("+", ""), b["name"],
            ("Selçuklu ve çevresinde gece geç saatte diş hekimi arayanlar için nöbet hizmeti veririz." if b["slug"] == "selcuklu" else "Pazar dahil her gün geç saatlere kadar açığız."))
     ) + bf_html + '<div class="section"><div class="container">' + cta() + '</div></div>'
     dentist_node = {
@@ -511,10 +522,10 @@ for b in BRANCHES:
         "hasMap": b["map"],
         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "09:00", "closes": "23:30"}],
+            "opens": "09:00", "closes": "23:00"}],
     }
     if b["slug"] == "selcuklu":
-        dentist_node["description"] = "Selçuklu'da gece açık nöbetçi diş hekimi. Pazar dahil her gün 23:30'a kadar acil ve planlı diş tedavisi."
+        dentist_node["description"] = "Selçuklu'da gece açık nöbetçi diş hekimi. Pazar dahil her gün 23:00'a kadar acil ve planlı diş tedavisi."
     ROUTES.append(page(
         "/subeler/%s/" % b["slug"], "contact",
         B_TITLE[b["slug"]], B_DESC[b["slug"]], B_H1[b["slug"]], content,
@@ -588,7 +599,7 @@ BLOG = [
 <li>Aspirini doğrudan diş etine koymayın; dokuya zarar verir.</li>
 </ul>
 <h2>Beklemeyin, Bizi Arayın</h2>
-<p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak pazar dahil her gün gece 23:30'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>"""},
+<p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>"""},
 ]
 BLOG_MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 def fmt_date(iso):
@@ -652,7 +663,7 @@ contact_content = hero("İletişim – Dentual Konya",
     <div class="contact-info reveal">
       <span class="section-tag">Bize Yazın</span>
       <h2 class="section-title" style="text-align:left">Bilgi Talebi</h2>
-      <p class="section-desc">Tüm şubelerimiz için aşağıdaki formu kullanabilir veya doğrudan şube numaralarımızdan arayabilirsiniz. Pazar dahil her gün 23:30'a kadar açığız.</p>
+      <p class="section-desc">Tüm şubelerimiz için aşağıdaki formu kullanabilir veya doğrudan şube numaralarımızdan arayabilirsiniz. Pazar dahil her gün 23:00'a kadar açığız.</p>
       <ul class="contact-list">
         <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> <a href="/subeler/karatay/">Karatay</a>: Çimenlik Mah. Fetih Cad. No:268A — <a href="tel:+905467332713">0546 733 27 13</a></li>
         <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> <a href="/subeler/selcuklu/">Selçuklu</a>: Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi — <a href="tel:+905513424442">0551 342 44 42</a></li>
@@ -676,14 +687,14 @@ contact_content = hero("İletişim – Dentual Konya",
 ROUTES.append(page(
     "/iletisim/", "contact",
     "İletişim – Karatay, Selçuklu, Meram Şubeleri | Dentual Konya",
-    "Dentual Konya iletişim: 3 şube telefon ve adresleri. Çağrı merkezi 444 34 42. Pazar dahil 23:30'a kadar açığız. Hemen randevu alın.",
+    "Dentual Konya iletişim: 3 şube telefon ve adresleri. Çağrı merkezi 444 34 42. Pazar dahil 23:00'a kadar açığız. Hemen randevu alın.",
     "İletişim", contact_content,
     [breadcrumb([("Ana Sayfa", "/"), ("İletişim", "/iletisim/")]),
      {"@type": "ContactPage", "@id": ORIGIN + "/iletisim/#webpage", "url": ORIGIN + "/iletisim/",
       "name": "İletişim – Dentual Konya", "about": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
     "/iletisim/",
     title_en="Contact – Karatay, Selçuklu, Meram Branches | Dentual Konya",
-    desc_en="Contact Dentual Konya: 3 branch phones and addresses. Call center 444 34 42. Open until 23:30 every day, Sundays included."))
+    desc_en="Contact Dentual Konya: 3 branch phones and addresses. Call center 444 34 42. Open until 23:00 every day, Sundays included."))
 
 # ============================================================ SITEMAP
 SITEMAP_URLS = [("/", "1.0", "2026-06-11")]

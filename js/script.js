@@ -32,14 +32,14 @@
     // Per-page meta descriptions (SEO for SPA navigation)
     const PAGE_DESCS = {
         tr: {
-            home: 'Dentual Konya - Karatay, Selçuklu ve Meram şubeleriyle ağız ve diş sağlığı polikliniği. Selçuklu şubemiz dahil pazar günleri de gece 23:30\'a kadar açık nöbetçi diş hekimi.',
+            home: 'Dentual Konya - Karatay, Selçuklu ve Meram şubeleriyle ağız ve diş sağlığı polikliniği. Selçuklu şubemiz dahil pazar günleri de gece 23:00\'a kadar açık nöbetçi diş hekimi.',
             about: 'Dentual Konya hakkında: tecrübeli hekim kadromuz, multidisipliner ve hasta odaklı yaklaşımımızla güvenle tedavi ediyoruz.',
             treatments: 'İmplant, gülüş estetiği, ortodonti, kanal tedavisi, cerrahi ve pedodonti. Dentual Konya tedavi hizmetleri ve detayları.',
             blog: 'Ağız ve diş sağlığı hakkında uzman tavsiyeleri: implant bakımı, çocuk diş sağlığı, gülüş tasarımı ve acil diş ağrısı önerileri.',
             contact: 'Dentual Konya iletişim: Karatay, Selçuklu ve Meram şube telefon numaraları. Çağrı merkezi 444 34 42.'
         },
         en: {
-            home: 'Dentual Konya - oral and dental health clinic with Karatay, Selçuklu and Meram branches. Our Selçuklu branch is now open at night, until 23:30 every day including Sundays.',
+            home: 'Dentual Konya - oral and dental health clinic with Karatay, Selçuklu and Meram branches. Our Selçuklu branch is now open at night, until 23:00 every day including Sundays.',
             about: 'About Dentual Konya: our experienced dentists treat you with confidence through a multidisciplinary, patient-focused approach.',
             treatments: 'Implants, smile aesthetics, orthodontics, root canal, surgery and pedodontics. Dentual Konya treatments and details.',
             blog: 'Expert advice on oral and dental health: implant care, children\'s dental health, smile design and emergency toothache tips.',
@@ -64,11 +64,11 @@
             'blog.heroTitle': 'Knowledge Center', 'blog.heroSub': 'Expert advice and up-to-date articles on oral and dental health.',
             'blog.back': '← All Articles', 'blog.ctaText': 'Looking for professional help on this topic?', 'blog.ctaBtn': 'Contact Us',
             'hero.badge': "Konya's Trusted Dental Care Center",
-            'hero.night': 'Open Until 23:30 Every Day, Sundays Included',
+            'hero.night': 'Open Until 23:00 Every Day, Sundays Included',
             'hero.subtitle': 'With modern technology and our expert team, we are here for healthy smiles. At your service with our Karatay, Selçuklu and Meram branches.',
             'hero.cta1': 'Call Us', 'hero.cta2': 'Our Treatments',
             'emergency.title': 'Emergency & Night Dental Care',
-            'emergency.sub': "Toothache won't wait. <strong>Every day until 23:30, Sundays included</strong>, we're here for your emergency and planned treatments.",
+            'emergency.sub': "Toothache won't wait. <strong>Every day until 23:00, Sundays included</strong>, we're here for your emergency and planned treatments.",
             'emergency.call': 'Call Now: 444 34 42', 'emergency.wa': 'Message on WhatsApp',
             'stats.doctors': 'Specialist Dentists', 'stats.staff': 'Support Staff', 'stats.patients': 'Happy Patients', 'stats.branches': 'Branches',
             'htreat.tag': 'Our Treatments', 'htreat.title': 'Services We Offer', 'htreat.desc': 'A selection of our treatments that add value to your smile. Click the cards for details.', 'htreat.all': 'See All Treatments',
@@ -86,7 +86,7 @@
             'rev.tag': 'Reviews', 'rev.title': 'What Our Patients Say', 'rev.desc': 'Real patient experiences from Google Maps.', 'rev.count': 'Based on 366 Google reviews', 'rev.all': 'See All on Google',
             'faq.tag': 'FAQ', 'faq.title': 'Frequently Asked Questions',
             'hcontact.tag': 'Contact', 'hcontact.title': 'Get in Touch', 'hcontact.desc': "Have questions? Fill out the form and we'll get back to you as soon as possible.",
-            'contact.callcenter': 'Call Center: 444 34 42', 'contact.hours': 'Open every day until 23:30 (Sundays included)',
+            'contact.callcenter': 'Call Center: 444 34 42', 'contact.hours': 'Open every day until 23:00 (Sundays included)',
             'form.name': 'Full Name', 'form.namePh': 'Your Full Name', 'form.phone': 'Phone', 'form.phonePh': '05XX XXX XX XX', 'form.email': 'E-mail',
             'form.branch': 'Branch', 'form.message': 'Your Message', 'form.messagePh': 'Write your message...', 'form.send': 'Send Message', 'form.send2': 'Send',
             'about.heroTitle': 'About Us', 'about.heroSub': 'Adding value to smiles in Konya.',
@@ -108,7 +108,7 @@
             'cpage.heroTitle': 'Contact', 'cpage.heroSub': "Get in touch — let's shape your smile together.",
             'cpage.tag': 'Write to Us', 'cpage.title': 'Information Request', 'cpage.desc': 'You can use the form below for all our branches or call our branch numbers directly.',
             'footer.about': "Konya's trusted oral and dental health clinic. We're here for healthy smiles.",
-            'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:30 (Sundays included)', 'footer.copyright': '© 2026 Dentual Konya. All rights reserved.',
+            'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:00 (Sundays included)', 'footer.copyright': '© 2026 Dentual Konya. All rights reserved.',
             'wa.title': 'Choose a Branch', 'wa.sub': 'How can we help you?',
             'tm.tag': 'Treatment', 'tm.candidates': 'Who Is It Suitable For?', 'tm.process': 'Treatment Process', 'tm.advantages': 'Advantages', 'tm.cta': 'Contact Us'
         }
@@ -304,10 +304,10 @@
     // NOTE: This list must stay in sync with the FAQPage JSON-LD in each page's <head>
     // (Google requires FAQ structured data to match visible on-page content).
     const FAQS = [
-        { q: 'Konya\'da gece açık diş kliniği var mı?', a: 'Evet. Dentual Konya olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:30\'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir. Çağrı merkezi: 444 34 42.', qEn: 'Is there a night-open dental clinic in Konya?', aEn: 'Yes. At Dentual Konya, our Karatay, Selçuklu and Meram branches are open until 23:30 every day, Sundays included. Our on-call dentist serves you for night-time toothaches. Call center: 444 34 42.' },
-        { q: 'Selçuklu\'da nöbetçi diş hekimi nerede?', a: 'Selçuklu şubemiz Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi\'nde gece nöbetinde hizmet verir. Pazar dahil her gün 23:30\'a kadar açıktır. Randevu ve acil için: 0551 342 44 42.', qEn: 'Where is the on-call dentist in Selçuklu?', aEn: 'Our Selçuklu branch serves on night duty at Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi. Open until 23:30 every day including Sunday. Appointments & emergencies: 0551 342 44 42.' },
-        { q: 'Konya\'da acil diş tedavisi nereden alınır?', a: 'Acil diş tedavisi için üç şubemize de başvurabilirsiniz. Gece geç saatlerde bastıran diş ağrısı, kırık diş veya apse gibi durumlarda 23:30\'a kadar açığız; gelmeden önce size en yakın şubeyi aramanızı öneririz.', qEn: 'Where can I get emergency dental treatment in Konya?', aEn: 'You can visit any of our three branches for emergency dental care. For late-night toothache, a broken tooth or an abscess we are open until 23:30; we recommend calling your nearest branch before coming.' },
-        { q: 'Hafta sonu ve pazar günü açık diş hekimi var mı?', a: 'Evet. Cumartesi ve pazar dahil haftanın her günü 09:00–23:30 arası hizmet veriyoruz. Hafta sonu diş ağrınızda da yanınızdayız.', qEn: 'Is there a dentist open on weekends and Sundays?', aEn: 'Yes. We serve every day of the week, including Saturday and Sunday, from 09:00 to 23:30. We are by your side for weekend toothaches too.' },
+        { q: 'Konya\'da gece açık diş kliniği var mı?', a: 'Evet. Dentual Konya olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00\'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir. Çağrı merkezi: 444 34 42.', qEn: 'Is there a night-open dental clinic in Konya?', aEn: 'Yes. At Dentual Konya, our Karatay, Selçuklu and Meram branches are open until 23:00 every day, Sundays included. Our on-call dentist serves you for night-time toothaches. Call center: 444 34 42.' },
+        { q: 'Selçuklu\'da nöbetçi diş hekimi nerede?', a: 'Selçuklu şubemiz Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi\'nde gece nöbetinde hizmet verir. Pazar dahil her gün 23:00\'a kadar açıktır. Randevu ve acil için: 0551 342 44 42.', qEn: 'Where is the on-call dentist in Selçuklu?', aEn: 'Our Selçuklu branch serves on night duty at Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi. Open until 23:00 every day including Sunday. Appointments & emergencies: 0551 342 44 42.' },
+        { q: 'Konya\'da acil diş tedavisi nereden alınır?', a: 'Acil diş tedavisi için üç şubemize de başvurabilirsiniz. Gece geç saatlerde bastıran diş ağrısı, kırık diş veya apse gibi durumlarda 23:00\'a kadar açığız; gelmeden önce size en yakın şubeyi aramanızı öneririz.', qEn: 'Where can I get emergency dental treatment in Konya?', aEn: 'You can visit any of our three branches for emergency dental care. For late-night toothache, a broken tooth or an abscess we are open until 23:00; we recommend calling your nearest branch before coming.' },
+        { q: 'Hafta sonu ve pazar günü açık diş hekimi var mı?', a: 'Evet. Cumartesi ve pazar dahil haftanın her günü 09:00–23:00 arası hizmet veriyoruz. Hafta sonu diş ağrınızda da yanınızdayız.', qEn: 'Is there a dentist open on weekends and Sundays?', aEn: 'Yes. We serve every day of the week, including Saturday and Sunday, from 09:00 to 23:00. We are by your side for weekend toothaches too.' },
         { q: 'Randevu almadan gelebilir miyim?', a: 'Acil durumlar için kapımız her zaman açık olsa da, bekleme süresini en aza indirmek için gelmeden önce size en yakın şubemizi telefonla aramanızı öneririz.', qEn: 'Can I visit without an appointment?', aEn: 'Although our door is always open for emergencies, we recommend calling your nearest branch by phone before your visit to minimize waiting time.' },
         { q: 'İmplant tedavisi ağrılı mıdır?', a: 'İmplant işlemi lokal anestezi altında yapıldığı için işlem sırasında ağrı hissetmezsiniz. İşlem sonrası oluşabilecek hafif hassasiyet ise basit ağrı kesicilerle kolayca kontrol altına alınır.', qEn: 'Is implant treatment painful?', aEn: 'Because the implant procedure is performed under local anesthesia, you do not feel pain during the procedure. Any mild sensitivity afterwards is easily controlled with simple painkillers.' },
         { q: 'Tedavi ücretlerini taksitlendirebiliyor musunuz?', a: 'Evet. Hastalarımızın tedaviye kolay erişebilmesi için çeşitli ödeme kolaylıkları ve taksit seçenekleri sunuyoruz. Detaylı bilgi için kliniklerimizle iletişime geçebilirsiniz.', qEn: 'Do you offer installment payment options?', aEn: 'Yes. To make treatment easily accessible for our patients, we offer various payment conveniences and installment options. Please contact our clinics for detailed information.' },
@@ -386,7 +386,7 @@
                 <li>Aspirini doğrudan diş etine koymayın; dokuya zarar verir.</li>
             </ul>
             <h3>Beklemeyin, Bizi Arayın</h3>
-            <p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak Pazar dahil her gün gece 23:30'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda nöbetçi diş hekimi hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>`
+            <p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak Pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda nöbetçi diş hekimi hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>`
         }
     ];
 
@@ -636,20 +636,52 @@
     }
 
     /* ---------- RENDER DOCTORS ---------- */
+    // Doctor card supports 5 fields — fill the optional ones later (infrastructure ready):
+    //   name      : "Uzm. Dt. Ad Soyad"            (required)
+    //   role/roleEn: "Ortodonti Uzmanı"            (specialty)
+    //   img       : "assets/doctors/x.webp"        (photo; if empty → initials placeholder)
+    //   bio/bioEn : "Kısa biyografi..."            (optional, shown when present)
+    //   social    : [{ type:'instagram'|'linkedin'|'web'|'phone'|'email', url:'...' }]
+    const DOC_SOCIAL = {
+        instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>',
+        linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>',
+        web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+        phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+        email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>'
+    };
+    function docInitials(name) {
+        const parts = (name || '').replace(/[^\wçğıöşüÇĞİÖŞÜ\s]/g, '').trim().split(/\s+/);
+        return parts.slice(-2).map(w => (w[0] || '').toUpperCase()).join('') || 'Dr';
+    }
     function renderDoctors() {
         const grid = $('#doctorsGrid');
         if (!grid) return;
         const en = currentLang === 'en';
-        grid.innerHTML = DOCTORS.map(d => `
-            <div class="doctor-card reveal">
-                <img src="${d.img}" alt="${d.name}" loading="lazy" />
-                <div class="doctor-overlay">
-                    <div class="doctor-info">
-                        <div class="doctor-name">${d.name}</div>
-                        <div class="doctor-role">${en && d.roleEn ? d.roleEn : d.role}</div>
-                    </div>
+        grid.innerHTML = DOCTORS.map(d => {
+            const role = en && d.roleEn ? d.roleEn : d.role;
+            const photo = d.img
+                ? `<img src="${d.img}" alt="${d.name}${role ? ' — ' + role : ''}, Dentual Konya" loading="lazy" width="320" height="400" />`
+                : `<div class="doctor-photo-ph" aria-hidden="true">${docInitials(d.name)}</div>`;
+            const bioTxt = en && d.bioEn ? d.bioEn : d.bio;
+            const bio = bioTxt ? `<p class="doctor-bio">${bioTxt}</p>` : '';
+            const social = (d.social && d.social.length)
+                ? `<div class="doctor-social">${d.social.map(s => {
+                    const href = s.type === 'phone' ? 'tel:' + s.url : s.type === 'email' ? 'mailto:' + s.url : s.url;
+                    const ext = (s.type === 'phone' || s.type === 'email') ? '' : ' target="_blank" rel="noopener"';
+                    return `<a href="${href}"${ext} aria-label="${s.type}">${DOC_SOCIAL[s.type] || DOC_SOCIAL.web}</a>`;
+                }).join('')}</div>`
+                : '';
+            return `
+            <article class="doctor-card reveal">
+                <div class="doctor-photo">${photo}</div>
+                <div class="doctor-card-body">
+                    <h3 class="doctor-name">${d.name}</h3>
+                    ${role ? `<span class="doctor-role">${role}</span>` : ''}
+                    ${bio}
+                    ${social}
                 </div>
-            </div>`).join('');
+            </article>`;
+        }).join('');
     }
 
     /* ---------- RENDER REVIEWS ---------- */

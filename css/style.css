@@ -338,13 +338,15 @@ html[dir="rtl"] .lang-option { text-align: right; }
 .hero-badge-night svg { width: 15px; height: 15px; color: var(--teal-300); }
 .hero-title {
     font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: -0.03em;
-    margin-bottom: 1.3rem; text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    line-height: 1.1; margin-bottom: 1.3rem; text-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
 .hero-title-lead { display: block; }
-/* Reserve the typewriter line's height so the typing/cycling text and webfont
-   swap don't shift the content below it (CLS). One line on desktop, two on the
-   narrow viewports where the longest phrase wraps. */
-.hero-tw { display: block; min-height: 1.2em; }
+/* The hero is vertically centered (.hero: flex/align-items:center), so any change
+   in the typewriter line's height re-centers the whole block and shifts the fixed
+   "Konya Diş Kliniği" lead. Reserve the typewriter line at its MAX height (2 lines,
+   = 2×line-height) on EVERY viewport so the hero content height is constant → the
+   lead never moves and there is zero CLS from the animation or webfont swap. */
+.hero-tw { display: block; min-height: 2.3em; }
 .typewriter { background: linear-gradient(120deg, #fff 30%, var(--teal-300)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .cursor { animation: blink 0.9s steps(1) infinite; font-weight: 400; -webkit-text-fill-color: var(--teal-300); color: var(--teal-300); }
 @keyframes blink { 50% { opacity: 0; } }
@@ -513,24 +515,26 @@ html[data-theme="dark"] .cocuk-section { background: linear-gradient(135deg, #16
 
 /* ---------- DOCTORS ---------- */
 .doctors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; }
+/* Doctor card: photo + body (name, specialty, bio, social) — fields ready to fill. */
 .doctor-card {
-    position: relative; border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: var(--shadow-sm); aspect-ratio: 3/4;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
     transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
 }
 .doctor-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.doctor-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
-.doctor-card:hover img { transform: scale(1.07); }
-.doctor-overlay {
-    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 1.3rem; color: #fff;
-    background: linear-gradient(to top, rgba(6,48,46,0.92) 0%, rgba(6,48,46,0.3) 45%, transparent 70%);
-}
-.doctor-info { transform: translateY(8px); transition: transform 0.4s var(--ease-out); }
-.doctor-card:hover .doctor-info { transform: translateY(0); }
-.doctor-name { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; }
-.doctor-role { font-size: 0.85rem; color: var(--teal-300); font-weight: 500; opacity: 0; transform: translateY(6px); transition: all 0.4s var(--ease-out) 0.05s; }
-.doctor-card:hover .doctor-role { opacity: 1; transform: translateY(0); }
+.doctor-photo { aspect-ratio: 4/5; overflow: hidden; background: var(--surface-2); }
+.doctor-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s var(--ease-out); }
+.doctor-card:hover .doctor-photo img { transform: scale(1.06); }
+.doctor-photo-ph { width: 100%; height: 100%; display: grid; place-items: center; font-family: var(--font-head); font-size: 2.4rem; font-weight: 700; color: var(--teal-500); }
+.doctor-card-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+.doctor-name { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--green-700); }
+html[data-theme="dark"] .doctor-name { color: var(--teal-300); }
+.doctor-role { font-size: 0.85rem; color: var(--teal-500); font-weight: 600; }
+.doctor-bio { font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; margin-top: 0.3rem; }
+.doctor-social { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+.doctor-social a { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: var(--surface-2); color: var(--teal-500); transition: background 0.3s, color 0.3s; }
+.doctor-social a:hover { background: var(--grad-brand); color: #fff; }
+.doctor-social svg { width: 17px; height: 17px; }
 
 /* ---------- GOOGLE RATING BADGE ---------- */
 .google-rating {
@@ -864,9 +868,6 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
 @media (max-width: 768px) {
     .carousel-btn { display: none; }
     .review-card { flex: 0 0 85vw; max-width: 85vw; }
-    /* Longest typewriter phrase wraps to 2 lines on narrow screens — reserve it
-       so cycling phrases / webfont swap don't shift the hero (CLS). */
-    .hero-tw { min-height: 2.4em; }
 }
 
 @media (max-width: 560px) {
