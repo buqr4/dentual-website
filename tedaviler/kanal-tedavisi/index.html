@@ -8,6 +8,10 @@
     <meta name="author" content="Dentual Konya" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dentualkonya.com/tedaviler/kanal-tedavisi/" />
+    <!-- hreflang: TR is the only published language today; x-default self-refs.
+         When an EN edition ships, add its English alternate link here. -->
+    <link rel="alternate" hreflang="tr" href="https://dentualkonya.com/tedaviler/kanal-tedavisi/" />
+    <link rel="alternate" hreflang="x-default" href="https://dentualkonya.com/tedaviler/kanal-tedavisi/" />
 
     <!-- Geo -->
     <meta name="geo.region" content="TR-42" />
@@ -38,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css?v=08211dbd" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
     <!-- Structured Data -->
@@ -84,11 +88,10 @@
 }
     </script>
 
-    <!-- Search-engine verification (uncomment & fill, or use DNS TXT — preferred):
-    <meta name="google-site-verification" content="PASTE_GSC_TOKEN" />
-    <meta name="msvalidate.01" content="PASTE_BING_TOKEN" /> -->
+    <!-- Search-engine verification (managed centrally in gen_pages.py) -->
+    <!-- Search-engine verification: set GSC_TOKEN / BING_TOKEN in tools/gen_pages.py (and index.html) to emit these tags. -->
     <!-- Analytics + conversion tracking -->
-    <script defer src="/js/analytics.js"></script>
+    <script defer src="/js/analytics.js?v=08211dbd"></script>
 </head>
 <body data-page="treatments"
       data-title-tr="Kanal Tedavisi Konya (Endodonti) – Ağrısız Tedavi | Dentual"
@@ -155,8 +158,8 @@
                     <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 </button>
                 <a href="/iletisim/" class="btn btn-primary btn-nav-cta" data-i18n="nav.book">Bizi Arayın</a>
-                <button class="hamburger" id="hamburger" aria-label="Menü">
-                    <span></span><span></span><span></span>
+                <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
+                    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -200,6 +203,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <p data-i18n="footer.copyright">&copy; 2026 Dentual Konya. Tüm hakları saklıdır.</p>
+                <button type="button" class="footer-cookie-link" id="cookieSettingsBtn" data-i18n="cc.settings">Çerez Tercihleri</button>
             </div>
         </div>
     </footer>
@@ -229,6 +233,26 @@
     <!-- ============ SCROLL TO TOP ============ -->
     <button class="scroll-top" id="scrollTop" aria-label="Yukarı çık">↑</button>
 
-    <script src="/js/script.js"></script>
+    <!-- ============ KVKK ÇEREZ ONAYI (Consent Mode v2) ============ -->
+    <div id="cookieConsent" class="cookie-consent" role="dialog" aria-label="Çerez tercihleri" aria-live="polite" hidden>
+        <div class="cc-inner">
+            <div class="cc-body">
+                <strong class="cc-title" data-i18n="cc.title">Çerez Tercihleri</strong>
+                <p class="cc-text" data-i18n="cc.text">Web sitemizde deneyiminizi iyileştirmek ve ziyaret istatistiklerini ölçmek için çerez kullanıyoruz. Analiz çerezleri (Google Analytics, Microsoft Clarity) yalnızca onayınızla çalışır.</p>
+                <div class="cc-panel" id="ccPanel" hidden>
+                    <label class="cc-toggle"><input type="checkbox" checked disabled /> <span data-i18n="cc.necessary">Zorunlu çerezler — her zaman aktif</span></label>
+                    <label class="cc-toggle"><input type="checkbox" id="ccAnalytics" /> <span data-i18n="cc.analytics">Analiz çerezleri (Google Analytics, Clarity)</span></label>
+                </div>
+            </div>
+            <div class="cc-actions">
+                <button type="button" class="btn btn-ghost cc-btn" id="ccManage" data-i18n="cc.manage">Tercihleri Yönet</button>
+                <button type="button" class="btn btn-ghost cc-btn" id="ccReject" data-i18n="cc.reject">Reddet</button>
+                <button type="button" class="btn btn-primary cc-btn" id="ccAccept" data-i18n="cc.accept">Kabul Et</button>
+                <button type="button" class="btn btn-primary cc-btn" id="ccSave" data-i18n="cc.save" hidden>Tercihleri Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js?v=08211dbd"></script>
 </body>
 </html>

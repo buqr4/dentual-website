@@ -20,10 +20,54 @@ It is safe to re-run; it overwrites generated pages only. index.html (home) is
 NOT touched. Editing a generated page by hand is fine — just don't re-run the
 generator afterwards, or re-apply your edit here.
 """
-import json, os
+import json, os, re, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGIN = "https://dentualkonya.com"
+
+# ---------------------------------------------------------------- config / env
+# Search-engine ownership tokens. Paste tokens here (or leave empty to omit the
+# meta entirely). Single source of truth for every generated page + the home page.
+GSC_TOKEN = ""   # Google Search Console "HTML tag" verification token
+BING_TOKEN = ""  # Bing Webmaster Tools verification token
+
+def _verify_meta():
+    out = []
+    if GSC_TOKEN:
+        out.append('<meta name="google-site-verification" content="%s" />' % GSC_TOKEN)
+    if BING_TOKEN:
+        out.append('<meta name="msvalidate.01" content="%s" />' % BING_TOKEN)
+    # Always leave a fill-in hint when a token is missing (cheap, easy handover).
+    if not out:
+        return ('<!-- Search-engine verification: set GSC_TOKEN / BING_TOKEN in '
+                'tools/gen_pages.py (and index.html) to emit these tags. -->')
+    return "\n    ".join(out)
+
+VERIFY_META = _verify_meta()
+
+# Cache-busting fingerprint: a short content hash of the shared CSS/JS. Appended
+# as ?v=<hash> to every css/js reference so a new deploy is never served stale.
+# Changes ONLY when one of these files changes → long-cache friendly.
+def _asset_ver(*rel_paths):
+    h = hashlib.sha1()
+    for p in rel_paths:
+        try:
+            with open(os.path.join(ROOT, p), "rb") as fh:
+                h.update(fh.read())
+        except OSError:
+            pass
+    return h.hexdigest()[:8]
+
+ASSET_VER = _asset_ver("css/style.css", "js/script.js", "js/analytics.js")
+
+def _stamp(html):
+    """Strip any existing ?v=… then re-append the current fingerprint to the
+    shared css/js references. Idempotent (safe to run repeatedly)."""
+    html = re.sub(r'(/(?:css/style\.css|js/script\.js|js/analytics\.js))\?v=[0-9a-f]+',
+                  r'\1', html)
+    for ref in ("/css/style.css", "/js/script.js", "/js/analytics.js"):
+        html = html.replace(ref + '"', ref + '?v=' + ASSET_VER + '"')
+    return html
 
 # Photographic assets are served as WebP for <img> tags (huge size win); the
 # original .jpg is kept for og:image / schema image (broadest social support).
@@ -46,6 +90,10 @@ HEAD_TMPL = """<head>
     <meta name="author" content="Dentual Konya" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="{{CANON}}" />
+    <!-- hreflang: TR is the only published language today; x-default self-refs.
+         When an EN edition ships, add its English alternate link here. -->
+    <link rel="alternate" hreflang="tr" href="{{CANON}}" />
+    <link rel="alternate" hreflang="x-default" href="{{CANON}}" />
 
     <!-- Geo -->
     <meta name="geo.region" content="TR-42" />
@@ -84,9 +132,8 @@ HEAD_TMPL = """<head>
 {{SCHEMA}}
     </script>
 
-    <!-- Search-engine verification (uncomment & fill, or use DNS TXT — preferred):
-    <meta name="google-site-verification" content="PASTE_GSC_TOKEN" />
-    <meta name="msvalidate.01" content="PASTE_BING_TOKEN" /> -->
+    <!-- Search-engine verification (managed centrally in gen_pages.py) -->
+    {{VERIFY}}
     <!-- Analytics + conversion tracking -->
     <script defer src="/js/analytics.js"></script>
 </head>"""
@@ -149,6 +196,7 @@ def page(route, page_id, title_tr, desc_tr, h1, content, schema_graph,
             .replace("{{CANON}}", canon)
             .replace("{{OGTYPE}}", og_type)
             .replace("{{OGIMG}}", og_img)
+            .replace("{{VERIFY}}", VERIFY_META)
             .replace("{{SCHEMA}}", json.dumps(
                 {"@context": "https://schema.org", "@graph": schema_graph},
                 ensure_ascii=False, indent=2)))
@@ -167,7 +215,7 @@ def page(route, page_id, title_tr, desc_tr, h1, content, schema_graph,
     out_dir = os.path.join(ROOT, route.strip("/").replace("/", os.sep))
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as fh:
-        fh.write(html)
+        fh.write(_stamp(html))
     return route
 
 def hero(h1, sub, crumbs):
@@ -691,6 +739,7 @@ contact_content = hero("İletişim – Dentual Konya",
       </ul>
     </div>
     <form class="contact-form reveal" id="pageContactForm">
+      <div class="hp-field" aria-hidden="true"><label>Bu alanı boş bırakın<input type="text" name="company_url" tabindex="-1" autocomplete="off" /></label></div>
       <div class="form-row">
         <div class="form-group"><label for="pc-name">Ad Soyad</label><input type="text" id="pc-name" name="name" required placeholder="Adınız Soyadınız" /></div>
         <div class="form-group"><label for="pc-phone">Telefon</label><input type="tel" id="pc-phone" name="phone" required placeholder="05XX XXX XX XX" /></div>
@@ -754,6 +803,7 @@ nf_head = (HEAD_TMPL
            .replace("{{CANON}}", ORIGIN + "/404.html")
            .replace("{{OGTYPE}}", "website")
            .replace("{{OGIMG}}", ORIGIN + "/assets/hero/hero1.jpg")
+           .replace("{{VERIFY}}", VERIFY_META)
            .replace("{{SCHEMA}}", json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "404 – Sayfa Bulunamadı"}, ensure_ascii=False, indent=2))
            .replace("index, follow", "noindex, follow"))
 nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Dentual Konya" '
@@ -763,7 +813,25 @@ nf_top = CHROME_TOP.replace('class="nav-link active"', 'class="nav-link"')
 nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\">\n" + nf_head + "\n<body " + nf_body +
            ">\n\n    " + nf_top + '<main id="main">\n' + nf_content + "\n    " + CHROME_BOTTOM)
 with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as fh:
-    fh.write(nf_html)
+    fh.write(_stamp(nf_html))
+
+# ============================================================ home (index.html)
+# The home page is hand-maintained, but its shared css/js references still need
+# the cache-busting fingerprint. Re-stamp index.html in place (idempotent).
+_home_path = os.path.join(ROOT, "index.html")
+with open(_home_path, encoding="utf-8") as fh:
+    _home = fh.read()
+# Inject centrally-managed verification tokens between the home <head> markers.
+_home = re.sub(r'<!--VERIFY:START-->.*?<!--VERIFY:END-->',
+               '<!--VERIFY:START-->' + VERIFY_META + '<!--VERIFY:END-->',
+               _home, flags=re.S)
+_home_stamped = _stamp(_home)
+if _home_stamped != _home:
+    with open(_home_path, "w", encoding="utf-8") as fh:
+        fh.write(_home_stamped)
+    print("   index.html -> css/js fingerprint updated (?v=%s)" % ASSET_VER)
+
+print("Asset fingerprint (?v=) = %s" % ASSET_VER)
 
 print("Generated %d sub-pages + 404 + sitemap (%d urls)." % (len(ROUTES), len(SITEMAP_URLS)))
 for r in ROUTES:

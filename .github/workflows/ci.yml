@@ -1,0 +1,51 @@
+name: CI — Build Check
+
+# Deployment is handled by Netlify's Git integration (push to main → auto build
+# via netlify.toml: `python3 tools/gen_pages.py`). This workflow only VERIFIES the
+# build so a broken generator can't reach production — it does NOT deploy.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate static pages (single source of truth)
+        run: python tools/gen_pages.py
+
+      - name: Sanity check (key files exist)
+        run: |
+          test -f index.html
+          test -f 404.html
+          test -f sitemap.xml
+          test -f _headers
+          for p in hakkimizda tedaviler blog iletisim gece-acik-dis-klinigi-konya \
+                   subeler/selcuklu subeler/karatay subeler/meram; do
+            test -f "$p/index.html" || { echo "MISSING $p/index.html"; exit 1; }
+          done
+          echo "All key pages present."
+
+      - name: Fail if generator left uncommitted changes
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated output differs from committed files."
+            echo "Run 'python tools/gen_pages.py' locally and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "Generated output matches committed files."

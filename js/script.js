@@ -110,6 +110,10 @@
             'footer.about': "Konya's trusted oral and dental health clinic. We're here for healthy smiles.",
             'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:00 (Sundays included)', 'footer.copyright': '© 2026 Dentual Konya. All rights reserved.',
             'wa.title': 'Choose a Branch', 'wa.sub': 'How can we help you?',
+            'cc.title': 'Cookie Preferences',
+            'cc.text': 'We use cookies to improve your experience and measure visits. Analytics cookies (Google Analytics, Microsoft Clarity) run only with your consent.',
+            'cc.necessary': 'Necessary cookies — always on', 'cc.analytics': 'Analytics cookies (Google Analytics, Clarity)',
+            'cc.manage': 'Manage Preferences', 'cc.reject': 'Reject', 'cc.accept': 'Accept', 'cc.save': 'Save Preferences', 'cc.settings': 'Cookie Preferences',
             'tm.tag': 'Treatment', 'tm.candidates': 'Who Is It Suitable For?', 'tm.process': 'Treatment Process', 'tm.advantages': 'Advantages', 'tm.cta': 'Contact Us'
         }
     };
@@ -510,12 +514,14 @@
         const links = $('#navLinks');
         if (!burger || !links) return;
         burger.addEventListener('click', () => {
-            burger.classList.toggle('open');
+            const open = burger.classList.toggle('open');
             links.classList.toggle('open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
     }
     function closeMobileMenu() {
-        $('#hamburger') && $('#hamburger').classList.remove('open');
+        const burger = $('#hamburger');
+        if (burger) { burger.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
         $('#navLinks') && $('#navLinks').classList.remove('open');
     }
 
@@ -687,6 +693,30 @@
                 </div>
             </article>`;
         }).join('');
+        injectDoctorSchema();
+    }
+
+    // Emit Physician/Person JSON-LD for the team (single source = DOCTORS).
+    // Idempotent: replaces its own <script> on re-render (e.g. language switch).
+    const SCHEMA_ORIGIN = 'https://dentualkonya.com';
+    function injectDoctorSchema() {
+        const nodes = DOCTORS.map((d, i) => {
+            const node = {
+                '@type': ['Physician', 'Person'],
+                '@id': SCHEMA_ORIGIN + '/#doctor-' + (i + 1),
+                'name': d.name,
+                'jobTitle': d.role || 'Diş Hekimi',
+                'worksFor': { '@id': SCHEMA_ORIGIN + '/#organization' }
+            };
+            if (d.img) node.image = SCHEMA_ORIGIN + '/' + d.img.replace(/^\//, '');
+            const links = (d.social || []).filter(s => s.type !== 'phone' && s.type !== 'email').map(s => s.url);
+            if (links.length) node.sameAs = links;
+            return node;
+        });
+        const data = { '@context': 'https://schema.org', '@graph': nodes };
+        let el = document.getElementById('doctorSchema');
+        if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'doctorSchema'; document.head.appendChild(el); }
+        el.textContent = JSON.stringify(data);
     }
 
     /* ---------- RENDER REVIEWS ---------- */
@@ -1049,21 +1079,49 @@
     };
 
     function initForms() {
+        const SPAM_MSG = { tr: '⚠ Lütfen birkaç saniye sonra tekrar deneyin.', en: '⚠ Please try again in a few seconds.' };
+        const showErr = (statusId, lang) => {
+            const status = $('#' + statusId);
+            if (!status) return;
+            status.textContent = SPAM_MSG[lang] || SPAM_MSG.tr;
+            status.classList.remove('success'); status.classList.add('error');
+            setTimeout(() => { status.textContent = ''; status.classList.remove('error'); }, 5000);
+        };
         const handle = (formId, statusId, titleKey) => {
             const form = $('#' + formId);
             if (!form) return;
+            form.dataset.loadedAt = String(Date.now()); // for too-fast-submit detection
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (!form.checkValidity()) { form.reportValidity(); return; }
 
                 const lang = currentLang;
+
+                /* ---------- Anti-spam (client-side, no backend) ---------- */
+                // 1) Honeypot: a hidden field real users never see/fill.
+                const hp = form.querySelector('.hp-field input, input.hp-field');
+                if (hp && hp.value.trim() !== '') return; // silently drop bot submit
+                // 2) Too-fast submit (bots fill+submit near-instantly).
+                const loadedAt = parseInt(form.dataset.loadedAt || '0', 10);
+                if (loadedAt && Date.now() - loadedAt < 2500) { showErr(statusId, lang); return; }
+                // 3) Rate limit across submissions (per browser).
+                let lastAt = 0; try { lastAt = parseInt(localStorage.getItem('dentual-last-submit') || '0', 10); } catch (e) {}
+                if (Date.now() - lastAt < 25000) { showErr(statusId, lang); return; }
+
                 const labels = FIELD_LABELS[lang] || FIELD_LABELS.tr;
 
-                // Collect named fields
+                // Collect named fields (skip the honeypot)
                 const data = {};
                 $$('input, textarea, select', form).forEach(el => {
-                    if (el.name && el.value.trim()) data[el.name] = el.value.trim();
+                    if (el.name && el.name !== 'company_url' && el.value.trim()) data[el.name] = el.value.trim();
                 });
+                // 4) Duplicate guard: block resending the exact same payload this session.
+                const sig = formId + '|' + JSON.stringify(data);
+                try {
+                    if (sessionStorage.getItem('dentual-last-sig') === sig) { showErr(statusId, lang); return; }
+                    sessionStorage.setItem('dentual-last-sig', sig);
+                } catch (e) {}
+                try { localStorage.setItem('dentual-last-submit', String(Date.now())); } catch (e) {}
 
                 // Build a readable WhatsApp message
                 const lines = ['*' + (FORM_TITLES[titleKey][lang] || FORM_TITLES[titleKey].tr) + '*'];
@@ -1159,6 +1217,40 @@
         }));
     }
 
+    /* ---------- KVKK COOKIE CONSENT (Consent Mode v2) ---------- */
+    function initCookieConsent() {
+        const banner = $('#cookieConsent');
+        const api = window.dentualConsent;
+        if (!banner || !api) return;
+        const accept = $('#ccAccept'), reject = $('#ccReject'), manage = $('#ccManage'),
+              save = $('#ccSave'), panel = $('#ccPanel'), toggle = $('#ccAnalytics'),
+              reopen = $('#cookieSettingsBtn');
+
+        const show = () => { banner.hidden = false; void banner.offsetWidth; banner.classList.add('show'); };
+        const hide = () => { banner.classList.remove('show'); setTimeout(() => { banner.hidden = true; }, 320); };
+        const decide = (state) => { api.set(state); hide(); };
+
+        // Show only when there is no prior decision.
+        const prior = api.get();
+        if (prior !== 'granted' && prior !== 'denied') show();
+
+        accept && accept.addEventListener('click', () => decide('granted'));
+        reject && reject.addEventListener('click', () => decide('denied'));
+        manage && manage.addEventListener('click', () => {
+            panel.hidden = false; manage.hidden = true; save.hidden = false;
+            if (toggle) toggle.checked = (api.get() === 'granted');
+        });
+        save && save.addEventListener('click', () => decide(toggle && toggle.checked ? 'granted' : 'denied'));
+        // Footer link reopens the banner (lets users change their mind anytime).
+        reopen && reopen.addEventListener('click', () => {
+            if (panel) panel.hidden = true;
+            if (manage) manage.hidden = false;
+            if (save) save.hidden = true;
+            if (toggle) toggle.checked = (api.get() === 'granted');
+            show();
+        });
+    }
+
     /* ---------- DENTUAL ÇOCUK VIDEO ---------- */
     function initCocukVideo() {
         const wrap = $('.cocuk-video-wrap');
@@ -1197,6 +1289,7 @@
         initAnnounce();
         initForms();
         initCocukVideo();
+        initCookieConsent();
 
         // Internationalization: capture base (TR) text, wire switcher, apply saved language
         captureBaseText();
