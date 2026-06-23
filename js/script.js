@@ -1159,6 +1159,20 @@
         }));
     }
 
+    /* ---------- DENTUAL ÇOCUK VIDEO ---------- */
+    function initCocukVideo() {
+        const wrap = $('.cocuk-video-wrap');
+        if (!wrap) return;
+        const video = $('.cocuk-video', wrap);
+        const playBtn = $('.cocuk-video-play', wrap);
+        if (!video) return;
+        const start = () => { video.play(); };
+        playBtn && playBtn.addEventListener('click', start);
+        // Keep the custom overlay in sync if native controls are used too.
+        video.addEventListener('play', () => wrap.classList.add('is-playing'));
+        video.addEventListener('pause', () => wrap.classList.remove('is-playing'));
+    }
+
     /* ---------- INIT ---------- */
     function init() {
         initPreloader();
@@ -1182,6 +1196,7 @@
         initScrollTop();
         initAnnounce();
         initForms();
+        initCocukVideo();
 
         // Internationalization: capture base (TR) text, wire switcher, apply saved language
         captureBaseText();
