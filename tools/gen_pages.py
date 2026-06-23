@@ -403,6 +403,26 @@ def wa_card(b):
             '<span class="ebb-label"><small>%s</small><strong>WhatsApp</strong></span></a>'
             % (b["telraw"].replace("+", ""), WA_TEXT, b["name"], WA_SVG, b["name"]))
 
+CALL_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+            'stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 '
+            '19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 '
+            '4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 '
+            '6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>')
+
+def branch_cta_group(b, note=""):
+    # One branch block: name header + phone button + WhatsApp button (stacked vertically).
+    # Phone and WhatsApp always belong to the SAME branch number → no cross-branch mixups.
+    return ('<div class="ebb-group">'
+            '<span class="ebb-branch">%s Şubesi%s</span>'
+            '<a href="tel:%s" class="btn btn-emergency emergency-branch-btn">%s'
+            '<span class="ebb-label"><strong>%s</strong></span></a>'
+            '<a href="https://wa.me/%s%s" target="_blank" rel="noopener" '
+            'class="btn btn-wa emergency-branch-btn" aria-label="%s şubesi WhatsApp">%s'
+            '<span class="ebb-label"><strong>WhatsApp</strong></span></a>'
+            '</div>'
+            % (b["name"], note, b["telraw"], CALL_SVG, b["tel"],
+               b["telraw"].replace("+", ""), WA_TEXT, b["name"], WA_SVG))
+
 gece_faq_qa = [
     ("Konya'da gece açık diş kliniği var mı?",
      "Evet. Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir."),
@@ -431,8 +451,7 @@ gece_content = hero(
   </ul>
   <h2 class="section-title" style="text-align:left;margin-top:2rem">Gece Hemen Arayın</h2>
   <div class="emergency-actions" style="margin-top:1rem">
-""" + call_card(BRANCHES[1], " (Gece Nöbetçi)") + call_card(BRANCHES[0]) + call_card(BRANCHES[2]) \
-    + wa_card(BRANCHES[1]) + wa_card(BRANCHES[0]) + wa_card(BRANCHES[2]) + """
+""" + branch_cta_group(BRANCHES[1], " (Gece Nöbetçi)") + branch_cta_group(BRANCHES[0]) + branch_cta_group(BRANCHES[2]) + """
   </div>
   <p style="margin-top:1.2rem"><strong>Selçuklu şubemiz artık gece nöbetinde!</strong> Selçuklu ve çevresinde gece açık nöbetçi diş hekimi için <a href="/subeler/selcuklu/">Selçuklu Diş Kliniği</a> sayfamıza göz atın. Çağrı merkezi: <a href="tel:+904443442">444 34 42</a>.</p>
   <p>Geç saatte bastıran ağrılarda evde yapabileceklerinizi <a href="/blog/gece-dis-agrisi-ne-yapmali/">Gece Diş Ağrısı Bastığında Ne Yapmalı?</a> yazımızda anlattık.</p>

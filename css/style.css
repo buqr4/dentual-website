@@ -341,12 +341,23 @@ html[dir="rtl"] .lang-option { text-align: right; }
     line-height: 1.1; margin-bottom: 1.3rem; text-shadow: 0 4px 30px rgba(0,0,0,0.3);
 }
 .hero-title-lead { display: block; }
-/* The hero is vertically centered (.hero: flex/align-items:center), so any change
-   in the typewriter line's height re-centers the whole block and shifts the fixed
-   "Konya Diş Kliniği" lead. Reserve the typewriter line at its MAX height (2 lines,
-   = 2×line-height) on EVERY viewport so the hero content height is constant → the
-   lead never moves and there is zero CLS from the animation or webfont swap. */
-.hero-tw { display: block; min-height: 2.3em; }
+/* Animated tagline line under the brand lead. Requirements: ALWAYS one line, never
+   wraps, never overflows (even on small phones), and never changes the hero height
+   (zero CLS — the lead "Konya Diş Kliniği" must not move).
+   How: its OWN responsive font-size (smaller than the lead) keeps the longest phrase
+   on one line down to ~320px; white-space:nowrap forbids wrapping; overflow:hidden is
+   a hard guard against any sub-pixel spill; min-height = exactly one line of THIS
+   font-size, so the reserved box is constant whether the text is empty, typing, or full. */
+.hero-tw {
+    display: block;
+    font-size: clamp(1.1rem, 3.6vw, 2.4rem);
+    line-height: 1.25;
+    min-height: 1.25em;          /* one line of the line above → fixed height, no jump */
+    white-space: nowrap;         /* tek satır — asla ikinci satıra taşmaz */
+    overflow: hidden;            /* taşma guard'ı */
+    text-overflow: clip;
+    max-width: 100%;
+}
 .typewriter { background: linear-gradient(120deg, #fff 30%, var(--teal-300)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .cursor { animation: blink 0.9s steps(1) infinite; font-weight: 400; -webkit-text-fill-color: var(--teal-300); color: var(--teal-300); }
 @keyframes blink { 50% { opacity: 0; } }
@@ -390,14 +401,30 @@ html[dir="rtl"] .lang-option { text-align: right; }
 .emergency-title { font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 800; letter-spacing: -0.01em; }
 .emergency-sub { font-size: 0.97rem; color: rgba(255,255,255,0.9); margin-top: 0.2rem; max-width: 540px; }
 .emergency-sub strong { color: #fff; font-weight: 700; }
-.emergency-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+/* Per-branch CTA groups: [Branch name] over [Phone] over [WhatsApp], stacked.
+   Three equal columns on desktop, each column stacks vertically on mobile. */
+.emergency-actions { display: flex; gap: 1.1rem; flex-wrap: wrap; align-items: stretch; }
+.ebb-group {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    flex: 1 1 190px; min-width: 170px;
+}
+.ebb-branch {
+    font-size: 0.82rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #fff; opacity: 0.92; padding-left: 0.15rem; margin-bottom: 0.1rem;
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.ebb-branch::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal-300); flex-shrink: 0;
+}
+.ebb-group .btn { width: 100%; justify-content: flex-start; }
 .btn-emergency { background: #fff; color: var(--green-700); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
 .btn-emergency svg { width: 18px; height: 18px; }
 .btn-emergency:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.28); background: #fff; }
 .btn-wa { background: #25d366; color: #fff; box-shadow: 0 10px 30px rgba(37,211,102,0.35); }
 .btn-wa svg { width: 20px; height: 20px; }
 .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(37,211,102,0.45); }
-.emergency-branch-btn { padding: 0.6rem 1.25rem; }
+.emergency-branch-btn { padding: 0.78rem 1.3rem; font-weight: 800; }
 .emergency-branch-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 .ebb-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.12; }
 .ebb-label small { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; opacity: 0.7; }
@@ -405,7 +432,8 @@ html[dir="rtl"] .lang-option { text-align: right; }
 @media (max-width: 768px) {
     .emergency-inner { flex-direction: column; align-items: flex-start; }
     .emergency-actions { width: 100%; }
-    .emergency-actions .btn { flex: 1 1 100%; justify-content: center; }
+    .ebb-group { flex: 1 1 100%; }
+    .ebb-group .btn { justify-content: center; }
 }
 
 /* ---------- STATS ---------- */
