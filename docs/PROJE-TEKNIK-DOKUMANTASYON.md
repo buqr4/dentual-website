@@ -1,11 +1,13 @@
 # Dentual Konya — Teknik Dokümantasyon
 
-> **Sürüm:** 1.0 · **Tarih:** 23 Haziran 2026
+> **Sürüm:** 1.1 · **Tarih:** 23 Haziran 2026
 > **Depo:** `github.com/buqr4/dentual-website` (branch: `main`)
 > **Canlı:** `https://dentualkonya.netlify.app` · **Hedef alan adı (henüz alınmadı):** `dentualkonya.com`
 > **Amaç:** Projeyi devralacak geliştiriciler için sistemin tam teknik fotoğrafı.
 
 > ⚠️ **Doğruluk notu:** Bu doküman, kodun **gerçek mevcut durumunu** belgeler — pazarlama/ön-tasarım niyetlerini değil. Örn. proje **Tailwind kullanmaz** (el yazımı CSS), hosting **Netlify**'dır (Cloudflare Pages değil), analytics ID'leri henüz **placeholder**'dır, `dentualkonya.com` henüz **satın alınmamıştır**. Bu farklar ilgili bölümlerde açıkça işaretlidir.
+
+> 📌 **Sürüm 1.1 — üretime-hazırlık güncellemesi (commit `63615c3`):** KVKK çerez onayı + Google Consent Mode v2, içerik-hash cache-busting (`?v=`), form spam koruması (honeypot + rate-limit), merkezi analytics config, Physician/Person şeması, gerçek hreflang, ImageObject şeması, erişilebilirlik düzeltmeleri ve legacy CI temizliği (Cloudflare `deploy.yml` → build-only `ci.yml`) eklendi. İlgili satırlar bu sürümde güncellendi.
 
 ---
 
@@ -41,8 +43,9 @@ Dentual Konya ağız ve diş sağlığı polikliniğinin **kurumsal tanıtım ve
 - Bilgi merkezi / blog (4 yazı)
 - TR/EN dil desteği (istemci tarafı i18n)
 - Açık/koyu tema
-- İletişim formu (WhatsApp'a yönlendiren)
+- İletişim formu (WhatsApp'a yönlendiren, spam korumalı)
 - Dentual Çocuk tanıtım videosu
+- KVKK çerez onay bannerı (Consent Mode v2 — analytics yalnız onayla)
 
 > **Açık mimari kararı:** Bu projede **online randevu sistemi YOKTUR**. Dönüşüm tamamen telefon/WhatsApp üzerinden ilerler (bkz. [Bölüm 8](#8-dönüşüm-ve-pazarlama-altyapısı)).
 
@@ -84,27 +87,29 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 | Teknoloji | Durum | Amaç |
 |---|---|---|
 | **HTML5 (semantik)** | ✅ Kullanımda | `header/nav/main/section/article/footer`, ARIA, skip-link |
-| **CSS (el yazımı, tek dosya)** | ✅ Kullanımda | `css/style.css` (~935 satır), CSS değişkenleri ile tasarım sistemi |
+| **CSS (el yazımı, tek dosya)** | ✅ Kullanımda | `css/style.css` (~970 satır), CSS değişkenleri ile tasarım sistemi |
 | **Tailwind CSS** | ❌ **Kullanılmıyor** | Başta düşünülmüş ancak uygulanmamış. Stil tamamen özel CSS ile yazılı. Build adımı yok. |
-| **Vanilla JavaScript (IIFE)** | ✅ Kullanımda | `js/script.js` (~1220 satır), framework yok, tek IIFE modül |
+| **Vanilla JavaScript (IIFE)** | ✅ Kullanımda | `js/script.js` (~1310 satır), framework yok, tek IIFE modül |
 | **Harici JS kütüphanesi** | ❌ Yok | jQuery/React/Vue yok — sıfır bağımlılık. SVG ikonlar inline. |
 | **Google Fonts** | ✅ | `Poppins` (gövde) + `Plus Jakarta Sans` (başlık), `display=swap` |
 
 **Mimari tarzı:** Çok sayfalı (MPA) statik site. Her rota gerçek bir `index.html` dosyasıdır (SPA değil). JS, "progressive enhancement" olarak çalışır (sayfa JS olmadan da içerik sunar).
 
 ### Sayfa Üretimi (Build)
-- **`tools/gen_pages.py`** (~770 satır, yalnız Python `json, os` — stdlib): `index.html`'in "chrome"unu (announcement bar → nav → footer/script) kaynak alır, her alt sayfaya başlık/açıklama/şema/içerik damgalar. 18 alt sayfa + `404.html` + `sitemap.xml` üretir.
+- **`tools/gen_pages.py`** (~840 satır, yalnız Python stdlib `json, os, re, hashlib`): `index.html`'in "chrome"unu (announcement bar → nav → footer/script) kaynak alır, her alt sayfaya başlık/açıklama/şema/içerik damgalar. 18 alt sayfa + `404.html` + `sitemap.xml` üretir. Ayrıca **doğrulama token'larını** (GSC/Bing) ve **cache-busting `?v=` parmak izini** tüm sayfalara + `index.html`'e basar.
 - **`tools/convert_webp.py`**: Görsel optimizasyon yardımcı betiği (WebP/AVIF üretimi).
 - HTML için **derleme zinciri yok**; üretilen dosyalar repoda işlenir (committed). Netlify build'i de aynı betiği çalıştırır (`netlify.toml`).
 
 ### SEO Teknolojileri
 | Yapı | Detay |
 |---|---|
-| **Schema.org (JSON-LD)** | 20+ tip: `WebSite, MedicalClinic, Dentist, FAQPage, BreadcrumbList, MedicalProcedure, BlogPosting, ContactPage, AboutPage, CollectionPage, Blog, OpeningHoursSpecification, PostalAddress, GeoCoordinates, AggregateRating, City/AdministrativeArea` |
+| **Schema.org (JSON-LD)** | 20+ tip: `WebSite, MedicalClinic, Dentist, FAQPage, BreadcrumbList, MedicalProcedure, BlogPosting, ContactPage, AboutPage, CollectionPage, Blog, OpeningHoursSpecification, PostalAddress, GeoCoordinates, AggregateRating, City/AdministrativeArea` + **`Physician`/`Person`** (10 hekim, JS ile enjekte) + **`ImageObject`** (logo/görsel, boyutlu) |
 | **Meta yapısı** | `description, keywords, robots, author, canonical, theme-color`, tam **Open Graph** + **Twitter Card** seti |
+| **Doğrulama** | GSC + Bing meta'ları `gen_pages.py` `GSC_TOKEN`/`BING_TOKEN`'dan **merkezi** basılır (boşken yalnız ipucu yorumu) |
 | **Sitemap** | `sitemap.xml` (19 URL, `gen_pages.py` üretir) |
 | **Robots** | `robots.txt` → `Allow: /` + sitemap referansı |
-| **Çok dilli** | `hreflang` yapısı i18n ile TR/EN (istemci tarafı) |
+| **hreflang** | ✅ Gerçek `<link rel=alternate>` `tr` + `x-default` (self-ref) her sayfada; EN'e hazır mimari |
+| **Çok dilli içerik** | TR/EN istemci-tarafı i18n (`data-i18n` + DICT) |
 
 ### Performans Teknolojileri
 | Alan | Uygulama |
@@ -114,7 +119,8 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 | **Video** | HEVC `.MOV` → H.264 MP4 (faststart); `preload="none"` + poster → oynatılana kadar inmez |
 | **Font** | `preconnect` + `display=swap`; sınırlı ağırlık seti |
 | **CLS** | Hero typewriter satırı sabit yükseklik; tüm medya konteynerlerinde `aspect-ratio` |
-| **Önbellek** | `_headers` ile asset'ler `immutable` 1 yıl, HTML `no-cache` |
+| **Önbellek** | `_headers` ile asset'ler `immutable` 1 yıl, HTML `no-cache`, css/js 1 saat |
+| **Cache-busting** | css/js/analytics içerik-hash'i (`?v=<8>`) `gen_pages.py` ile tüm sayfalara + `index.html`'e basılır → yeni sürüm anında yayılır, eski dosya servis edilmez |
 
 ### Hosting & Dağıtım — **GERÇEK DURUM**
 | Katman | Gerçek | Not |
@@ -123,18 +129,18 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 | **Hosting** | **Netlify** (`dentualkonya.netlify.app`) | ✅ Aktif. Git'e bağlı, `main`'e push → otomatik deploy (`netlify.toml`: `python3 tools/gen_pages.py`, publish kök) |
 | **Cloudflare Pages** | ❌ **Kullanılmıyor** | Denendi; `*.pages.dev` Türkiye'de ISP SNI filtresiyle erişilemediği için terk edildi. `_headers`/`_redirects` formatı yine de Cloudflare/Netlify uyumludur. |
 | **CDN** | Netlify Edge CDN | Otomatik |
-| **GitHub Actions** (`.github/workflows/deploy.yml`) | ⚠️ **Legacy/atıl** | Cloudflare Pages'e deploy için yazılmış, artık kullanılmıyor (Netlify Git entegrasyonu devrede). Temizlenebilir. |
+| **GitHub Actions** (`.github/workflows/ci.yml`) | ✅ **Build-check** | Eski Cloudflare `deploy.yml` **kaldırıldı**. Yeni `ci.yml` deploy etmez; yalnız `gen_pages.py`'yi çalıştırıp dosya bütünlüğünü ve "commit'lenmemiş fark yok" durumunu doğrular. Deploy'u Netlify Git yapar. |
 
-### Analytics & İzleme — **ALTYAPI HAZIR, ID'LER BEKLİYOR**
+### Analytics & İzleme — **ALTYAPI HAZIR + ONAY-KORUMALI, ID'LER BEKLİYOR**
 | Araç | Durum | Not |
 |---|---|---|
-| **GA4** | ⚠️ Placeholder (`G-XXXXXXXXXX`) | `js/analytics.js`'te yükleyici hazır; ID girilince aktif |
-| **Microsoft Clarity** | ⚠️ Placeholder (`CLARITY_PROJECT_ID`) | Aynı dosyada guard'lı yükleyici |
-| **Sentry** | ⚠️ Kapalı (boş DSN) | Hata izleme; DSN girilince aktif |
-| **Google Search Console** | ⚠️ Doğrulama meta'sı placeholder | Alan adı alınınca doğrulanacak |
-| **Bing Webmaster** | ⚠️ Doğrulama meta'sı placeholder | Aynı |
+| **GA4** | ⚠️ Placeholder (`G-XXXXXXXXXX`) | Yükleyici hazır; **yalnız kullanıcı çerez onayı verince** yüklenir (Consent Mode v2) |
+| **Microsoft Clarity** | ⚠️ Placeholder (`CLARITY_PROJECT_ID`) | Aynı; onay olmadan **çalışmaz** |
+| **Sentry** | ⚠️ Kapalı (boş DSN) | Hata izleme; DSN girilince + onayla aktif |
+| **Google Search Console** | ⚠️ Token boş | Meta merkezi olarak `gen_pages.py` `GSC_TOKEN`'dan basılır; token girilince doğrulanır |
+| **Bing Webmaster** | ⚠️ Token boş | Aynı (`BING_TOKEN`) |
 
-`js/analytics.js`: CSP-dostu, self-hosted yükleyici. Her aracın ID'si boş/placeholder ise o araç **yüklenmez** (`isSet()` guard). Dönüşüm event'leri delegasyonla yakalanır (bkz. Bölüm 8).
+`js/analytics.js`: CSP-dostu, self-hosted yükleyici. **Tek merkez `CONFIG`** (env benzeri) — sadece ID'leri değiştirmek yeterli. ID boş/placeholder ise araç **yüklenmez** (`isSet()` guard). **Consent Mode v2:** tüm depolama varsayılan `denied`; GA4 + Clarity ancak `window.dentualConsent.set('granted')` ile başlar. Çerezsiz dönüşüm event'leri delegasyonla her durumda yakalanır (bkz. Bölüm 8). KVKK çerez bannerı için bkz. [Bölüm 9](#9-güvenlik-ve-altyapı).
 
 ---
 
@@ -226,9 +232,10 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 - Hub-and-spoke + bağlamsal çapraz linkleme (bkz. Bölüm 3). Breadcrumb her alt sayfada.
 
 ### Schema Kullanımı (JSON-LD)
-- **Kurumsal:** `MedicalClinic` + `Dentist` (her şube için), `OpeningHoursSpecification` (09:00–23:00), `PostalAddress`, `GeoCoordinates`, `AggregateRating` (4.9 / 366).
+- **Kurumsal:** `MedicalClinic` + `Dentist` (her şube için), `OpeningHoursSpecification` (09:00–23:00), `PostalAddress`, `GeoCoordinates`, `AggregateRating` (4.9 / 366). Organizasyon `logo` ve `image` → **`ImageObject`** (boyutlu: 374×85, 1500×1125).
+- **Hekimler:** **`Physician`/`Person`** (10 hekim) `DOCTORS` tek kaynağından JS ile enjekte edilir (`#doctorSchema`, dil değişiminde yenilenir); `worksFor` org'a bağlı, `sameAs` (sosyal) destekli.
 - **Sayfa tipleri:** `WebSite, WebPage, AboutPage, ContactPage, CollectionPage`.
-- **İçerik:** `MedicalProcedure` (tedaviler), `BlogPosting` (yazılar), `FAQPage` (SSS), `BreadcrumbList`.
+- **İçerik:** `MedicalProcedure` (tedaviler), `BlogPosting` (yazılar, `author`+`publisher`), `FAQPage` (SSS), `BreadcrumbList`.
 - **Yerel:** `City`/`AdministrativeArea` (Konya + ilçeler).
 
 ### Local SEO
@@ -247,22 +254,24 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 ### Durum Sınıflandırması
 **✅ Tamamlananlar**
 - Tüm sayfalarda benzersiz meta + OG/Twitter
-- Kapsamlı JSON-LD şema
+- Kapsamlı JSON-LD şema (+ **Physician/Person**, **ImageObject**, BlogPosting author/publisher)
 - Sitemap + robots
 - Internal linking + breadcrumb
 - Yerel SEO landing + şube NAP tutarlılığı
 - FAQ şemaları, blog şemaları
+- **Gerçek `hreflang`** (`tr` + `x-default`) her sayfada
+- **GSC + Bing doğrulama altyapısı** (token girilince tek noktadan aktif)
 
 **⚠️ Eksik kalanlar**
 - **Alan adı `dentualkonya.com` alınmadı** → kanonik/OG/sitemap'teki tüm URL'ler henüz canlı host (`netlify.app`) ile uyuşmuyor. **En kritik SEO açığı.**
-- Google Search Console / Bing doğrulaması yapılmadı (placeholder meta).
+- GSC/Bing **token'ları henüz girilmedi** (altyapı hazır; alan adından sonra yapılacak).
 - Google Business Profile entegrasyonu/iyileştirmesi (doküman var: `SEO-LOCAL-GBP.md`).
-- Gerçek `hreflang` `<link>` çiftleri (i18n istemci tarafı; sunucu seviyesinde hreflang yok).
+- Hekim `bio`/sosyal içerikleri boş (altyapı + `sameAs` hazır, veri bekliyor).
 
 **🔮 Gelecekte yapılabilecekler**
 - Blog içerik takvimi (`SEO-BLOG-TAKVIMI.md`) uygulanarak içerik genişletme
 - Daha fazla ilçe/semt landing'i
-- Görsel `ImageObject` şeması, hekim `Person` şeması (altyapı hazır)
+- EN dil sürümü → `hreflang="en"` (mimari hazır)
 - İç arama, breadcrumb zenginleştirme
 
 > İlgili dokümanlar: `docs/SEO-TEKNIK-KONTROL.md`, `docs/SEO-LOCAL-GBP.md`, `docs/SEO-BLOG-TAKVIMI.md`.
@@ -285,6 +294,7 @@ WhatsApp linkleri ön-doldurulmuş mesaj içerir; analytics tarafında şube eti
 | **Video `preload="none"` + poster** | `index.html`, `css`, `js` | Oynatılana kadar 3.6MB inmesin | İlk yük etkisi ~0, TBT/ağ ↓ |
 | **Font `display=swap` + `preconnect` + ağırlık kırpma** | `index.html` | FOIT önle, bağlantı erken aç | FCP ↓, CLS ↓ |
 | **Asset'lerde immutable 1 yıl önbellek** | `_headers` | Tekrar ziyaret hızlı | Tekrar yük ↓ |
+| **İçerik-hash cache-busting (`?v=`)** | `tools/gen_pages.py` | css/js güncellemesi anında yayılsın, eski dosya servis edilmesin | Stale-asset bug'ı çözüldü; güvenli uzun önbellek |
 | **Lighthouse bütçesi** | `lighthouse-budget.json` | Regresyon koruması (CI) | Performans sabitliği |
 
 ### Çekirdek Web Vitalleri (Core Web Vitals)
@@ -361,7 +371,7 @@ Ayrıca **koyu tema** (`html[data-theme="dark"]`) tüm token'ları yeniden tanı
 | `lead_form_submit` | iletişim formu gönderimi |
 | `map_open` | harita/yol tarifi açılışı |
 
-Tümü `js/analytics.js`'te **delegasyonla** yakalanır (tek listener, GA4 + Clarity'ye iletir).
+Tümü `js/analytics.js`'te **delegasyonla** yakalanır (tek listener). Olaylar çerezsizdir ve her zaman `dataLayer`'a yazılır; ancak **GA4/Clarity'ye yalnız kullanıcı çerez onayı verdiğinde** iletilir (Consent Mode v2).
 
 ### Kullanıcı Yolculuğu (giriş → WhatsApp)
 ```
@@ -390,12 +400,14 @@ Alternatif: Form doldur → gönder → WhatsApp'a yönlendirilir (form da Whats
 | **Permissions-Policy** | ✅ | geolocation/camera/microphone/payment/usb = kapalı |
 | **COOP** | ✅ | `Cross-Origin-Opener-Policy: same-origin` |
 | **www→apex 301** | ✅ | `_redirects` |
-| **Form güvenliği** | ⚠️ Kısmi | Form WhatsApp'a yönlenir (sunucu yok); `required` doğrulama var, **CAPTCHA/honeypot yok** |
-| **Spam koruması** | ⚠️ Eksik | Backend olmadığından sunucu-taraflı spam filtresi yok |
+| **Form güvenliği** | ✅ | `required` doğrulama + **honeypot** (`company_url`) + çok-hızlı-gönderim guard'ı (<2.5sn) |
+| **Spam koruması** | ✅ İstemci-taraflı | **25sn rate-limit** (localStorage) + **aynı içerik tekrarı** engeli (sessionStorage); honeypot dolarsa sessiz iptal |
 | **Gizli anahtar** | ✅ Temiz | Repoda API anahtarı/şifre yok; `.env` gitignore'da, yalnız `.env.example` |
-| **KVKK / Çerez onayı** | ⚠️ Eksik | GA4 & Clarity çerez kurar; **Consent Mode v2 / çerez banner'ı yok** (prod öncesi gerekli) |
+| **KVKK / Çerez onayı** | ✅ | **Çerez bannerı** (Kabul/Reddet/Tercihleri Yönet) + **Consent Mode v2**; GA4 & Clarity onaysız çalışmaz; footer'dan tekrar açılabilir |
 
 > Güvenlik başlıkları CDN kenarında (`_headers`) uygulanır — uygulama/sunucu kodu yok. CSP, `js/analytics.js`'in self-hosted olmasını gerektirir (inline snippet yok).
+>
+> **Not — backend yok:** Form ve spam korumaları **istemci-taraflıdır** (caydırıcı, kesin değil). Sunucu/serverless eklenirse honeypot + rate-limit sunucu tarafında da tekrarlanmalıdır.
 
 ---
 
@@ -413,14 +425,14 @@ dentual-website/
 ├── .gitignore  /  .env.example
 │
 ├── css/
-│   └── style.css                   # ~935 satır — tüm tasarım sistemi (el yazımı)
+│   └── style.css                   # ~970 satır — tüm tasarım sistemi + çerez bannerı (el yazımı)
 │
 ├── js/
-│   ├── script.js                   # ~1220 satır — tek IIFE (UI, i18n, slider, vs.)
-│   └── analytics.js                # ~104 satır — GA4/Clarity/Sentry + dönüşüm izleme
+│   ├── script.js                   # ~1310 satır — tek IIFE (UI, i18n, slider, çerez onayı, vs.)
+│   └── analytics.js                # ~166 satır — merkezi CONFIG + Consent Mode v2 + dönüşüm izleme
 │
 ├── tools/
-│   ├── gen_pages.py                # ~770 satır — statik sayfa üreteci (stdlib)
+│   ├── gen_pages.py                # ~840 satır — statik üreteç + token/cache-bust damgalama (stdlib)
 │   └── convert_webp.py             # görsel optimizasyon yardımcı betiği
 │
 ├── assets/
@@ -444,7 +456,7 @@ dentual-website/
 │   ├── implant-sonrasi-bakim/  cocuk-ilk-dis-kontrolu/
 │   ├── gulus-tasarimi-nedir/  gece-dis-agrisi-ne-yapmali/
 │
-├── .github/workflows/deploy.yml    # ⚠️ Legacy (Cloudflare) — atıl
+├── .github/workflows/ci.yml        # Build-check (gen_pages + bütünlük); deploy ETMEZ
 ├── lighthouse-budget.json          # CI performans bütçesi
 ├── .claude/launch.json             # Yerel önizleme sunucusu (python http.server)
 │
@@ -463,29 +475,28 @@ dentual-website/
 
 ## 11. Eksik ve Geliştirilebilir Alanlar
 
+> ℹ️ **Sürüm 1.1'de çözülenler** (artık bu listede değil): KVKK çerez onayı + Consent Mode v2, form spam koruması, legacy CI temizliği, css/js fingerprinting, Physician/Person + ImageObject şeması, gerçek hreflang, GSC/Bing doğrulama altyapısı, erişilebilirlik düzeltmeleri (aria-expanded vb.).
+
 ### 🔴 Kritik
-1. **Alan adı alınmamış (`dentualkonya.com`).** Tüm kanonik/OG/sitemap URL'leri bu alana işaret ediyor ama site `netlify.app`'te. SEO indekslemesi ve sosyal paylaşımlar bu yüzden tutarsız. → Alan adını al, Netlify'a bağla.
-2. **Search Console / Bing doğrulaması yok.** İndeksleme takip edilemiyor, sitemap gönderilemiyor.
-3. **KVKK çerez onayı yok.** GA4/Clarity çerezleri için Consent Mode v2 / banner prod trafiği öncesi yasal gereklilik.
+1. **Alan adı alınmamış (`dentualkonya.com`).** Tüm kanonik/OG/sitemap/hreflang URL'leri bu alana işaret ediyor ama site `netlify.app`'te. SEO indekslemesi ve sosyal paylaşımlar bu yüzden tutarsız. → Alan adını al, Netlify'a bağla. **Diğer her şeyin önündeki tek blokör.**
+2. **Doğrulama token'ları / analytics ID'leri girilmedi.** Altyapı ve onay-koruması hazır; eksik olan **değerler**: `GSC_TOKEN`/`BING_TOKEN` (`tools/gen_pages.py`) ve `GA4_ID`/`CLARITY_ID` (`js/analytics.js`). Girilene kadar hiçbir veri toplanmaz / site doğrulanamaz. (Genelde alan adından sonra yapılır.)
 
 ### 🟠 Yüksek Öncelik
-4. **Analytics ID'leri placeholder.** GA4/Clarity/Sentry değerleri girilmeli (`js/analytics.js`) — şu an hiçbir veri toplanmıyor.
-5. **Form spam koruması yok.** Honeypot alanı veya basit oran sınırı eklenmeli (backend olmadığından istemci-taraflı + WhatsApp akışı).
-6. **Legacy CI temizliği.** `.github/workflows/deploy.yml` Cloudflare'e deploy ediyor (atıl); Netlify ile çakışmaması için kaldırılmalı/güncellenmeli.
-7. **CSS/JS fingerprint'lenmiyor.** `_headers`'taki `TODO` — `style.[hash].css` ile cache-busting; aksi halde her güncellemede kullanıcılar 1 saate kadar eski dosya görebilir (geliştirme sırasında defalarca yaşandı).
+3. **Sentry DSN boş.** Üretim hata izleme için DSN girilmeli (opsiyonel ama önerilir).
+4. **Backend yok → form/spam koruması yalnız istemci-taraflı.** Caydırıcıdır, kesin değil. Serverless/form servisi (ör. Netlify Forms) eklenirse honeypot + rate-limit sunucuda da uygulanmalı.
 
 ### 🟡 Orta Öncelik
-8. **Hekim verisi boş altyapı.** `renderDoctors` foto+bio+sosyal alanlarını destekliyor ama içerik (bio/sosyal) doldurulmadı; `Person` şeması eklenebilir.
-9. **Gerçek `hreflang` linkleri.** i18n istemci tarafı; sunucu seviyesinde `hreflang` `<link>` çiftleri yok.
-10. **Görsel/SEO zenginleştirme.** `ImageObject` şeması, blog yazarı, daha fazla iç link.
-11. **Erişilebilirlik denetimi.** Temel ARIA var; tam WCAG kontrastı/klavye turu denetimi yapılmadı.
+5. **Hekim `bio`/sosyal içerikleri boş.** Altyapı + `Physician` şeması + `sameAs` hazır; gerçek biyografi/sosyal linkler `DOCTORS` dizisine girilince otomatik yayınlanır.
+6. **Google Business Profile** optimizasyonu (`SEO-LOCAL-GBP.md`).
+7. **Tam WCAG denetimi.** Yaygın sorunlar düzeltildi (aria-expanded, alt, klavye, focus); ancak otomatik araçla (axe/Lighthouse a11y) uçtan uca kontrast/etiket taraması henüz yapılmadı.
 
 ### 🟢 Düşük Öncelik
-12. **Blog içerik genişlemesi** (`SEO-BLOG-TAKVIMI.md` takvimi).
-13. **Görsel `srcset` (boyut bazlı responsive)** — şu an format bazlı (`image-set`) var, genişlik bazlı `srcset` yok.
-14. **Video çoklu kaynak** (WebM/VP9) — şu an yalnız MP4 (evrensel, yeterli).
-15. **PWA / manifest** — `theme-color` var, tam manifest/service worker yok.
-16. **Mikro-etkileşim/animasyon cilası**, ek ilçe landing'leri.
+8. **Blog içerik genişlemesi** (`SEO-BLOG-TAKVIMI.md` takvimi).
+9. **EN dil sürümü** — i18n + hreflang mimarisi hazır; ayrı EN URL'leri üretilebilir.
+10. **Görsel `srcset` (boyut bazlı responsive)** — şu an format bazlı (`image-set`) var, genişlik bazlı `srcset` yok.
+11. **Video çoklu kaynak** (WebM/VP9) — şu an yalnız MP4 (evrensel, yeterli).
+12. **PWA / manifest** — `theme-color` var, tam manifest/service worker yok.
+13. **Mikro-etkileşim cilası**, ek ilçe/semt landing'leri.
 
 ---
 
@@ -511,3 +522,11 @@ git add -A && git commit -m "..." && git push origin main
 - Şube verisi tek yerde: `gen_pages.py` `BRANCHES`.
 - Görsel eklerken WebP/AVIF üret (`tools/convert_webp.py` veya Pillow).
 - Çalışma saati site genelinde **23:00**; değişirse metin + şema + meta + FAQ hepsinde güncelle.
+- css/js düzenledikten sonra `python tools/gen_pages.py` çalıştır → **cache-bust `?v=` hash'i** tüm sayfalarda + `index.html`'de güncellenir; sonucu commit'le.
+- **Canlıya geçiş için doldurulacak değerler:** `GSC_TOKEN`/`BING_TOKEN` (`tools/gen_pages.py`), `GA4_ID`/`CLARITY_ID`/`SENTRY_DSN` (`js/analytics.js` → `CONFIG`). Hepsi tek noktada.
+
+---
+
+## Değişiklik Günlüğü
+- **v1.1 (23 Haz 2026, `63615c3`):** Üretime-hazırlık partisi — KVKK çerez onayı + Consent Mode v2, cache-busting fingerprinting, form spam koruması, merkezi analytics config, Physician/ImageObject şeması, gerçek hreflang, GSC/Bing doğrulama altyapısı, a11y düzeltmeleri, legacy CI temizliği.
+- **v1.0 (23 Haz 2026):** İlk kapsamlı teknik dokümantasyon.
