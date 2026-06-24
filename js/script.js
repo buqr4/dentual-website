@@ -83,6 +83,7 @@
             'branch.map': 'View Map', 'branch.wa': 'Contact via WhatsApp →',
             'branch.karatay': 'Karatay Branch', 'branch.selcuklu': 'Selçuklu Branch', 'branch.meram': 'Meram Branch',
             'doc.tag': 'Our Dentists', 'doc.title': 'Our Expert Team', 'doc.desc': 'A reliable and comfortable treatment experience with our experienced dentists.',
+            'res.tag': 'Real Results', 'res.title': 'Real Patient Results', 'res.desc': 'See the change achieved by reviewing our patients’ before and after treatment results. Drag the slider over the image left and right.',
             'rev.tag': 'Reviews', 'rev.title': 'What Our Patients Say', 'rev.desc': 'Real patient experiences from Google Maps.', 'rev.count': 'Based on 366 Google reviews', 'rev.all': 'See All on Google',
             'faq.tag': 'FAQ', 'faq.title': 'Frequently Asked Questions',
             'hcontact.tag': 'Contact', 'hcontact.title': 'Get in Touch', 'hcontact.desc': "Have questions? Fill out the form and we'll get back to you as soon as possible.",
@@ -141,6 +142,19 @@
         { name: 'Dt. Bilal Kameroğlu', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/bilalkameroglu.webp' },
         { name: 'Dt. Sena Kocabaş', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/senakocabas.webp' },
         { name: 'Dt. Emre Alabay', role: 'Diş Hekimi', roleEn: 'Dentist', img: 'assets/doctors/emrealabay.webp' }
+    ];
+
+    /* Öncesi/Sonrası hasta sonuçları — YENİ HASTA EKLEMEK için diziye bir nesne ekle:
+       { before, after, treatment, treatmentEn }. Görseller assets/results/ içinde,
+       tek tip 900×600 WebP. Tedavi etiketini istediğin gibi düzenleyebilirsin. */
+    const BA_RESULTS = [
+        { before: 'assets/results/case1-before.webp', after: 'assets/results/case1-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
+        { before: 'assets/results/case2-before.webp', after: 'assets/results/case2-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
+        { before: 'assets/results/case3-before.webp', after: 'assets/results/case3-after.webp', treatment: 'Ortodonti', treatmentEn: 'Orthodontics' },
+        { before: 'assets/results/case4-before.webp', after: 'assets/results/case4-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
+        { before: 'assets/results/case5-before.webp', after: 'assets/results/case5-after.webp', treatment: 'Zirkonyum Kaplama', treatmentEn: 'Zirconium Crowns' },
+        { before: 'assets/results/case6-before.webp', after: 'assets/results/case6-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
+        { before: 'assets/results/case7-before.webp', after: 'assets/results/case7-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' }
     ];
 
     const REVIEWS = [
@@ -719,6 +733,40 @@
         el.textContent = JSON.stringify(data);
     }
 
+    /* ---------- ÖNCESİ / SONRASI SONUÇLAR ---------- */
+    function renderResults() {
+        const grid = $('#resultsGrid');
+        if (!grid) return;
+        const en = currentLang === 'en';
+        const lblB = en ? 'Before' : 'Öncesi', lblA = en ? 'After' : 'Sonrası';
+        grid.innerHTML = BA_RESULTS.map(r => {
+            const t = en && r.treatmentEn ? r.treatmentEn : r.treatment;
+            return `
+            <article class="ba-card reveal">
+                <div class="ba-compare" style="--p:50%">
+                    <img class="ba-img ba-after" src="${r.after}" alt="${t} — tedavi sonrası, Dentual Konya" loading="lazy" decoding="async" width="900" height="600" />
+                    <img class="ba-img ba-before" src="${r.before}" alt="${t} — tedavi öncesi, Dentual Konya" loading="lazy" decoding="async" width="900" height="600" />
+                    <span class="ba-label ba-label-before">${lblB}</span>
+                    <span class="ba-label ba-label-after">${lblA}</span>
+                    <div class="ba-divider" aria-hidden="true"><span class="ba-handle"></span></div>
+                    <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="${t} öncesi/sonrası karşılaştırma kaydırıcısı" />
+                </div>
+                <div class="ba-caption">${t}</div>
+            </article>`;
+        }).join('');
+        initResultsCompare();
+    }
+    // Drag/click/keyboard via a full-cover transparent range input → sets --p.
+    function initResultsCompare() {
+        $$('.ba-compare').forEach(c => {
+            const range = $('.ba-range', c);
+            if (!range) return;
+            const sync = () => c.style.setProperty('--p', range.value + '%');
+            range.addEventListener('input', sync);
+            sync();
+        });
+    }
+
     /* ---------- RENDER REVIEWS ---------- */
     function renderReviews() {
         const track = $('#reviewsTrack');
@@ -1192,7 +1240,7 @@
         localStorage.setItem('dentual-lang', lang);
         translateStatic(lang);
         // Re-render dynamic content in the new language
-        renderDoctors(); renderReviews(); renderFaq(); renderTreatments(); renderBlog();
+        renderDoctors(); renderResults(); renderReviews(); renderFaq(); renderTreatments(); renderBlog();
         runReveal();
         applyWhatsAppMessages();
         applyLangChrome(lang);
@@ -1275,6 +1323,7 @@
         initHeroSlider();
         startTypewriter();
         renderDoctors();
+        renderResults();
         renderReviews();
         initReviewCarousel();
         renderFaq();

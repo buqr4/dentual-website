@@ -48,7 +48,7 @@
     <!-- LCP: preload the first hero image (CSS background) so it paints sooner -->
     <link rel="preload" as="image" href="/assets/hero/hero1.avif" type="image/avif" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=08211dbd" />
+    <link rel="stylesheet" href="/css/style.css?v=0dfc0fdc" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
     <!-- Structured Data: Dental Clinic with 3 branches -->
@@ -224,7 +224,7 @@
     <!--VERIFY:START--><!-- Search-engine verification: set GSC_TOKEN / BING_TOKEN in tools/gen_pages.py (and index.html) to emit these tags. --><!--VERIFY:END-->
 
     <!-- Analytics + conversion tracking (GA4 / Clarity / Sentry / WhatsApp+tel events) -->
-    <script defer src="/js/analytics.js?v=08211dbd"></script>
+    <script defer src="/js/analytics.js?v=0dfc0fdc"></script>
 </head>
 <body data-page="home"
       data-title-tr="Konya Diş Kliniği | Gece Açık Nöbetçi Diş Hekimi – Dentual"
@@ -450,6 +450,18 @@
                     <div class="section-cta reveal">
                         <a href="/tedaviler/" class="btn btn-primary btn-lg" data-i18n="htreat.all">Tüm Tedavileri Gör</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- ÖNCESİ / SONRASI HASTA SONUÇLARI -->
+            <div class="section results-section" id="results">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-tag" data-i18n="res.tag">Gerçek Sonuçlar</span>
+                        <h2 class="section-title" data-i18n="res.title">Gerçek Hasta Sonuçları</h2>
+                        <p class="section-desc" data-i18n="res.desc">Hastalarımızın tedavi öncesi ve tedavi sonrası sonuçlarını inceleyerek elde edilen değişimi görebilirsiniz. Görselin üzerindeki çubuğu sağa-sola sürükleyin.</p>
+                    </div>
+                    <div class="ba-grid" id="resultsGrid"></div>
                 </div>
             </div>
 
@@ -772,6 +784,6 @@
         </div>
     </div>
 
-    <script src="/js/script.js?v=08211dbd"></script>
+    <script src="/js/script.js?v=0dfc0fdc"></script>
 </body>
 </html>

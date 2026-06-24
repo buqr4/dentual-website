@@ -577,6 +577,57 @@ html[data-theme="dark"] .cocuk-section { background: linear-gradient(135deg, #16
     position: absolute !important; left: -9999px !important; top: auto;
     width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;
 }
+
+/* ---------- ÖNCESİ / SONRASI SONUÇLAR (drag-compare) ---------- */
+.results-section { background: linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 100%); }
+html[data-theme="dark"] .results-section { background: linear-gradient(180deg, var(--bg) 0%, #11202a 100%); }
+.ba-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.6rem; margin-top: 2.6rem;
+}
+.ba-card {
+    background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: var(--shadow-md); border: 1px solid var(--border);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.ba-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.ba-compare {
+    position: relative; aspect-ratio: 3 / 2;        /* sabit oran → CLS yok */
+    overflow: hidden; cursor: ew-resize; touch-action: pan-y;
+    user-select: none; background: #0e2330; --p: 50%;
+}
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-before { clip-path: inset(0 calc(100% - var(--p)) 0 0); }   /* öncesi'ni sola kırp */
+.ba-divider {
+    position: absolute; top: 0; bottom: 0; left: var(--p); width: 3px;
+    background: #fff; transform: translateX(-50%); pointer-events: none;
+    box-shadow: 0 0 12px rgba(0,0,0,.45);
+}
+.ba-handle {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 44px; height: 44px; border-radius: 50%; background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.35); display: grid; place-items: center;
+}
+.ba-handle::before, .ba-handle::after { content: ""; width: 0; height: 0; border: 6px solid transparent; }
+.ba-handle::before { border-right-color: var(--teal-500); margin-right: 4px; }
+.ba-handle::after { border-left-color: var(--teal-500); margin-left: 4px; }
+.ba-label {
+    position: absolute; bottom: .75rem; padding: .25rem .7rem; border-radius: var(--radius-pill);
+    font-size: .68rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    color: #fff; pointer-events: none; z-index: 2;
+}
+.ba-label-before { left: .75rem; background: rgba(15,40,38,.62); }
+.ba-label-after { right: .75rem; background: rgba(20,184,166,.9); }
+/* Full-cover transparent range = click + drag + keyboard, tek kontrol. */
+.ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 3; }
+.ba-range::-webkit-slider-thumb { -webkit-appearance: none; width: 46px; height: 100%; }
+.ba-range::-moz-range-thumb { width: 46px; height: 100%; border: 0; background: transparent; }
+.ba-range:focus-visible { outline: 3px solid var(--teal-400); outline-offset: 2px; }
+.ba-caption {
+    padding: .95rem 1.1rem; font-family: var(--font-head); font-weight: 700;
+    color: var(--green-700); text-align: center; font-size: 1rem;
+}
+html[data-theme="dark"] .ba-caption { color: var(--teal-300); }
 .cocuk-logo-card {
     position: absolute; bottom: -26px; right: -10px; background: #fff;
     border-radius: 20px; padding: 0.9rem 1.2rem; box-shadow: var(--shadow-lg);
