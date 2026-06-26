@@ -1,0 +1,171 @@
+/* ============================================================================
+   DENTUAL — PREMIUM SKIN  ("Petrol & Altın")
+   ----------------------------------------------------------------------------
+   FULLY REVERSIBLE / MODULAR THEME LAYER.
+
+   • Everything here is scoped under  html[data-skin="premium"]  so it ONLY
+     applies while that attribute is present on <html>.
+   • Nothing in css/style.css is deleted or edited. This file only *overrides*
+     existing CSS custom properties and adds a few premium-only accents.
+
+   HOW TO ROLL BACK (instant, safe):
+     – Remove  data-skin="premium"  from the <html> tag (index.html + the
+       generator at tools/gen_pages.py), then re-run  python tools/gen_pages.py.
+       The original palette/animations in style.css take over immediately.
+     – Or simply remove the <link> to this file. Same result.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1) PALETTE OVERRIDE — deep petrol-teal + warm neutrals + premium gold
+   --------------------------------------------------------------------------- */
+html[data-skin="premium"] {
+    /* Brand — deepened, richer petrol tones (all white-text combos pass WCAG AA) */
+    --green-900: #052a27;
+    --green-800: #073b36;
+    --green-700: #0a504c;   /* primary dark — white text 9.1:1 */
+    --green-600: #0b6e68;
+    --teal-700:  #0c7068;   /* white text 5.86:1 */
+    --teal-600:  #0e8a7d;
+    --teal-500:  #14a596;
+    --teal-400:  #2fc6b4;
+    --teal-300:  #6fe7d6;
+
+    /* Premium gold accent (WCAG: as text on white 4.74:1, white on gold 4.88:1) */
+    --gold:        #A16207;
+    --gold-bright: #C8941A;
+    --gold-tint:   rgba(161, 98, 7, 0.12);
+    --accent:      var(--teal-400);
+
+    /* Warm, premium neutrals (off-white instead of cool mint-gray) */
+    --bg:         #FAFAF8;
+    --bg-alt:     #ffffff;
+    --surface:    #ffffff;
+    --surface-2:  #F4F6F2;
+    --text:       #0C1F1D;
+    --text-soft:  #44574F;
+    --text-muted: #5E7068;
+    --border:        rgba(10, 80, 76, 0.12);
+    --border-strong: rgba(10, 80, 76, 0.20);
+
+    /* Refined glass */
+    --glass-bg:     rgba(255, 255, 255, 0.62);
+    --glass-border: rgba(255, 255, 255, 0.7);
+    --glass-blur:   18px;
+
+    /* Softer, deeper premium shadows */
+    --shadow-sm:   0 2px 10px rgba(7, 59, 54, 0.06);
+    --shadow-md:   0 14px 38px rgba(7, 59, 54, 0.10);
+    --shadow-lg:   0 30px 70px rgba(7, 59, 54, 0.16);
+    --shadow-glow: 0 14px 44px rgba(12, 112, 104, 0.28);
+
+    /* Brand gradients (lightest stop = teal-700 → white text stays AA) */
+    --grad-brand:      linear-gradient(135deg, #0a504c 0%, #0c7068 100%);
+    --grad-brand-soft: linear-gradient(140deg, #052a27 0%, #0a504c 55%, #0c7068 100%);
+}
+
+/* ---------------------------------------------------------------------------
+   2) GOLD ACCENTS — small, deliberate premium touches
+   --------------------------------------------------------------------------- */
+/* Section eyebrow tags → gold (4.74:1 on light, AA) */
+html[data-skin="premium"] .section-tag {
+    color: var(--gold);
+    background: var(--gold-tint);
+    box-shadow: inset 0 0 0 1px rgba(161, 98, 7, 0.18);
+}
+/* Stat counters & key numbers get the gold sheen on the dark band */
+html[data-skin="premium"] .stat-number { color: var(--gold-bright); }
+html[data-skin="premium"] .hero-badge-night,
+html[data-skin="premium"] .hero-badge-night svg { color: var(--gold-bright); }
+/* Keep link/nav accents high-contrast (deep petrol, not mid-teal) */
+html[data-skin="premium"] .nav-link:hover,
+html[data-skin="premium"] .nav-link.active { color: var(--green-700); }
+html[data-skin="premium"] .navbar:not(.transparent) .nav-link.active::after { background: var(--gold); }
+
+/* ---------------------------------------------------------------------------
+   3) PREMIUM CTA — petrol gradient + subtle gold ring & glow
+   --------------------------------------------------------------------------- */
+html[data-skin="premium"] .btn-primary {
+    box-shadow: var(--shadow-glow), inset 0 0 0 1px rgba(200, 148, 26, 0.35);
+}
+html[data-skin="premium"] .btn-primary:hover {
+    box-shadow: 0 18px 52px rgba(12, 112, 104, 0.42),
+                0 0 0 1px rgba(200, 148, 26, 0.55);
+}
+/* Mobile sticky call button picks up the gold ring too */
+html[data-skin="premium"] .mobile-cta .mcta-call { box-shadow: inset 0 1px 0 rgba(200, 148, 26, 0.4); }
+
+/* ---------------------------------------------------------------------------
+   4) PREMIUM SURFACES — hairline borders, rounder cards, warm depth
+   --------------------------------------------------------------------------- */
+html[data-skin="premium"] .treatment-card,
+html[data-skin="premium"] .branch-card,
+html[data-skin="premium"] .doctor-card,
+html[data-skin="premium"] .blog-card,
+html[data-skin="premium"] .value-card,
+html[data-skin="premium"] .review-card,
+html[data-skin="premium"] .ba-card,
+html[data-skin="premium"] .contact-form {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+html[data-skin="premium"] .treatment-card:hover,
+html[data-skin="premium"] .branch-card:hover,
+html[data-skin="premium"] .doctor-card:hover,
+html[data-skin="premium"] .blog-card:hover,
+html[data-skin="premium"] .value-card:hover,
+html[data-skin="premium"] .ba-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(161, 98, 7, 0.28);
+}
+/* Soft warm gradient wash on alternating sections for depth */
+html[data-skin="premium"] .section-alt {
+    background: linear-gradient(180deg, #ffffff 0%, var(--surface-2) 100%);
+}
+/* Slightly stronger glass on the floating widget popup */
+html[data-skin="premium"] .wa-popup {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* ---------------------------------------------------------------------------
+   5) PREMIUM MOTION — adds liveliness, never blocks input, zero CLS
+   (transform/opacity only; the global prefers-reduced-motion guard in
+    style.css already neutralises all of this when requested.)
+   --------------------------------------------------------------------------- */
+html[data-skin="premium"] { scroll-behavior: smooth; }
+
+/* Staggered reveal for grid children — gentle cascade, not all-at-once */
+html[data-skin="premium"] .treatments-grid .reveal:nth-child(2),
+html[data-skin="premium"] .branches-grid .reveal:nth-child(2),
+html[data-skin="premium"] .doctors-grid .reveal:nth-child(2),
+html[data-skin="premium"] .ba-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+html[data-skin="premium"] .treatments-grid .reveal:nth-child(3),
+html[data-skin="premium"] .branches-grid .reveal:nth-child(3),
+html[data-skin="premium"] .doctors-grid .reveal:nth-child(3),
+html[data-skin="premium"] .ba-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+html[data-skin="premium"] .treatments-grid .reveal:nth-child(4),
+html[data-skin="premium"] .doctors-grid .reveal:nth-child(4),
+html[data-skin="premium"] .ba-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+/* Section eyebrow gets a tiny gold underline that grows in on reveal */
+html[data-skin="premium"] .section-head .section-title::after {
+    content: "";
+    display: block;
+    width: 54px; height: 3px; margin: 0.9rem auto 0;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+    transform: scaleX(0.3);
+    transform-origin: center;
+    opacity: 0.85;
+    transition: transform 0.6s var(--ease-out);
+}
+html[data-skin="premium"] .reveal.visible .section-title::after,
+html[data-skin="premium"] .section-head.visible .section-title::after { transform: scaleX(1); }
+
+/* Respect reduced-motion explicitly for smooth-scroll (transitions already handled) */
+@media (prefers-reduced-motion: reduce) {
+    html[data-skin="premium"] { scroll-behavior: auto; }
+    html[data-skin="premium"] .section-head .section-title::after { transform: scaleX(1); transition: none; }
+}
