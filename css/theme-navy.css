@@ -256,8 +256,69 @@ html[data-skin="navy"][data-theme="dark"] .nav-link.active { color: var(--accent
    --------------------------------------------------------------------------- */
 html[data-skin="navy"] { scroll-behavior: smooth; }
 html[data-skin="navy"] .reveal { transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+
+/* ===========================================================================
+   STAGE 2 — bespoke sections: announce bar · emergency band · services · eyebrow
+   =========================================================================== */
+html[data-skin="navy"] { --radius-lg: 18px; }
+
+/* --- Announce bar: deep-navy "night" gradient (reinforces gece-açık message,
+       harmonises with the navy top instead of the old orange) --- */
+html[data-skin="navy"] .announce-bar {
+    background: linear-gradient(90deg, #0A1733 0%, #16315F 55%, #1E3A8A 100%);
+    box-shadow: 0 2px 16px rgba(10, 23, 51, 0.35);
+}
+html[data-skin="navy"] .announce-tel { color: var(--accent-soft); text-decoration-color: rgba(147,180,247,0.5); }
+html[data-skin="navy"] .announce-tel:hover { color: #fff; }
+html[data-skin="navy"] .announce-sep { color: var(--accent-soft); opacity: 0.55; }
+
+/* --- Emergency / night band: soft-blue glow + faint clinical dot-grid --- */
+html[data-skin="navy"] .emergency-band::before {
+    background: radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.14), transparent 35%),
+                radial-gradient(circle at 88% 88%, rgba(59, 130, 246, 0.42), transparent 46%);
+}
+html[data-skin="navy"] .emergency-band::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px);
+    background-size: 24px 24px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent);
+}
+html[data-skin="navy"] .emergency-icon {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(147, 180, 247, 0.35);
+}
+
+/* --- Section eyebrow: leading hairline tick (the "hairline system" signature) --- */
+html[data-skin="navy"] .section-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+}
+html[data-skin="navy"] .section-tag::before {
+    content: ""; width: 16px; height: 2px; border-radius: 99px;
+    background: var(--teal-500); opacity: 0.75;
+}
+
+/* --- Services (Hizmetler) cards: cohesive navy image scrim + hover accent rail --- */
+html[data-skin="navy"] .treatment-img::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(10, 23, 51, 0) 45%, rgba(10, 23, 51, 0.42) 100%);
+}
+html[data-skin="navy"] .treatment-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 3;
+    background: linear-gradient(90deg, var(--teal-500), var(--teal-400));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.45s var(--ease-out);
+}
+html[data-skin="navy"] .treatment-card:hover::before { transform: scaleX(1); }
+html[data-skin="navy"] .treatment-more { color: var(--teal-500); font-weight: 600; }
+
+/* --- Brand logo cards / value cards: quiet hairline consistency --- */
+html[data-skin="navy"] .brand-logo-card,
+html[data-skin="navy"] .stat-card { border: 1px solid var(--border); }
+
 @media (prefers-reduced-motion: reduce) {
     html[data-skin="navy"] { scroll-behavior: auto; }
     html[data-skin="navy"] .hero-content::before { width: 64px; animation: none; }
     html[data-skin="navy"] .hero-content .hero-title { animation: none; }
+    html[data-skin="navy"] .treatment-card::before { transition: none; }
 }
