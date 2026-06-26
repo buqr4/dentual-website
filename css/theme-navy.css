@@ -316,6 +316,45 @@ html[data-skin="navy"] .treatment-more { color: var(--teal-500); font-weight: 60
 html[data-skin="navy"] .brand-logo-card,
 html[data-skin="navy"] .stat-card { border: 1px solid var(--border); }
 
+/* ===========================================================================
+   STAGE 3 — before/after slider · patient reviews
+   =========================================================================== */
+
+/* --- Before/After: navy frame, premium handle ring, on-brand labels --- */
+html[data-skin="navy"] .results-section {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+html[data-skin="navy"] .ba-compare { background: #0A1733; }
+html[data-skin="navy"] .ba-label-before { background: rgba(10, 23, 51, 0.66); }
+html[data-skin="navy"] .ba-label-after  { background: rgba(30, 58, 138, 0.92); }
+html[data-skin="navy"] .ba-handle {
+    box-shadow: 0 4px 16px rgba(10, 23, 51, 0.45), 0 0 0 4px rgba(255, 255, 255, 0.45);
+}
+html[data-skin="navy"] .ba-handle::before { border-right-color: var(--teal-600); }
+html[data-skin="navy"] .ba-handle::after  { border-left-color: var(--teal-600); }
+html[data-skin="navy"] .ba-divider { box-shadow: 0 0 14px rgba(10, 23, 51, 0.5); }
+
+/* --- Reviews: editorial quote-mark motif, unified navy avatars, blue tag --- */
+html[data-skin="navy"] .review-card { position: relative; overflow: hidden; }
+html[data-skin="navy"] .review-card::before {
+    content: "\201C";
+    position: absolute; top: 0.35rem; right: 1rem; z-index: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 5.5rem; line-height: 1;
+    color: var(--teal-500); opacity: 0.12; pointer-events: none;
+}
+html[data-skin="navy"] .review-head,
+html[data-skin="navy"] .review-tag,
+html[data-skin="navy"] .review-text,
+html[data-skin="navy"] .review-google { position: relative; z-index: 1; }
+html[data-skin="navy"] .review-avatar {
+    background: linear-gradient(135deg, #1E3A8A, #2563EB) !important;
+}
+html[data-skin="navy"] .review-tag { color: var(--teal-500); background: var(--mint-100); }
+/* Star ratings stay warm/gold — the universal cue, not navy */
+html[data-skin="navy"] .review-stars { color: #F5A524; }
+html[data-skin="navy"] .carousel-btn { color: var(--green-700); }
+
 @media (prefers-reduced-motion: reduce) {
     html[data-skin="navy"] { scroll-behavior: auto; }
     html[data-skin="navy"] .hero-content::before { width: 64px; animation: none; }
