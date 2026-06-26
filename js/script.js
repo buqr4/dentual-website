@@ -111,6 +111,7 @@
             'footer.about': "Konya's trusted oral and dental health clinic. We're here for healthy smiles.",
             'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:00 (Sundays included)', 'footer.copyright': '© 2026 Dentual Konya. All rights reserved.',
             'wa.title': 'Choose a Branch', 'wa.sub': 'How can we help you?',
+            'cta.call': 'Call Now', 'cta.wa': 'WhatsApp',
             'cc.title': 'Cookie Preferences',
             'cc.text': 'We use cookies to improve your experience and measure visits. Analytics cookies (Google Analytics, Microsoft Clarity) run only with your consent.',
             'cc.necessary': 'Necessary cookies — always on', 'cc.analytics': 'Analytics cookies (Google Analytics, Clarity)',

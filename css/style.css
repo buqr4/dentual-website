@@ -916,6 +916,18 @@ html[data-theme="dark"] .blog-article-body h3 { color: var(--teal-300); }
 .scroll-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .scroll-top:hover { transform: translateY(-4px) scale(1.08); }
 
+/* ---------- MOBILE STICKY CTA BAR ---------- */
+.mobile-cta { display: none; }
+.mobile-cta .mcta-btn {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: 54px; font-weight: 700; font-size: 1rem; color: #fff;
+    transition: filter 0.25s var(--ease), transform 0.15s var(--ease-out);
+}
+.mobile-cta .mcta-btn svg { flex-shrink: 0; }
+.mobile-cta .mcta-call { background: var(--grad-brand); }
+.mobile-cta .mcta-wa { background: #25d366; }
+.mobile-cta .mcta-btn:active { transform: scale(0.97); filter: brightness(0.94); }
+
 /* ---------- MODALS ---------- */
 .modal-overlay {
     position: fixed; inset: 0; z-index: 1100; background: rgba(6,48,46,0.6);
@@ -1004,6 +1016,18 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
 @media (max-width: 768px) {
     .carousel-btn { display: none; }
     .review-card { flex: 0 0 85vw; max-width: 85vw; }
+    /* Mobile sticky CTA bar: thumb-zone quick contact */
+    .mobile-cta {
+        display: grid; grid-template-columns: 1fr 1fr;
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 850;
+        background: var(--surface); box-shadow: 0 -6px 24px rgba(6,48,46,0.14);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    /* Bar replaces the floating widget on mobile; lift scroll-top above it */
+    .wa-widget { display: none; }
+    .scroll-top { bottom: calc(54px + env(safe-area-inset-bottom, 0px) + 0.9rem); left: 1.2rem; }
+    /* Reserve space so fixed bar never hides footer content */
+    body { padding-bottom: calc(54px + env(safe-area-inset-bottom, 0px)); }
 }
 
 @media (max-width: 560px) {
@@ -1013,8 +1037,8 @@ html[data-theme="dark"] .tm-subtitle { color: var(--teal-300); }
     .hero-content { padding-top: calc(var(--nav-h) + var(--ann-h) + 1rem); }
     .scroll-down { display: none; }
     .contact-form { padding: 1.5rem; }
-    .wa-widget { bottom: 1.2rem; right: 1.2rem; }
-    .scroll-top { bottom: 1.2rem; left: 1.2rem; }
+    /* .wa-widget hidden on mobile (≤768) — sticky CTA bar handles WhatsApp.
+       scroll-top stays lifted above the bar (set in the ≤768 query). */
 }
 
 @media (prefers-reduced-motion: reduce) {
