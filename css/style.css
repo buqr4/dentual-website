@@ -154,6 +154,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; font-weight: 
 .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 50px rgba(20, 184, 166, 0.45); }
 .btn-primary:hover::after { opacity: 1; }
 .btn-primary > * { position: relative; z-index: 2; }
+/* Press feedback: subtle push-down on tap/click (all buttons) */
+.btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.08s; }
 .btn-ghost {
     background: rgba(255, 255, 255, 0.12); color: #fff;
     border: 1.5px solid rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px);
@@ -765,8 +767,14 @@ html[data-theme="dark"] .contact-list a[href^="tel:"] { color: var(--teal-300); 
 }
 .form-group textarea { resize: vertical; }
 .form-status { margin-top: 0.9rem; font-size: 0.9rem; font-weight: 600; min-height: 1.2em; }
-.form-status.success { color: var(--teal-500); }
-.form-status.error { color: #c0392b; }
+.form-status.success, .form-status.error {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.5rem 0.9rem; border-radius: var(--radius-pill);
+    animation: statusPop 0.35s var(--ease-out) both;
+}
+.form-status.success { color: var(--teal-700); background: rgba(15, 118, 110, 0.10); }
+.form-status.error { color: #c0392b; background: rgba(192, 57, 43, 0.10); }
+@keyframes statusPop { from { opacity: 0; transform: translateY(8px) scale(0.96); } to { opacity: 1; transform: none; } }
 
 /* ---------- PAGE HERO (sub pages) ---------- */
 .page-hero {
