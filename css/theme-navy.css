@@ -392,9 +392,42 @@ html[data-skin="navy"] .faq-icon { background: var(--mint-100); color: var(--tea
 html[data-skin="navy"][data-theme="dark"] .faq-q:hover,
 html[data-skin="navy"][data-theme="dark"] .faq-item.open .faq-q { color: var(--accent-soft); }
 
+/* ===========================================================================
+   STAGE 5 — blog · contact form · footer (final)
+   =========================================================================== */
+
+/* --- Contact form: soft-blue focus ring, clearer labels --- */
+html[data-skin="navy"] .form-group label { color: var(--text); }
+html[data-skin="navy"] .form-group input:focus,
+html[data-skin="navy"] .form-group textarea:focus,
+html[data-skin="navy"] .form-group select:focus {
+    border-color: var(--teal-500);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* --- Blog cards: hover accent rail (consistent with services) --- */
+html[data-skin="navy"] .blog-card { position: relative; }
+html[data-skin="navy"] .blog-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 3;
+    background: linear-gradient(90deg, var(--teal-500), var(--teal-400));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.45s var(--ease-out);
+}
+html[data-skin="navy"] .blog-card:hover::before { transform: scaleX(1); }
+
+/* --- Footer: soft-blue brand bar on top, refined icon/link accents --- */
+html[data-skin="navy"] .footer { position: relative; }
+html[data-skin="navy"] .footer::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal-600), var(--teal-500), transparent);
+}
+html[data-skin="navy"] .footer-col p svg { color: var(--accent-soft); }
+html[data-skin="navy"] .footer-col a:hover { color: var(--accent-soft); }
+
 @media (prefers-reduced-motion: reduce) {
     html[data-skin="navy"] { scroll-behavior: auto; }
     html[data-skin="navy"] .hero-content::before { width: 64px; animation: none; }
     html[data-skin="navy"] .hero-content .hero-title { animation: none; }
-    html[data-skin="navy"] .treatment-card::before { transition: none; }
+    html[data-skin="navy"] .treatment-card::before,
+    html[data-skin="navy"] .blog-card::before { transition: none; }
 }
