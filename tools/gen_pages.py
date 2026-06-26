@@ -443,6 +443,7 @@ def call_card(b, note=""):
 
 WA_SVG = ('<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.3C2.6 8.6 8.6 2.6 16 2.6c3.6 0 6.9 1.4 9.5 3.9 2.5 2.5 3.9 5.9 3.9 9.5 0 7.4-6 13.4-13.4 13.4zm7.4-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.3-2-1.2-1.1-2-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.2s1.4 3.7 1.5 3.9c.2.2 2.7 4.2 6.6 5.9.9.4 1.6.6 2.2.8.9.3 1.7.2 2.4.1.7-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>')
 WA_TEXT = "?text=Merhaba%2C%20acil%20di%C5%9F%20tedavisi%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+WA_TEXT_GENERAL = "?text=Merhaba%2C%20randevu%20almak%20istiyorum."
 
 def wa_card(b):
     # Per-branch WhatsApp button — routes only to this branch's number.
@@ -569,12 +570,12 @@ for b in BRANCHES:
         '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>%s</p>'
         '<p class="branch-phone"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:%s">%s</a></p>'
         '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pazar dahil her gün 09:00 – 23:00</p>'
-        '<a href="https://wa.me/%s" class="branch-link" target="_blank" rel="noopener">WhatsApp ile İletişim &rarr;</a></div></div>'
+        '<a href="https://wa.me/%s%s" class="branch-link" target="_blank" rel="noopener">WhatsApp ile İletişim &rarr;</a></div></div>'
         '<div class="container container-narrow" style="margin-top:2.4rem">'
         '<p>%s şubemiz, Dentual güvencesiyle ağız ve diş sağlığınız için hizmetinizdedir. İmplant, gülüş estetiği, ortodonti, kanal tedavisi ve çocuk diş hekimliği dahil tüm tedavilerimiz bu şubemizde sunulur. %s</p>'
         '<p>Gece bastıran acil durumlar için <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> sayfamıza bakabilirsiniz.</p>'
         '</div></div></div>'
-        % (b["map"], b["name"], b["name"], b["addr"], b["telraw"], b["tel"], b["telraw"].replace("+", ""), b["name"],
+        % (b["map"], b["name"], b["name"], b["addr"], b["telraw"], b["tel"], b["telraw"].replace("+", ""), WA_TEXT_GENERAL, b["name"],
            ("Selçuklu ve çevresinde gece geç saatte diş hekimi arayanlar için nöbet hizmeti veririz." if b["slug"] == "selcuklu" else "Pazar dahil her gün geç saatlere kadar açığız."))
     ) + bf_html + '<div class="section"><div class="container">' + cta() + '</div></div>'
     dentist_node = {
