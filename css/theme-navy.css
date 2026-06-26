@@ -1,0 +1,263 @@
+/* ============================================================================
+   DENTUAL — NAVY REDESIGN  ("Clinical Precision")
+   ----------------------------------------------------------------------------
+   Full visual redesign delivered as a modular, reversible theme layer, scoped
+   entirely under  html[data-skin="navy"].  Nothing in style.css is removed;
+   this layer overrides design tokens + restyles components so the structure,
+   content, SEO, JS behaviour and responsive breakpoints stay 100% intact.
+
+   Design language: deep navy + white + cool grays + one soft-blue accent.
+   References: Apple / Stripe / Linear / Vercel restraint, healthcare trust.
+
+   ROLLBACK: change data-skin="navy" back to "premium" (or remove it) in
+   index.html + tools/gen_pages.py, re-run the generator. Done.
+
+   STAGE 1 of the staged redesign: design system (tokens + type) + hero +
+   global component baseline. Per-section bespoke layouts follow in later stages.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1) DESIGN TOKENS — light  (remap the brand vars the components already use)
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] {
+    /* Navy scale (greens remapped → navy; white-text combos all pass WCAG AA) */
+    --green-900: #0A1733;
+    --green-800: #0E2148;
+    --green-700: #16315F;   /* dark headings / dark button bg — white 8.6:1 */
+    --green-600: #1E3A8A;   /* CTA base — white 10.2:1 */
+
+    /* Soft-blue accent scale (teals remapped → blue) */
+    --teal-700:  #1E3A8A;   /* on-blue surfaces with white text */
+    --teal-600:  #1D4ED8;   /* CTA hover / strong link */
+    --teal-500:  #2563EB;   /* accent: links, icons, eyebrow text */
+    --teal-400:  #3B82F6;
+    --teal-300:  #93B4F7;   /* light accent (dark-surface text) */
+    --mint-100:  #EEF3FB;   /* soft-blue tint */
+    --accent:    #2563EB;
+
+    /* Neutrals — white + cool grays */
+    --bg:         #FFFFFF;
+    --bg-alt:     #F6F8FB;
+    --surface:    #FFFFFF;
+    --surface-2:  #F1F5FB;
+    --text:       #0E1B33;
+    --text-soft:  #475569;
+    --text-muted: #64748B;
+    --border:        rgba(15, 31, 58, 0.10);
+    --border-strong: rgba(15, 31, 58, 0.16);
+
+    /* Glass */
+    --glass-bg:     rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-blur:   18px;
+
+    /* Soft, layered, navy-tinted shadows (corporate restraint) */
+    --shadow-sm:   0 1px 2px rgba(10, 23, 51, 0.05), 0 2px 8px rgba(10, 23, 51, 0.05);
+    --shadow-md:   0 12px 32px rgba(10, 23, 51, 0.08);
+    --shadow-lg:   0 28px 64px rgba(10, 23, 51, 0.14);
+    --shadow-glow: 0 14px 40px rgba(30, 58, 138, 0.26);
+
+    /* Brand gradients (lightest stop = #1E3A8A → white text AA) */
+    --grad-brand:      linear-gradient(135deg, #16315F 0%, #1E3A8A 100%);
+    --grad-brand-soft: linear-gradient(150deg, #0A1733 0%, #16315F 55%, #1E3A8A 100%);
+
+    /* Tighter, corporate radii + display/body type */
+    --radius-sm: 10px;
+    --radius:    14px;
+    --font-head: 'Lexend', 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', 'Poppins', sans-serif;
+
+    /* Signature accent for the hero hairline + eyebrows */
+    --accent-soft: #93B4F7;
+}
+
+/* ---------------------------------------------------------------------------
+   1b) DESIGN TOKENS — dark  (higher specificity than html[data-theme="dark"])
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"][data-theme="dark"] {
+    --green-900: #050B18;
+    --green-800: #0A1429;
+    --green-700: #16315F;
+    --green-600: #1E3A8A;
+    --teal-700:  #1E3A8A;
+    --teal-600:  #3B6FE0;
+    --teal-500:  #5B8DEF;
+    --teal-400:  #7AA5F4;
+    --teal-300:  #A9C3F9;
+    --mint-100:  rgba(91, 141, 239, 0.14);
+    --accent:    #5B8DEF;
+
+    --bg:         #060D1C;
+    --bg-alt:     #0A1429;
+    --surface:    #0E1A33;
+    --surface-2:  #122042;
+    --text:       #E8EEF8;
+    --text-soft:  #AEBBD0;
+    --text-muted: #7E8CA8;
+    --border:        rgba(147, 180, 247, 0.12);
+    --border-strong: rgba(147, 180, 247, 0.22);
+
+    --glass-bg:     rgba(14, 26, 51, 0.6);
+    --glass-border: rgba(147, 180, 247, 0.18);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.32);
+    --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.42);
+    --shadow-lg: 0 28px 64px rgba(0, 0, 0, 0.55);
+    --shadow-glow: 0 14px 40px rgba(91, 141, 239, 0.30);
+
+    --accent-soft: #A9C3F9;
+}
+
+/* ---------------------------------------------------------------------------
+   2) TYPOGRAPHY — Lexend display, Inter body, tighter display tracking
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] body { font-family: var(--font-body); letter-spacing: -0.006em; }
+html[data-skin="navy"] h1,
+html[data-skin="navy"] h2,
+html[data-skin="navy"] h3,
+html[data-skin="navy"] h4 { font-family: var(--font-head); letter-spacing: -0.022em; font-weight: 600; }
+html[data-skin="navy"] .section-title { font-weight: 600; letter-spacing: -0.028em; }
+html[data-skin="navy"] .section-desc { color: var(--text-soft); }
+
+/* Eyebrow label — soft blue, tracked, with a short leading tick (signature) */
+html[data-skin="navy"] .section-tag {
+    color: var(--teal-500);
+    background: var(--mint-100);
+    box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.16);
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------
+   3) BUTTON SYSTEM — solid navy primary, quiet outline secondary
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] .btn { font-weight: 600; letter-spacing: -0.01em; }
+html[data-skin="navy"] .btn-primary {
+    background: var(--grad-brand);
+    box-shadow: var(--shadow-glow);
+}
+html[data-skin="navy"] .btn-primary::after {
+    background: linear-gradient(135deg, #1E3A8A, #1D4ED8);
+}
+html[data-skin="navy"] .btn-primary:hover {
+    box-shadow: 0 18px 50px rgba(30, 58, 138, 0.40);
+}
+/* Hero ghost button → crisp glass outline */
+html[data-skin="navy"] .btn-ghost {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+}
+html[data-skin="navy"] .btn-ghost:hover { background: rgba(255, 255, 255, 0.18); }
+/* Mobile sticky call button adopts the navy gradient */
+html[data-skin="navy"] .mobile-cta .mcta-call { background: var(--grad-brand); }
+
+/* ---------------------------------------------------------------------------
+   4) HERO — navy authority + clinical dot-grid + load sequence
+   --------------------------------------------------------------------------- */
+/* Navy legibility wash over the clinic photo (top lighter → deep navy bottom) */
+html[data-skin="navy"] .hero-overlay {
+    background:
+        linear-gradient(180deg, rgba(8, 17, 38, 0.42) 0%, rgba(8, 17, 38, 0.72) 60%, rgba(8, 17, 38, 0.90) 100%),
+        linear-gradient(105deg, rgba(10, 23, 51, 0.72) 0%, rgba(10, 23, 51, 0.10) 70%);
+}
+/* Signature: faint clinical dot-grid floating above the wash, below content */
+html[data-skin="navy"] .hero-overlay::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1.4px);
+    background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+/* Eyebrow accent hairline that grows in on load (signature motion) */
+html[data-skin="navy"] .hero-content::before {
+    content: "";
+    display: block;
+    width: 0; height: 2px; margin-bottom: 1.4rem;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--accent-soft), rgba(147, 180, 247, 0));
+    animation: navyLine 0.9s var(--ease-out) 0.15s both;
+}
+html[data-skin="navy"] .hero-badge {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    color: #fff; font-weight: 500;
+}
+html[data-skin="navy"] .hero-badge-night { color: var(--accent-soft); }
+html[data-skin="navy"] .hero-badge-night svg { color: var(--accent-soft); }
+html[data-skin="navy"] .hero-title-lead { font-weight: 600; letter-spacing: -0.03em; }
+html[data-skin="navy"] .typewriter {
+    background: linear-gradient(110deg, #fff 25%, var(--accent-soft));
+    -webkit-background-clip: text; background-clip: text;
+}
+html[data-skin="navy"] .cursor { -webkit-text-fill-color: var(--accent-soft); color: var(--accent-soft); }
+html[data-skin="navy"] .hero-subtitle { color: rgba(232, 238, 248, 0.92); }
+
+/* Hero load sequence — staggered rise (reveal children + title) */
+html[data-skin="navy"] .hero-content .hero-title { animation: navyRise 0.8s var(--ease-out) 0.30s both; }
+html[data-skin="navy"] .hero-content .hero-badges.reveal  { transition-delay: 0.10s; }
+html[data-skin="navy"] .hero-content .hero-subtitle.reveal { transition-delay: 0.45s; }
+html[data-skin="navy"] .hero-content .hero-cta.reveal      { transition-delay: 0.60s; }
+
+@keyframes navyLine { from { width: 0; } to { width: 64px; } }
+@keyframes navyRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ---------------------------------------------------------------------------
+   5) SURFACES — hairline cards, soft depth, cohesive navy world
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] .treatment-card,
+html[data-skin="navy"] .branch-card,
+html[data-skin="navy"] .doctor-card,
+html[data-skin="navy"] .blog-card,
+html[data-skin="navy"] .value-card,
+html[data-skin="navy"] .review-card,
+html[data-skin="navy"] .ba-card,
+html[data-skin="navy"] .contact-form {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+html[data-skin="navy"] .treatment-card:hover,
+html[data-skin="navy"] .branch-card:hover,
+html[data-skin="navy"] .doctor-card:hover,
+html[data-skin="navy"] .blog-card:hover,
+html[data-skin="navy"] .value-card:hover,
+html[data-skin="navy"] .ba-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(37, 99, 235, 0.28);
+}
+/* Section rhythm: alternating sections get hairline-bounded cool wash */
+html[data-skin="navy"] .section-alt {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Headings that were teal in dark mode → soft blue */
+html[data-skin="navy"][data-theme="dark"] .branch-body h3,
+html[data-skin="navy"][data-theme="dark"] .value-card h3,
+html[data-skin="navy"][data-theme="dark"] .treatment-body h3,
+html[data-skin="navy"][data-theme="dark"] .doctor-name,
+html[data-skin="navy"][data-theme="dark"] .ba-caption { color: var(--accent-soft); }
+
+/* ---------------------------------------------------------------------------
+   6) NAV — quiet, precise; active/hover in soft blue
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] .nav-link:hover,
+html[data-skin="navy"] .nav-link.active { color: var(--teal-600); }
+html[data-skin="navy"] .navbar:not(.transparent) .nav-link.active::after { background: var(--teal-500); }
+html[data-skin="navy"][data-theme="dark"] .nav-link:hover,
+html[data-skin="navy"][data-theme="dark"] .nav-link.active { color: var(--accent-soft); }
+
+/* ---------------------------------------------------------------------------
+   7) MOTION — refined easing + restrained hover lift (reduced-motion honoured
+   by the global guard in style.css)
+   --------------------------------------------------------------------------- */
+html[data-skin="navy"] { scroll-behavior: smooth; }
+html[data-skin="navy"] .reveal { transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) {
+    html[data-skin="navy"] { scroll-behavior: auto; }
+    html[data-skin="navy"] .hero-content::before { width: 64px; animation: none; }
+    html[data-skin="navy"] .hero-content .hero-title { animation: none; }
+}

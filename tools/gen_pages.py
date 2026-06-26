@@ -58,14 +58,14 @@ def _asset_ver(*rel_paths):
             pass
     return h.hexdigest()[:8]
 
-ASSET_VER = _asset_ver("css/style.css", "css/theme-premium.css", "js/script.js", "js/analytics.js")
+ASSET_VER = _asset_ver("css/style.css", "css/theme-navy.css", "js/script.js", "js/analytics.js")
 
 def _stamp(html):
     """Strip any existing ?v=… then re-append the current fingerprint to the
     shared css/js references. Idempotent (safe to run repeatedly)."""
     html = re.sub(r'(/(?:css/style\.css|js/script\.js|js/analytics\.js))\?v=[0-9a-f]+',
                   r'\1', html)
-    for ref in ("/css/style.css", "/css/theme-premium.css", "/js/script.js", "/js/analytics.js"):
+    for ref in ("/css/style.css", "/css/theme-navy.css", "/js/script.js", "/js/analytics.js"):
         html = html.replace(ref + '"', ref + '?v=' + ASSET_VER + '"')
     return html
 
@@ -123,9 +123,9 @@ HEAD_TMPL = """<head>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/theme-premium.css" />
+    <link rel="stylesheet" href="/css/theme-navy.css" />
     <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
     <!-- Structured Data -->
@@ -210,7 +210,7 @@ def page(route, page_id, title_tr, desc_tr, h1, content, schema_graph,
     if active_href:
         top = top.replace('href="%s" class="nav-link"' % active_href,
                           'href="%s" class="nav-link active"' % active_href, 1)
-    html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"premium\">\n" + head + "\n<body " + body_attrs +
+    html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"navy\">\n" + head + "\n<body " + body_attrs +
             ">\n\n    <a class=\"skip-link\" href=\"#main\">İçeriğe geç</a>\n\n    " + top +
             '<main id="main" tabindex="-1">\n' + content + "\n    " + CHROME_BOTTOM)
     out_dir = os.path.join(ROOT, route.strip("/").replace("/", os.sep))
@@ -812,7 +812,7 @@ nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Dentual Konya"
            'data-title-en="Page Not Found – Dentual Konya" '
            'data-desc-tr="Aradığınız sayfa bulunamadı." data-desc-en="Page not found."')
 nf_top = CHROME_TOP.replace('class="nav-link active"', 'class="nav-link"')
-nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"premium\">\n" + nf_head + "\n<body " + nf_body +
+nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"navy\">\n" + nf_head + "\n<body " + nf_body +
            ">\n\n    " + nf_top + '<main id="main">\n' + nf_content + "\n    " + CHROME_BOTTOM)
 with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as fh:
     fh.write(_stamp(nf_html))
