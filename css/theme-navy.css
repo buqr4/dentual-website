@@ -355,6 +355,43 @@ html[data-skin="navy"] .review-tag { color: var(--teal-500); background: var(--m
 html[data-skin="navy"] .review-stars { color: #F5A524; }
 html[data-skin="navy"] .carousel-btn { color: var(--green-700); }
 
+/* ===========================================================================
+   STAGE 4 — branches (map facade) · FAQ accordion
+   =========================================================================== */
+
+/* --- Branches: soft-blue map facade, navy pin, hairline grid --- */
+html[data-skin="navy"] .map-facade {
+    background:
+        radial-gradient(circle at 30% 28%, rgba(37, 99, 235, 0.16), transparent 46%),
+        linear-gradient(135deg, var(--surface-2), #E6EEFB);
+    background-color: var(--surface-2);
+}
+html[data-skin="navy"] .map-facade::before {
+    background-image:
+        linear-gradient(rgba(15, 31, 58, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 31, 58, 0.06) 1px, transparent 1px);
+}
+html[data-skin="navy"][data-theme="dark"] .map-facade {
+    background: linear-gradient(135deg, #0C1B38, #122042);
+}
+html[data-skin="navy"][data-theme="dark"] .map-facade::before {
+    background-image:
+        linear-gradient(rgba(147, 180, 247, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147, 180, 247, 0.07) 1px, transparent 1px);
+}
+html[data-skin="navy"] .branch-link { color: var(--teal-600); }
+
+/* --- FAQ accordion: open item gets a soft-blue rail; hover question → blue --- */
+html[data-skin="navy"] .faq-item.open {
+    border-color: rgba(37, 99, 235, 0.30);
+    box-shadow: inset 3px 0 0 var(--teal-500), var(--shadow-md);
+}
+html[data-skin="navy"] .faq-q:hover,
+html[data-skin="navy"] .faq-item.open .faq-q { color: var(--teal-700); }
+html[data-skin="navy"] .faq-icon { background: var(--mint-100); color: var(--teal-600); }
+html[data-skin="navy"][data-theme="dark"] .faq-q:hover,
+html[data-skin="navy"][data-theme="dark"] .faq-item.open .faq-q { color: var(--accent-soft); }
+
 @media (prefers-reduced-motion: reduce) {
     html[data-skin="navy"] { scroll-behavior: auto; }
     html[data-skin="navy"] .hero-content::before { width: 64px; animation: none; }
