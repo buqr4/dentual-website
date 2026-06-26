@@ -64,6 +64,40 @@ html[data-skin="premium"] {
 }
 
 /* ---------------------------------------------------------------------------
+   1b) DARK MODE under the premium skin.
+   Higher specificity than html[data-theme="dark"] (0,2,1 vs 0,1,1) so it wins
+   when BOTH attributes are present. Keeps the well-tuned dark palette working
+   and layers the premium gold + petrol gradients on top. Remove data-skin to
+   fall back to the original dark theme.
+   --------------------------------------------------------------------------- */
+html[data-skin="premium"][data-theme="dark"] {
+    --bg:         #06181a;
+    --bg-alt:     #0b2122;
+    --surface:    #0e2627;
+    --surface-2:  #102b2c;
+    --text:       #e7f5f3;
+    --text-soft:  #a9c4c1;
+    --text-muted: #7a9794;
+    --border:        rgba(110, 231, 214, 0.12);
+    --border-strong: rgba(110, 231, 214, 0.22);
+
+    --glass-bg:     rgba(14, 38, 39, 0.58);
+    --glass-border: rgba(110, 231, 214, 0.18);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.30);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.40);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+    /* Brighter gold so accents stay AA on dark surfaces (6.2:1 on --bg) */
+    --gold:        #C8941A;
+    --gold-bright: #E0B04A;
+    --gold-tint:   rgba(200, 148, 26, 0.16);
+}
+/* Dark navbar: keep link accents light (the light-skin override uses deep green) */
+html[data-skin="premium"][data-theme="dark"] .nav-link:hover,
+html[data-skin="premium"][data-theme="dark"] .nav-link.active { color: var(--teal-300); }
+
+/* ---------------------------------------------------------------------------
    2) GOLD ACCENTS — small, deliberate premium touches
    --------------------------------------------------------------------------- */
 /* Section eyebrow tags → gold (4.74:1 on light, AA) */
@@ -118,9 +152,9 @@ html[data-skin="premium"] .ba-card:hover {
     box-shadow: var(--shadow-lg);
     border-color: rgba(161, 98, 7, 0.28);
 }
-/* Soft warm gradient wash on alternating sections for depth */
+/* Soft warm gradient wash on alternating sections for depth (theme-aware) */
 html[data-skin="premium"] .section-alt {
-    background: linear-gradient(180deg, #ffffff 0%, var(--surface-2) 100%);
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--surface-2) 100%);
 }
 /* Slightly stronger glass on the floating widget popup */
 html[data-skin="premium"] .wa-popup {
