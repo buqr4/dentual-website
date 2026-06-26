@@ -153,7 +153,6 @@
         { before: 'assets/results/case3-before.webp', after: 'assets/results/case3-after.webp', treatment: 'Ortodonti', treatmentEn: 'Orthodontics' },
         { before: 'assets/results/case4-before.webp', after: 'assets/results/case4-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
         { before: 'assets/results/case5-before.webp', after: 'assets/results/case5-after.webp', treatment: 'Zirkonyum Kaplama', treatmentEn: 'Zirconium Crowns' },
-        { before: 'assets/results/case6-before.webp', after: 'assets/results/case6-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' },
         { before: 'assets/results/case7-before.webp', after: 'assets/results/case7-after.webp', treatment: 'Gülüş Tasarımı', treatmentEn: 'Smile Design' }
     ];
 
