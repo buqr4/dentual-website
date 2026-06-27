@@ -604,6 +604,133 @@ for b in BRANCHES:
 
 # ============================================================ BLOG
 BLOG = [
+    {"slug": "konya-gece-acik-dis-klinigi-nasil-bulunur", "cat": "Gece & Acil",
+     "title": "Konya'da Gece Açık Diş Kliniği Nasıl Bulunur?",
+     "kw": "Konya gece açık diş kliniği",
+     "excerpt": "Gece bastıran diş ağrısında Konya'da açık klinik aramak zaman kaybettirir. Doğru kliniği hızlıca bulmanın yolları ve dikkat etmeniz gerekenler.",
+     "date": "2026-06-26", "read": 5, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Diş ağrısı çoğunlukla mesai saatleri dışında, akşam ve gece bastırır. Bu saatlerde Konya'da açık bir diş kliniği bulmak hem zor hem de stresli olabilir. Doğru yeri hızlı bulmak, ağrının uzamasını ve durumun ciddileşmesini önler.</p>
+<h2>Gece Açık Klinik Ararken Nelere Dikkat Etmeli?</h2>
+<ul>
+<li><strong>Çalışma saatlerini doğrulayın:</strong> "Gece açık" ifadesi her klinikte aynı saati ifade etmez. Kliniğin kaça kadar açık olduğunu telefonla teyit edin.</li>
+<li><strong>Hafta sonu durumunu sorun:</strong> Pazar günü açık olup olmadığı acil durumlarda kritiktir.</li>
+<li><strong>Konum ve şube sayısı:</strong> Size en yakın şube, geç saatte ulaşımı kolaylaştırır.</li>
+<li><strong>Acil müdahale kapasitesi:</strong> Kanal, çekim, apse drenajı gibi işlemlerin yapılabildiğini öğrenin.</li>
+</ul>
+<h2>Dentual: Pazar Dahil Her Gün 23:00'a Kadar</h2>
+<p>Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün gece 23:00'a kadar</strong> hizmet veriyoruz. Geç saatte bastıran ağrılarda <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Ağrı dayanılmazsa beklemeyin; önce <a href="/blog/gece-dis-agrisi-ne-yapmali/">gece diş ağrısı bastığında ne yapmalı</a> yazımızdaki pratik önerilere göz atın, ardından bizi arayın. Çağrı merkezi: 444 34 42.</p>"""},
+    {"slug": "acil-dis-tedavisi-gerektiren-durumlar", "cat": "Gece & Acil",
+     "title": "Acil Diş Tedavisi Gerektiren 7 Durum",
+     "kw": "acil diş tedavisi Konya",
+     "excerpt": "Her diş problemi acil değildir; ancak bazı durumlar saatler içinde müdahale ister. Vakit kaybetmeden hekime başvurmanız gereken 7 belirti.",
+     "date": "2026-06-22", "read": 5, "img": "cerrahi.jpg",
+     "body": """<p>Bazı diş sorunları birkaç gün bekleyebilirken, bazıları saatler içinde müdahale gerektirir. Aşağıdaki durumlardan biriyle karşılaşıyorsanız vakit kaybetmeden bir diş hekimine başvurmalısınız.</p>
+<h2>Hemen Hekime Gitmeniz Gereken Durumlar</h2>
+<ul>
+<li><strong>Şiddetli, geçmeyen diş ağrısı:</strong> Ağrı kesiciye yanıt vermeyen ağrı, iltihabın ilerlediğine işaret olabilir.</li>
+<li><strong>Yüzde veya yanakta şişlik:</strong> Apse belirtisi olabilir; ciddiye alınmalıdır.</li>
+<li><strong>Diş kırılması veya yerinden çıkması:</strong> İlk saatler tedavi başarısı için kritiktir.</li>
+<li><strong>Durmayan diş eti veya soket kanaması:</strong> Özellikle çekim sonrası uzun süren kanama.</li>
+<li><strong>Dolgu veya kaplamanın düşmesi:</strong> Açıkta kalan diş hızla hassaslaşır ve enfekte olabilir.</li>
+<li><strong>Çenede kilitlenme veya açma-kapama güçlüğü:</strong> Eklem veya enfeksiyon kaynaklı olabilir.</li>
+<li><strong>Ateşle birlikte diş ağrısı:</strong> Yayılan enfeksiyon işareti olabilir.</li>
+</ul>
+<h2>Geciktirmek Neden Riskli?</h2>
+<p>Diş enfeksiyonları kendiliğinden geçmez; tedavi edilmediğinde komşu dokulara ve hatta çene kemiğine yayılabilir. Bu durumlarda <a href="/gece-acik-dis-klinigi-konya/">gece açık diş kliniği</a> hizmetimizden yararlanabilirsiniz. Diş kırığında ne yapmanız gerektiğini <a href="/blog/dis-kirildiginda-ilk-bir-saat/">diş kırıldığında ilk 1 saat</a> yazımızda anlattık. Acil durumda <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+    {"slug": "nobetci-dis-hekimi-ne-zaman-aranmali", "cat": "Gece & Acil",
+     "title": "Nöbetçi Diş Hekimi Ne Zaman Aranmalı?",
+     "kw": "nöbetçi diş hekimi Konya",
+     "excerpt": "Nöbetçi diş hekimi her durumda gerekli midir? Hangi şikâyetlerde geceyi beklemeden aramalı, hangilerinde sabahı bekleyebilirsiniz?",
+     "date": "2026-06-18", "read": 4, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Diş sorunları gece de gündüz de ortaya çıkabilir. Peki hangi durumlarda nöbetçi/gece açık bir diş hekimini aramak gerekir, hangilerinde ertesi günü beklemek güvenlidir?</p>
+<h2>Geceyi Beklemeden Aramanız Gereken Durumlar</h2>
+<ul>
+<li>Uyku düzeninizi bozan, dinmeyen şiddetli ağrı</li>
+<li>Hızla büyüyen şişlik veya apse</li>
+<li>Travma sonrası kırılan ya da yerinden oynayan diş</li>
+<li>Durmayan kanama</li>
+</ul>
+<h2>Sabahı Bekleyebilecek Durumlar</h2>
+<p>Hafif hassasiyet, küçük bir çatlak, takılıp kalan yemek artığı gibi sorunlar genellikle ertesi gün planlı muayene ile çözülebilir. Yine de emin değilseniz aramaktan çekinmeyin; doğru yönlendirmeyi telefonda alabilirsiniz.</p>
+<p>Dentual'da <strong>pazar dahil her gün 23:00'a kadar</strong> hizmet veriyoruz. Şüpheniz olduğunda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hattımızı arayın; durumunuz acil değilse de size en uygun randevu saatini ayarlayalım. <a href="/iletisim/">İletişim bilgilerimize buradan</a> ulaşabilirsiniz.</p>"""},
+    {"slug": "pazar-acik-dis-hekimi-konya", "cat": "Gece & Acil",
+     "title": "Hafta Sonu ve Pazar Açık Diş Hekimi (Konya)",
+     "kw": "pazar açık diş hekimi Konya",
+     "excerpt": "Hafta sonu bastıran diş ağrısı için Konya'da pazar günü açık diş hekimi arıyorsanız, bilmeniz gereken her şey bu yazıda.",
+     "date": "2026-06-14", "read": 4, "img": "implant.jpg",
+     "body": """<p>Diş ağrısı hafta sonu tanımaz. Birçok klinik cumartesi öğleden sonra ve pazar günü kapalıdır; bu da hafta sonu bastıran ağrılarda hasta için zor saatler demektir.</p>
+<h2>Hafta Sonu Diş Hekimi Neden Önemli?</h2>
+<p>Cuma akşamı başlayan bir ağrı, pazartesiye kadar beklediğinde küçük bir çürük büyük bir enfeksiyona dönüşebilir. Erken müdahale hem ağrıyı kısaltır hem de daha kapsamlı (ve maliyetli) tedavilerin önüne geçer.</p>
+<h2>Dentual'da Hafta Sonu</h2>
+<ul>
+<li>Cumartesi ve <strong>pazar dahil</strong> her gün açığız.</li>
+<li>Çalışma saatimiz gece <strong>23:00</strong>'a kadar uzar.</li>
+<li>Karatay, Selçuklu ve Meram şubelerimizle şehrin farklı noktalarından kolay ulaşım.</li>
+</ul>
+<p>Hafta sonu acil bir durumda <a href="/gece-acik-dis-klinigi-konya/">gece açık diş kliniği</a> sayfamızı inceleyebilir, size en yakın <a href="/subeler/selcuklu/">şubemize</a> ulaşabilirsiniz. Detaylı bilgi için <a href="/iletisim/">bizi arayın</a>: 444 34 42.</p>"""},
+    {"slug": "dis-kirildiginda-ilk-bir-saat", "cat": "Gece & Acil",
+     "title": "Diş Kırıldığında İlk 1 Saatte Yapılması Gerekenler",
+     "kw": "kırık diş acil ne yapmalı",
+     "excerpt": "Düşme veya darbe sonrası kırılan dişte ilk bir saat, dişin kurtarılması için en kritik zamandır. Adım adım ne yapmanız gerektiği burada.",
+     "date": "2026-06-10", "read": 5, "img": "cerrahi.jpg",
+     "body": """<p>Spor, düşme veya sert bir gıda; diş kırıkları beklenmedik anda olur. İyi haber şu: hızlı ve doğru davranırsanız kırılan ya da yerinden çıkan dişin kurtulma şansı yüksektir. İlk bir saat belirleyicidir.</p>
+<h2>Diş Tamamen Yerinden Çıktıysa</h2>
+<ul>
+<li>Dişi <strong>kron (taç) kısmından</strong> tutun, köküne dokunmayın.</li>
+<li>Kirliyse sadece süt veya tuzlu su ile nazikçe durulayın, ovalamayın.</li>
+<li>Mümkünse dişi <strong>yerine yerleştirmeyi</strong> deneyin; olmuyorsa süt içinde veya yanağınızın iç kısmında saklayın.</li>
+<li>En geç 1 saat içinde diş hekimine ulaşın.</li>
+</ul>
+<h2>Diş Sadece Kırıldıysa</h2>
+<p>Kırılan parçayı saklayın, bölgeyi ılık suyla durulayın, şişlik için yanağa dışarıdan soğuk uygulayın. Keskin kenar dilinizi rahatsız ediyorsa eczane mumu ile geçici olarak kapatabilirsiniz.</p>
+<p>Her iki durumda da kalıcı çözüm hekim müdahalesidir. <strong>Pazar dahil her gün 23:00'a kadar</strong> açık olduğumuz için travma sonrası <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle hemen yanınızdayız. Diğer <a href="/blog/acil-dis-tedavisi-gerektiren-durumlar/">acil durumları</a> da inceleyin; gerektiğinde <a href="/iletisim/">bizi arayın</a>.</p>"""},
+    {"slug": "dis-apsesi-tehlikeli-mi", "cat": "Gece & Acil",
+     "title": "Diş Apsesi Tehlikeli mi? Belirtiler ve Acil Müdahale",
+     "kw": "diş apsesi acil",
+     "excerpt": "Diş apsesi yalnızca ağrı değil, yayılabilen ciddi bir enfeksiyondur. Belirtilerini tanıyın ve ne zaman acil müdahale gerektiğini öğrenin.",
+     "date": "2026-06-06", "read": 5, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Diş apsesi, diş ya da diş eti çevresinde biriken iltihaplı bir enfeksiyondur. Göz ardı edildiğinde komşu dokulara, çeneye ve nadiren tüm vücuda yayılabilir. Bu yüzden ciddiye alınması gereken bir durumdur.</p>
+<h2>Apse Belirtileri</h2>
+<ul>
+<li>Zonklayıcı, yayılan şiddetli diş ağrısı</li>
+<li>Yüz, yanak veya diş etinde şişlik</li>
+<li>Sıcak-soğuğa ve çiğnemeye karşı hassasiyet</li>
+<li>Ağızda kötü tat, ağız kokusu</li>
+<li>Ateş ve halsizlik (yayılan enfeksiyon işareti)</li>
+</ul>
+<h2>Ne Zaman Acil?</h2>
+<p>Ateş, yutkunma veya nefes almada güçlük, hızla büyüyen şişlik varsa bu <strong>acil</strong> bir durumdur ve beklemeden müdahale gerektirir. Apse kendiliğinden patlasa bile enfeksiyon devam eder; mutlaka tedavi edilmelidir.</p>
+<p>Tedavi genellikle drenaj ve ardından <a href="/tedaviler/kanal-tedavisi/">kanal tedavisi</a> ya da gerekiyorsa çekimle yapılır. Apse şüphesinde <strong>pazar dahil her gün 23:00'a kadar</strong> açık olan kliniğimize başvurabilirsiniz. <a href="/gece-acik-dis-klinigi-konya/">Gece açık diş kliniği</a> hizmetimiz için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+    {"slug": "selcuklu-dis-hekimi-secimi", "cat": "Yerel Rehber",
+     "title": "Selçuklu'da Diş Hekimi Seçerken Dikkat Edilmesi Gerekenler",
+     "kw": "Selçuklu diş hekimi",
+     "excerpt": "Selçuklu'da doğru diş hekimini seçmek, tedavi başarısı kadar güveni de belirler. Karar verirken göz önünde bulundurmanız gereken kriterler.",
+     "date": "2026-06-02", "read": 5, "img": "gulus-estetigi.jpg",
+     "body": """<p>Selçuklu, Konya'nın en yoğun ilçelerinden biri ve diş hekimi seçeneği oldukça fazla. Doğru tercih, hem tedavinin kalitesini hem de uzun vadeli ağız sağlığınızı etkiler.</p>
+<h2>Karar Verirken Bakmanız Gerekenler</h2>
+<ul>
+<li><strong>Hekim ve klinik deneyimi:</strong> Uygulanan tedavi çeşitliliği ve uzmanlık alanları.</li>
+<li><strong>Hijyen ve sterilizasyon:</strong> Klinik temizliği pazarlık konusu olmamalı.</li>
+<li><strong>Şeffaf bilgilendirme:</strong> Tedavi planı, alternatifler ve süreç açıkça anlatılmalı.</li>
+<li><strong>Ulaşım ve çalışma saatleri:</strong> Acil durumda geç saatte açık olması büyük avantaj.</li>
+<li><strong>Hasta yorumları:</strong> Gerçek hasta deneyimleri fikir verir.</li>
+</ul>
+<h2>Selçuklu Şubemiz</h2>
+<p>Dentual Selçuklu şubemizde implanttan ortodontiye, gülüş estetiğinden çocuk diş hekimliğine kadar tüm tedaviler tek çatı altında sunulur. Üstelik <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. <a href="/subeler/selcuklu/">Selçuklu şubemizin</a> konum ve iletişim bilgilerine ulaşabilir, <a href="/iletisim/">bizimle iletişime geçebilirsiniz</a>. Kliniğimiz hakkında daha fazlası için <a href="/hakkimizda/">Hakkımızda</a> sayfamıza bakın.</p>"""},
+    {"slug": "24-saat-gec-saat-dis-hekimi-sss", "cat": "Gece & Acil",
+     "title": "Geç Saat Açık Diş Hekimi Hakkında Merak Edilenler",
+     "kw": "24 saat diş hekimi Konya",
+     "excerpt": "Geç saatte açık diş hekimi hizmeti nasıl işler, hangi tedaviler yapılır, ücretlendirme farklı mıdır? Sık sorulan soruları yanıtladık.",
+     "date": "2026-05-30", "read": 4, "img": "implant.jpg",
+     "body": """<p>Geç saatte açık diş hekimi hizmeti, mesai sonrası ve hafta sonu bastıran problemlerde büyük rahatlık sağlar. Bu hizmetle ilgili en sık sorulan soruları yanıtladık.</p>
+<h2>Sık Sorulan Sorular</h2>
+<ul>
+<li><strong>Geç saatte hangi işlemler yapılır?</strong> Ağrı kontrolü, apse drenajı, kanal tedavisi, çekim, geçici dolgu gibi acil müdahalelerin çoğu yapılabilir.</li>
+<li><strong>Randevusuz gidebilir miyim?</strong> Acil durumda önce aramanız, hem hekimin hazır olmasını hem de bekleme süresini kısaltır.</li>
+<li><strong>Gece ücreti farklı mı?</strong> Tedavi ücretleri işlemin türüne göre belirlenir; süreç öncesinde net bilgilendirme yapılır.</li>
+<li><strong>Çocuğum için de geçerli mi?</strong> Evet, çocuk acil diş durumlarında da hizmet veriyoruz.</li>
+</ul>
+<p>Dentual olarak <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. Tedavi ücretlerinin neye göre belirlendiğini <a href="/blog/konya-dis-tedavi-fiyatlari/">Konya'da diş tedavisi fiyatları</a> yazımızda anlattık. Acil bir durumunuzda <a href="/gece-acik-dis-klinigi-konya/">gece açık diş kliniği</a> hattımızı arayın ya da <a href="/iletisim/">iletişim sayfamızdan</a> bize ulaşın.</p>"""},
     {"slug": "implant-sonrasi-bakim", "cat": "İmplant",
      "title": "İmplant Tedavisi Sonrası Bakım: 7 Altın Kural",
      "kw": "implant sonrası bakım",
@@ -669,6 +796,359 @@ BLOG = [
 </ul>
 <h2>Beklemeyin, Bizi Arayın</h2>
 <p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>"""},
+    {"slug": "dis-implanti-kimlere-uygun", "cat": "İmplant",
+     "title": "Diş İmplantı Kimlere Uygundur?",
+     "kw": "implant Konya",
+     "excerpt": "Diş implantı eksik dişlerin en kalıcı çözümüdür; peki herkese uygulanabilir mi? İmplant için uygunluğu belirleyen faktörler.",
+     "date": "2026-04-28", "read": 5, "img": "implant.jpg",
+     "body": """<p>Diş implantı, eksik dişin yerine çene kemiğine yerleştirilen titanyum bir vida ve üzerine yapılan protezden oluşur. Doğal dişe en yakın çözüm olması nedeniyle giderek daha çok tercih edilir. Ancak her hasta için planlama bireyseldir.</p>
+<h2>İmplant İçin Genellikle Uygun Adaylar</h2>
+<ul>
+<li>Bir veya birden fazla dişi eksik olan yetişkinler</li>
+<li>Çene kemiği gelişimini tamamlamış kişiler</li>
+<li>Genel sağlığı implant cerrahisine uygun olanlar</li>
+<li>Ağız hijyenine özen gösterebilecek hastalar</li>
+</ul>
+<h2>Dikkat Gerektiren Durumlar</h2>
+<p>Kontrolsüz diyabet, ağır diş eti hastalığı, yoğun sigara kullanımı ve yetersiz kemik hacmi süreci etkileyebilir. Bu durumlarda ön hazırlık (örneğin kemik grefti) veya alternatif planlar değerlendirilir. Yani "uygun değilim" demek için acele etmeyin; doğru muayene ile çoğu engel aşılabilir.</p>
+<p>Sizin için en doğru planı belirlemek üzere <a href="/tedaviler/implant/">implant tedavisi</a> sayfamızı inceleyebilir, <a href="/iletisim/">ücretsiz değerlendirme için bize ulaşabilirsiniz</a>. İmplant ve köprü arasında kararsızsanız <a href="/blog/implant-mi-kopru-mu/">implant mı köprü mü</a> yazımız yardımcı olacaktır.</p>"""},
+    {"slug": "implant-mi-kopru-mu", "cat": "İmplant",
+     "title": "İmplant mı Köprü mü? Avantaj ve Dezavantajlar",
+     "kw": "implant mı köprü mü",
+     "excerpt": "Eksik diş için implant ve köprü en sık önerilen iki çözümdür. Hangisinin size daha uygun olduğunu belirleyen farkları karşılaştırdık.",
+     "date": "2026-04-21", "read": 6, "img": "implant.jpg",
+     "body": """<p>Eksik bir dişi tamamlamanın iki yaygın yolu vardır: implant ve köprü. İkisi de işlevseldir, ancak uzun vadeli sonuçları ve gereksinimleri farklıdır.</p>
+<h2>İmplantın Avantajları</h2>
+<ul>
+<li>Komşu sağlam dişlere dokunulmaz.</li>
+<li>Çene kemiğini uyararak erimeyi önler.</li>
+<li>Doğru bakımla ömür boyu kullanılabilir.</li>
+</ul>
+<h2>Köprünün Avantajları</h2>
+<ul>
+<li>Daha kısa sürede tamamlanır.</li>
+<li>Cerrahi işlem gerektirmez.</li>
+<li>Başlangıç maliyeti genellikle daha düşüktür.</li>
+</ul>
+<p>Köprünün en önemli dezavantajı, iki yanındaki sağlam dişlerin küçültülmesi gerekliliğidir. İmplant ise daha yüksek başlangıç yatırımı ister ama uzun vadede genellikle daha avantajlıdır. Karar; kemik durumu, komşu dişlerin sağlığı ve beklentilerinize göre verilir.</p>
+<p>Hangisinin size uygun olduğunu netleştirmek için <a href="/tedaviler/implant/">implant tedavisi</a> sayfamıza göz atın ve <a href="/iletisim/">muayene için bize ulaşın</a>. İmplantın kimlere uygun olduğunu <a href="/blog/dis-implanti-kimlere-uygun/">bu yazıda</a> ele aldık.</p>"""},
+    {"slug": "implant-tedavisi-ne-kadar-surer", "cat": "İmplant",
+     "title": "İmplant Tedavisi Ne Kadar Sürer?",
+     "kw": "implant tedavi süresi",
+     "excerpt": "İmplant tedavisi tek seansta bitmez; iyileşme süreci dişin sağlamlığını belirler. Aşama aşama implant tedavisinin süresi.",
+     "date": "2026-04-14", "read": 5, "img": "implant.jpg",
+     "body": """<p>İmplant tedavisinin toplam süresi kişiden kişiye değişir. Cerrahi aşama kısa sürse de, implantın kemiğe kaynaması (osseointegrasyon) zaman ister ve tedavinin başarısı büyük ölçüde bu sürece bağlıdır.</p>
+<h2>Tedavi Aşamaları</h2>
+<ul>
+<li><strong>Planlama ve muayene:</strong> Radyografi ve ölçümlerle 1 randevu.</li>
+<li><strong>İmplant yerleştirme:</strong> Genellikle 30-60 dakikalık tek seans.</li>
+<li><strong>İyileşme (kaynama):</strong> Alt çenede ~2-3 ay, üst çenede ~3-4 ay.</li>
+<li><strong>Protez aşaması:</strong> Ölçü alınıp kron hazırlanması 1-2 hafta.</li>
+</ul>
+<p>Kemik grefti gerekiyorsa süreç birkaç ay uzayabilir. Bazı uygun vakalarda "hemen yükleme" ile geçici diş aynı gün takılabilir; bu kararı hekiminiz verir.</p>
+<p>Süreç uzun görünse de sonuç kalıcıdır. <a href="/tedaviler/implant/">İmplant tedavisi</a> hakkında detaylı bilgi alabilir, kişisel zaman planınız için <a href="/iletisim/">bize ulaşabilirsiniz</a>. Tedavi sonrası bakımı <a href="/blog/implant-sonrasi-bakim/">implant sonrası bakım</a> yazımızda anlattık.</p>"""},
+    {"slug": "all-on-4-nedir", "cat": "İmplant",
+     "title": "All-on-4 Nedir? Tam Dişsizlikte Sabit Çözüm",
+     "kw": "all on 4 Konya",
+     "excerpt": "Tüm dişleri eksik hastalar için All-on-4, yalnızca 4 implantla sabit diş imkânı sunar. Yöntemin nasıl çalıştığını ve kimlere uygun olduğunu anlattık.",
+     "date": "2026-04-07", "read": 6, "img": "implant.jpg",
+     "body": """<p>All-on-4, tam dişsizlik yaşayan hastalarda tek bir çenedeki tüm dişlerin yalnızca dört implant üzerine sabitlenmesini sağlayan bir tedavi yaklaşımıdır. Hareketli protez kullanmak istemeyen hastalar için konforlu, sabit bir alternatiftir.</p>
+<h2>All-on-4'ün Avantajları</h2>
+<ul>
+<li>Az sayıda implantla tüm çeneye sabit diş.</li>
+<li>Çoğu uygun vakada kemik grefti ihtiyacını azaltır.</li>
+<li>Hareketli protezin oynama, düşme sorunu yaşanmaz.</li>
+<li>Çiğneme ve konuşma konforu doğal dişe yakındır.</li>
+</ul>
+<h2>Kimler İçin Uygun?</h2>
+<p>Çok sayıda dişi eksik olan, mevcut protezinden memnun olmayan veya yeni protez yapılacak hastalar aday olabilir. Uygunluk; kemik yoğunluğu ve genel sağlık durumuna göre tomografiyle değerlendirilir.</p>
+<p>Sabit ve konforlu bir gülüşe kavuşmak için <a href="/tedaviler/implant/">implant tedavisi</a> seçeneklerimizi inceleyin, kişisel planlama için <a href="/iletisim/">bizimle iletişime geçin</a>. Tek diş eksikliğinde alternatifleri <a href="/blog/implant-mi-kopru-mu/">implant mı köprü mü</a> yazımızda karşılaştırdık.</p>"""},
+    {"slug": "zirkonyum-mu-lamina-mi", "cat": "Estetik",
+     "title": "Zirkonyum mu Lamina mı? Hangisi Size Uygun?",
+     "kw": "zirkonyum kaplama Konya",
+     "excerpt": "Gülüş estetiğinde en çok karşılaştırılan iki seçenek: zirkonyum ve lamina. Aralarındaki farkları ve hangisinin size uygun olduğunu açıkladık.",
+     "date": "2026-03-31", "read": 6, "img": "gulus-estetigi.jpg",
+     "body": """<p>Estetik diş tedavisinde en sık sorulan sorulardan biri zirkonyum ile lamina (yaprak porselen) arasındaki farktır. İkisi de doğal ve estetik sonuçlar verir; ancak uygulama ve endikasyonları farklıdır.</p>
+<h2>Lamina (Yaprak Porselen)</h2>
+<p>Dişin yalnızca ön yüzeyine yapıştırılan ince porselen tabakalardır. Dişten çok az aşındırma gerektirir, oldukça doğal görünür. Renk ve şekil sorunları olan, dişleri büyük oranda sağlam hastalar için idealdir.</p>
+<h2>Zirkonyum Kaplama</h2>
+<p>Dişin tamamını çevreleyen, metal içermeyen sağlam kaplamalardır. Daha fazla aşındırma gerektirir ama dayanıklılığı yüksektir. Kanal tedavili, kırık veya büyük dolgulu dişlerde tercih edilir.</p>
+<p>Kısaca: minimal müdahale ve estetik için lamina, dayanıklılık ve büyük restorasyon için zirkonyum öne çıkar. Doğru seçim, dişlerinizin mevcut durumuna bağlıdır. <a href="/tedaviler/gulus-estetigi/">Gülüş estetiği</a> sayfamızı inceleyin, kişisel öneri için <a href="/iletisim/">bize ulaşın</a>. Bütüncül planı <a href="/blog/gulus-tasarimi-nedir/">gülüş tasarımı nedir</a> yazımızda anlattık.</p>"""},
+    {"slug": "dis-beyazlatma-zararli-mi", "cat": "Estetik",
+     "title": "Diş Beyazlatma Zararlı mı? Doğru Bilinen Yanlışlar",
+     "kw": "diş beyazlatma",
+     "excerpt": "Diş beyazlatma dişe zarar verir mi, kalıcı mıdır? Profesyonel beyazlatma hakkında en çok merak edilenleri ve yanlış bilinenleri yanıtladık.",
+     "date": "2026-03-24", "read": 5, "img": "gulus-estetigi.jpg",
+     "body": """<p>Diş beyazlatma, doğru yapıldığında güvenli ve etkili bir işlemdir. Ancak internetteki "evde" yöntemler ve yanlış bilgiler kafa karıştırır. Gerçekleri netleştirelim.</p>
+<h2>Doğru Bilinen Yanlışlar</h2>
+<ul>
+<li><strong>"Beyazlatma minenizi aşındırır":</strong> Hekim kontrolünde uygulanan jeller mineyi aşındırmaz; geçici hassasiyet olabilir, kalıcı hasar beklenmez.</li>
+<li><strong>"Bir kez yaptırınca ömür boyu beyaz kalır":</strong> Sonuç kalıcı değildir; kahve, çay, sigara renklenmeyi hızlandırır.</li>
+<li><strong>"Karbonat veya limon işe yarar":</strong> Bu yöntemler mineye zarar verir, asla önerilmez.</li>
+</ul>
+<h2>Güvenli Yöntem</h2>
+<p>En güvenli sonuç, klinikte hekim kontrolünde yapılan profesyonel beyazlatmadır. Öncesinde diş taşı temizliği ve çürük kontrolü yapılır. Hassasiyeti olanlar için özel protokoller mevcuttur.</p>
+<p>Daha parlak bir gülüş için <a href="/tedaviler/gulus-estetigi/">gülüş estetiği</a> seçeneklerimizi inceleyin ve <a href="/iletisim/">bize ulaşın</a>. Renklenmeyle ilgili <a href="/blog/dis-tasi-temizligi-zararli-mi/">diş taşı temizliği</a> yazımız da ilginizi çekebilir.</p>"""},
+    {"slug": "hollywood-smile-nedir", "cat": "Estetik",
+     "title": "Hollywood Smile Hakkında Bilmeniz Gereken Her Şey",
+     "kw": "hollywood smile Konya",
+     "excerpt": "Hollywood Smile yalnızca beyaz dişler değil; simetri, oran ve doğallık üzerine kurulu bir gülüş tasarımıdır. Sürecin tüm detayları.",
+     "date": "2026-03-17", "read": 6, "img": "gulus-estetigi.jpg",
+     "body": """<p>Hollywood Smile (Hollywood gülüşü), dişlerin rengini, formunu ve dizilimini yüz hatlarıyla uyumlu, simetrik ve doğal bir bütüne dönüştüren kapsamlı bir estetik tedavidir. Amaç abartılı değil, kişiye yakışan kusursuz bir gülümsemedir.</p>
+<h2>Hangi Uygulamaları Kapsar?</h2>
+<ul>
+<li>Lamina veya zirkonyum kaplamalar</li>
+<li>Diş beyazlatma</li>
+<li>Gerektiğinde diş eti estetiği</li>
+<li>Bazı durumlarda ortodonti ile ön hazırlık</li>
+</ul>
+<h2>Süreç Nasıl İşler?</h2>
+<p>Önce dijital gülüş tasarımı yapılır ve sonucu önceden görürsünüz. Ardından prova ve uygulama aşamalarıyla tedavi tamamlanır. Doğru planlama, hem estetik hem de çiğneme fonksiyonunu birlikte gözetir.</p>
+<p>Size özel bir gülüş için <a href="/tedaviler/gulus-estetigi/">gülüş estetiği</a> sayfamızı inceleyin, ön görüşme için <a href="/iletisim/">bize ulaşın</a>. Zirkonyum ve lamina arasındaki farkı <a href="/blog/zirkonyum-mu-lamina-mi/">bu yazıda</a> karşılaştırdık.</p>"""},
+    {"slug": "seffaf-plak-mi-dis-teli-mi", "cat": "Ortodonti",
+     "title": "Şeffaf Plak mı Diş Teli mi? Karşılaştırma",
+     "kw": "şeffaf plak Konya",
+     "excerpt": "Çapraşık dişler için şeffaf plak ve klasik diş teli en çok tercih edilen iki yöntem. Konfor, estetik ve süre açısından karşılaştırdık.",
+     "date": "2026-03-10", "read": 6, "img": "ortodonti.jpg",
+     "body": """<p>Diş düzensizliklerinin tedavisinde iki ana yol vardır: geleneksel diş teli (braket) ve şeffaf plaklar. Hangisinin uygun olduğu, dişlerin durumuna ve beklentilerinize bağlıdır.</p>
+<h2>Şeffaf Plak</h2>
+<ul>
+<li>Neredeyse görünmez, estetik açıdan avantajlı.</li>
+<li>Çıkarılabilir; yemek ve fırçalama kolay.</li>
+<li>Hafif-orta düzensizliklerde çok etkili.</li>
+</ul>
+<h2>Diş Teli</h2>
+<ul>
+<li>Karmaşık vakalarda daha güçlü kontrol sağlar.</li>
+<li>Hastaya bağlı kullanım hatası riski azdır (sabittir).</li>
+<li>Maliyeti genellikle daha uygundur.</li>
+</ul>
+<p>Şeffaf plak günde ~20-22 saat takılmalıdır; disiplin gerektirir. Diş teli ise sürekli takılı olduğundan kullanım sorumluluğu daha azdır. Doğru seçim için ortodontik muayene şarttır. <a href="/tedaviler/ortodonti/">Ortodonti</a> seçeneklerimizi inceleyin, <a href="/iletisim/">değerlendirme için bize ulaşın</a>. Yetişkinlikte tedaviyi merak ediyorsanız <a href="/blog/yetiskinlerde-dis-teli/">yetişkinlerde diş teli</a> yazımıza bakın.</p>"""},
+    {"slug": "yetiskinlerde-dis-teli", "cat": "Ortodonti",
+     "title": "Yetişkinlerde Diş Teli Geç mi Kalındı?",
+     "kw": "yetişkin ortodonti",
+     "excerpt": "Ortodonti yalnızca çocuklara özgü değildir. Yetişkinlikte diş teli tedavisinin mümkün olup olmadığını ve avantajlarını anlattık.",
+     "date": "2026-03-03", "read": 5, "img": "ortodonti.jpg",
+     "body": """<p>"Bu yaştan sonra diş teli olur mu?" sorusu çok yaygındır. Cevap nettir: ortodontik tedavi için yaş sınırı yoktur. Dişler ve çevre dokular sağlıklı olduğu sürece her yaşta diş hareketi mümkündür.</p>
+<h2>Yetişkinlikte Ortodontinin Faydaları</h2>
+<ul>
+<li>Çapraşıklık giderildiğinde fırçalama kolaylaşır, çürük ve diş eti hastalığı riski azalır.</li>
+<li>Kapanış bozuklukları düzelir; çene ve diş aşınması azalır.</li>
+<li>Estetik iyileşmeyle birlikte özgüven artar.</li>
+</ul>
+<h2>Estetik Kaygı Varsa</h2>
+<p>Metal braketlerden çekinen yetişkinler için şeffaf plak veya estetik braketler iyi bir seçenektir. İş ve sosyal hayatı aksatmadan tedavi mümkündür.</p>
+<p>Tedavi süresi vakanın karmaşıklığına göre değişir; muayenede net bilgi verilir. <a href="/tedaviler/ortodonti/">Ortodonti</a> sayfamızı inceleyin ve <a href="/iletisim/">bize ulaşın</a>. Şeffaf plak ile diş teli arasındaki farkları <a href="/blog/seffaf-plak-mi-dis-teli-mi/">bu yazıda</a> karşılaştırdık.</p>"""},
+    {"slug": "dis-teli-beslenme-rehberi", "cat": "Ortodonti",
+     "title": "Diş Teli Takanlar İçin Beslenme Rehberi",
+     "kw": "diş teli beslenme",
+     "excerpt": "Diş teli tedavisinde doğru beslenme, braketlerin zarar görmesini önler ve tedaviyi hızlandırır. Yenebilecek ve kaçınılması gereken besinler.",
+     "date": "2026-02-24", "read": 4, "img": "ortodonti.jpg",
+     "body": """<p>Diş teli tedavisi sırasında beslenme alışkanlıkları, braketlerin sağlamlığı ve ağız hijyeni açısından önemlidir. Yanlış besinler braket kopmasına ve tedavinin uzamasına yol açabilir.</p>
+<h2>Kaçınılması Gerekenler</h2>
+<ul>
+<li>Sert kabuklu yemişler, buz, sert şeker</li>
+<li>Yapışkan gıdalar (sakız, lokum, karamel)</li>
+<li>Bütün elma/havuç gibi sert meyve-sebzeleri ısırarak yemek (parçalayarak yiyin)</li>
+<li>Aşırı asitli ve şekerli içecekler</li>
+</ul>
+<h2>Rahatlıkla Tüketebilecekleriniz</h2>
+<ul>
+<li>Yumuşak pişmiş sebzeler, makarna, pilav</li>
+<li>Yoğurt, peynir, süt ürünleri</li>
+<li>Yumuşak meyveler (muz, çilek)</li>
+<li>Yumurta, köfte, balık gibi yumuşak protein kaynakları</li>
+</ul>
+<p>Tel takılmasının ardından ilk günler hassasiyet olabilir; bu dönemde yumuşak gıdalar tercih edin. Her öğün sonrası fırçalama braket çevresinde leke ve çürüğü önler. <a href="/tedaviler/ortodonti/">Ortodonti tedavisi</a> hakkında daha fazlası için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+    {"slug": "sut-disi-curugu-onemli-mi", "cat": "Pedodonti",
+     "title": "Süt Dişi Çürüğü Önemli mi?",
+     "kw": "süt dişi çürüğü",
+     "excerpt": "\"Nasılsa düşecek\" düşüncesi süt dişi çürüklerini önemsizleştirir. Oysa süt dişleri kalıcı dişlerin sağlığını doğrudan etkiler.",
+     "date": "2026-02-17", "read": 4, "img": "pedodonti.jpg",
+     "body": """<p>Birçok ebeveyn süt dişi çürüklerini "nasılsa düşecek" diyerek önemsemez. Oysa süt dişleri yalnızca çiğneme için değil; konuşma, çene gelişimi ve kalıcı dişlere yer tutma açısından da kritiktir.</p>
+<h2>Süt Dişi Çürüğü Neden Önemli?</h2>
+<ul>
+<li>Çürük ilerleyerek ağrı ve enfeksiyona dönüşebilir.</li>
+<li>Erken kaybedilen süt dişi, kalıcı dişin yanlış sürmesine yol açabilir.</li>
+<li>Çiğneme zorluğu beslenmeyi olumsuz etkiler.</li>
+<li>Ön diş çürükleri çocuğun konuşmasını ve özgüvenini etkileyebilir.</li>
+</ul>
+<h2>Korunma</h2>
+<p>Düzenli fırçalama, şekerli atıştırmalıkların sınırlanması, flor ve fissür örtücü uygulamaları çürükleri büyük ölçüde önler. Erken kontrol, küçük çürüğün büyümeden çözülmesini sağlar.</p>
+<p><a href="/tedaviler/cocuk-dis-hekimligi/">Dentual Çocuk kliniğimizde</a> minik hastalarımıza korkutmadan, oyunlaştırarak yaklaşıyoruz. İlk kontrolün zamanlamasını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> anlattık. Randevu için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+    {"slug": "cocuk-dis-hekimi-korkusu", "cat": "Pedodonti",
+     "title": "Çocuklarda Diş Hekimi Korkusu Nasıl Yenilir?",
+     "kw": "çocuk diş hekimi korkusu",
+     "excerpt": "Diş hekimi korkusu çoğu çocukta görülür ve doğru yaklaşımla aşılabilir. Ebeveynlere ve kliniğe düşen görevleri anlattık.",
+     "date": "2026-02-10", "read": 5, "img": "pedodonti.jpg",
+     "body": """<p>Diş hekimi korkusu çocuklarda yaygındır ve genellikle bilinmezlikten kaynaklanır. Doğru yaklaşımla bu korku kolayca aşılabilir; üstelik erken yaşta kazanılan olumlu deneyim ömür boyu sürer.</p>
+<h2>Ebeveynlere Öneriler</h2>
+<ul>
+<li>"Acımayacak", "iğne yok" gibi olumsuz çağrışım yapan ifadelerden kaçının.</li>
+<li>Diş hekimini bir ceza değil, rutin bir bakım gibi anlatın.</li>
+<li>İlk ziyareti acil bir durum yerine tanışma amaçlı planlayın.</li>
+<li>Kendi kaygınızı çocuğa yansıtmamaya özen gösterin.</li>
+</ul>
+<h2>Kliniğin Rolü</h2>
+<p>Çocuk diş hekimliği (pedodonti), çocuğun yaşına uygun iletişim, oyunlaştırma ve sabırlı bir yaklaşım gerektirir. Doğru ortamda çocuk, tedaviyi bir korku değil, keyifli bir deneyim olarak hatırlar.</p>
+<p><a href="/tedaviler/cocuk-dis-hekimligi/">Dentual Çocuk</a> kliniğimiz tam da bunun için tasarlandı. Çocuğunuzun ilk diş deneyimini olumlu kılmak için <a href="/iletisim/">bize ulaşın</a>. İlk kontrol zamanını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> bulabilirsiniz.</p>"""},
+    {"slug": "fissur-ortucu-ve-flor", "cat": "Pedodonti",
+     "title": "Fissür Örtücü ve Flor Uygulaması Nedir?",
+     "kw": "fissür örtücü",
+     "excerpt": "Fissür örtücü ve flor, çocuklarda çürüğü daha başlamadan önleyen koruyucu uygulamalardır. Nasıl yapıldığını ve kimlere uygun olduğunu anlattık.",
+     "date": "2026-02-03", "read": 4, "img": "pedodonti.jpg",
+     "body": """<p>Çürükle mücadelede en etkili yol, çürük oluşmadan önlem almaktır. Fissür örtücü ve flor uygulaması, özellikle çocuklarda çürüğü daha başlamadan engelleyen basit ama güçlü koruyucu yöntemlerdir.</p>
+<h2>Fissür Örtücü</h2>
+<p>Azı dişlerinin çiğneyici yüzeyindeki derin oluklar (fissürler), fırçanın ulaşamadığı, bakteri ve gıda artıklarının biriktiği bölgelerdir. Fissür örtücü, bu oluklar ince bir akışkan dolgu ile kapatarak çürük riskini ciddi oranda azaltır. Ağrısızdır ve birkaç dakika sürer.</p>
+<h2>Flor Uygulaması</h2>
+<p>Flor, diş minesini güçlendirerek asit ataklarına karşı dirençli hale getirir. Klinikte uygulanan flor jeli/vernik, ev bakımına ek bir koruma sağlar.</p>
+<p>Bu uygulamalar genellikle daimî azı dişleri sürdükten sonra önerilir. <a href="/tedaviler/cocuk-dis-hekimligi/">Çocuk diş hekimliği</a> hizmetlerimiz kapsamında uygulanır. Çocuğunuzun dişlerini korumak için <a href="/iletisim/">bize ulaşın</a>. Süt dişi çürüklerinin önemini <a href="/blog/sut-disi-curugu-onemli-mi/">bu yazıda</a> ele aldık.</p>"""},
+    {"slug": "kanal-tedavisi-agrili-mi", "cat": "Endodonti",
+     "title": "Kanal Tedavisi Ağrılı mı? Mitler ve Gerçekler",
+     "kw": "kanal tedavisi Konya",
+     "excerpt": "Kanal tedavisi denince akla ağrı gelir; oysa modern yöntemlerle işlem konforludur. Kanal tedavisi hakkında doğru bilinen yanlışları yanıtladık.",
+     "date": "2026-01-27", "read": 5, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Kanal tedavisi, halk arasında en çok korkulan işlemlerden biridir. Oysa bu korku büyük ölçüde eski yöntemlerden ve yanlış bilgilerden kaynaklanır. Gerçek şu: kanal tedavisi ağrıyı bitiren işlemdir, başlatan değil.</p>
+<h2>Yaygın Yanlışlar</h2>
+<ul>
+<li><strong>"Çok ağrılıdır":</strong> Modern anestezi ve aletlerle işlem genellikle bir dolgu kadar konforludur.</li>
+<li><strong>"Diş zaten ölmüş, çekilse daha iyi":</strong> Doğal dişi korumak her zaman en iyi seçenektir.</li>
+<li><strong>"Tedaviden sonra diş kırılır":</strong> Uygun restorasyon (genellikle kaplama) ile diş uzun yıllar dayanır.</li>
+</ul>
+<h2>Neden Gerekir?</h2>
+<p>Çürük veya travma diş sinirine ulaştığında iltihap oluşur ve şiddetli ağrı yapar. Kanal tedavisi, enfekte dokuyu temizleyip kanalları doldurarak dişi kurtarır.</p>
+<p>İşlem sonrası birkaç gün hafif hassasiyet normaldir. <a href="/tedaviler/kanal-tedavisi/">Kanal tedavisi</a> hakkında bilgi alabilir, ağrınız varsa <strong>pazar dahil her gün 23:00'a kadar</strong> açık olan kliniğimize <a href="/iletisim/">başvurabilirsiniz</a>. Apse şüphesinde <a href="/blog/dis-apsesi-tehlikeli-mi/">diş apsesi</a> yazımıza bakın.</p>"""},
+    {"slug": "yirmi-yas-disi-cekimi", "cat": "Cerrahi",
+     "title": "20'lik (Yirmi Yaş) Diş Ne Zaman Çekilmeli?",
+     "kw": "20lik diş çekimi Konya",
+     "excerpt": "Her yirmi yaş dişi çekilmek zorunda değildir. Hangi durumlarda çekim gerektiğini ve sürecin nasıl ilerlediğini açıkladık.",
+     "date": "2026-01-20", "read": 5, "img": "cerrahi.jpg",
+     "body": """<p>Yirmi yaş dişleri (üçüncü büyük azılar) genellikle 17-25 yaş arasında sürer. Her zaman çekilmeleri gerekmez; ancak yer darlığı ve yanlış konumlanma sık sorun yaratır.</p>
+<h2>Çekim Gerektiren Durumlar</h2>
+<ul>
+<li>Gömülü kalıp ağrı, şişlik veya enfeksiyona yol açması</li>
+<li>Komşu dişe baskı yapıp çürük veya hasar oluşturması</li>
+<li>Tekrarlayan diş eti iltihabı (perikoronit)</li>
+<li>Kist veya çene problemine neden olması</li>
+</ul>
+<h2>Çekilmesi Gerekmeyen Durumlar</h2>
+<p>Tam ve doğru sürmüş, karşıt dişiyle kapanışı olan, temizlenebilen ve sorun yaratmayan yirmi yaş dişleri korunabilir. Karar, radyografik değerlendirme ile verilir.</p>
+<p>İşlem öncesi tomografi/röntgen ile dişin kök ve sinir ilişkisi incelenir. <a href="/tedaviler/cerrahi/">Cerrahi uygulamalar</a> sayfamızı inceleyin, değerlendirme için <a href="/iletisim/">bize ulaşın</a>. Çekim sonrası bakımı <a href="/blog/dis-cekimi-sonrasi-bakim/">bu yazıda</a> anlattık.</p>"""},
+    {"slug": "dis-cekimi-sonrasi-bakim", "cat": "Cerrahi",
+     "title": "Diş Çekimi Sonrası Nelere Dikkat Edilmeli?",
+     "kw": "diş çekimi sonrası bakım",
+     "excerpt": "Diş çekimi sonrası ilk 24 saat iyileşmenin temelini atar. Kanamayı durdurmak ve kuru soketi önlemek için yapmanız ve yapmamanız gerekenler.",
+     "date": "2026-01-13", "read": 5, "img": "cerrahi.jpg",
+     "body": """<p>Diş çekimi sonrası doğru bakım, iyileşmeyi hızlandırır ve "kuru soket" gibi ağrılı komplikasyonları önler. İlk 24 saat özellikle önemlidir.</p>
+<h2>İlk 24 Saat</h2>
+<ul>
+<li>Hekimin koyduğu tamponu 30-45 dakika sıkıca ısırın.</li>
+<li>İlk gün tükürmeyin, çalkalamayın ve pipetle içecek tüketmeyin (pıhtı yerinden oynar).</li>
+<li>Sigara ve alkolden kaçının; iyileşmeyi geciktirir.</li>
+<li>Şişlik için yanağa dışarıdan soğuk uygulayın.</li>
+<li>Yumuşak ve ılık gıdalar tercih edin, çekim bölgesini kullanmayın.</li>
+</ul>
+<h2>Sonraki Günler</h2>
+<p>İkinci günden itibaren ılık tuzlu su ile nazik gargara yapabilirsiniz. Hafif ağrı ve şişlik normaldir; ancak artan ağrı, kötü koku veya durmayan kanama varsa hekiminize başvurun.</p>
+<p>Çekim sonrası uzun süren kanama <a href="/blog/acil-dis-tedavisi-gerektiren-durumlar/">acil durum</a> olabilir; <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. <a href="/tedaviler/cerrahi/">Cerrahi uygulamalar</a> hakkında bilgi için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+    {"slug": "dis-eti-kanamasi-nedenleri", "cat": "Diş Eti Sağlığı",
+     "title": "Diş Eti Kanaması Neden Olur, Nasıl Geçer?",
+     "kw": "diş eti kanaması",
+     "excerpt": "Fırçalarken diş eti kanaması çoğu zaman göz ardı edilir; oysa diş eti hastalığının ilk işareti olabilir. Nedenleri ve çözümü.",
+     "date": "2026-01-06", "read": 5, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Fırçalama sırasında diş etinden kan gelmesi sık görülür ve çoğu zaman önemsenmez. Oysa sağlıklı diş eti kanamaz; kanama, çoğunlukla diş eti iltihabının (gingivitis) ilk habercisidir.</p>
+<h2>Diş Eti Kanamasının Nedenleri</h2>
+<ul>
+<li>Diş taşı ve plak birikimi (en yaygın neden)</li>
+<li>Yetersiz veya yanlış fırçalama</li>
+<li>Hormonal değişiklikler (hamilelik, ergenlik)</li>
+<li>Sigara kullanımı</li>
+<li>Bazı sistemik hastalıklar ve vitamin eksiklikleri</li>
+</ul>
+<h2>Nasıl Geçer?</h2>
+<p>Erken aşamada çözüm genellikle basittir: profesyonel diş taşı temizliği ve doğru ağız bakımı. İhmal edilirse iltihap, dişi tutan kemiğe ilerleyerek diş kaybına (periodontitis) yol açabilir.</p>
+<p>Kanamayı görmezden gelmeyin. <a href="/tedaviler/gulus-estetigi/">Ağız ve diş sağlığı</a> hizmetlerimiz kapsamında diş eti değerlendirmesi yapılır. Düzenli kontrol için <a href="/iletisim/">bize ulaşın</a>. Diş taşı temizliği hakkında <a href="/blog/dis-tasi-temizligi-zararli-mi/">bu yazıyı</a> okuyabilirsiniz.</p>"""},
+    {"slug": "dis-tasi-temizligi-zararli-mi", "cat": "Koruyucu",
+     "title": "Diş Taşı Temizliği Zararlı mı? Dişleri Aşındırır mı?",
+     "kw": "diş taşı temizliği Konya",
+     "excerpt": "\"Diş taşı temizliği dişleri aşındırır, aralık açar\" inancı çok yaygın ama yanlış. Diş taşı temizliği hakkındaki gerçekleri anlattık.",
+     "date": "2025-12-23", "read": 4, "img": "gulus-estetigi.jpg",
+     "body": """<p>Diş taşı temizliği (detertraj) hakkında en sık duyulan kaygı, işlemin dişlere zarar verdiği yönündedir. Gerçek tam tersidir: diş taşı temizliği, diş ve diş eti sağlığını korumanın en temel adımıdır.</p>
+<h2>Doğru Bilinen Yanlışlar</h2>
+<ul>
+<li><strong>"Dişleri aşındırır":</strong> İşlem mineye zarar vermez; yalnızca sertleşmiş plak (taş) temizlenir.</li>
+<li><strong>"Dişlerde aralık açar":</strong> Aralık zaten taşın altındaydı; taş kaldırılınca ortaya çıkar, temizlik açmaz.</li>
+<li><strong>"Dişleri hassaslaştırır":</strong> Geçici hassasiyet olabilir, birkaç günde geçer.</li>
+</ul>
+<h2>Neden Gereklidir?</h2>
+<p>Diş taşı, fırçayla çıkmayan, bakteri barındıran sert bir tabakadır. Temizlenmediğinde diş eti iltihabı, kanama ve ilerleyen evrede diş kaybına yol açar. Genellikle 6 ayda bir kontrol ve gerektiğinde temizlik önerilir.</p>
+<p>Diş eti kanamasının nedenlerini <a href="/blog/dis-eti-kanamasi-nedenleri/">bu yazıda</a> ele aldık. Düzenli kontrol ve temizlik için <a href="/iletisim/">bize ulaşın</a>; <a href="/subeler/karatay/">şubelerimizden</a> size en yakın olanı seçebilirsiniz.</p>"""},
+    {"slug": "hassas-disler-icin-oneriler", "cat": "Koruyucu",
+     "title": "Hassas Dişler İçin 8 Pratik Öneri",
+     "kw": "diş hassasiyeti",
+     "excerpt": "Soğuk-sıcak veya tatlıda zonklayan dişler günlük yaşamı zorlaştırır. Diş hassasiyetini azaltmak için uygulayabileceğiniz 8 pratik öneri.",
+     "date": "2025-12-16", "read": 4, "img": "kanal-tedavisi.jpg",
+     "body": """<p>Soğuk bir içecekte ya da tatlıda dişlerinizde keskin bir hassasiyet hissediyorsanız yalnız değilsiniz. Diş hassasiyeti, mine aşınması veya diş eti çekilmesiyle açığa çıkan dentin nedeniyle oluşur.</p>
+<h2>Hassasiyeti Azaltmak İçin</h2>
+<ul>
+<li>Hassasiyet giderici diş macunu kullanın (düzenli kullanımda etkilidir).</li>
+<li>Yumuşak fırça tercih edin, sert ovalamaktan kaçının.</li>
+<li>Asitli yiyecek-içecekleri (turunçgil, gazlı içecek) sınırlayın.</li>
+<li>Diş gıcırdatıyorsanız gece plağı kullanın.</li>
+<li>Beyazlatma ürünlerini hekim önerisi olmadan abartmayın.</li>
+<li>Fırçalamayı asitli gıdadan hemen sonra değil, 30 dk sonra yapın.</li>
+<li>Diş eti çekilmesini önlemek için doğru fırçalama tekniğini öğrenin.</li>
+<li>Geçmeyen hassasiyette mutlaka hekime başvurun; altta çürük olabilir.</li>
+</ul>
+<p>Sürekli ve şiddetli hassasiyet, çürük veya çatlak gibi bir sorunun işareti olabilir. <a href="/tedaviler/kanal-tedavisi/">Tedavi seçeneklerimiz</a> için <a href="/iletisim/">bize ulaşın</a>. Diş gıcırdatma sorununu ayrı bir yazıda da ele alıyoruz.</p>"""},
+    {"slug": "agiz-kokusu-halitozis", "cat": "Genel",
+     "title": "Ağız Kokusu (Halitozis) Neden Olur, Nasıl Geçer?",
+     "kw": "ağız kokusu tedavisi",
+     "excerpt": "Ağız kokusu sosyal hayatı etkileyen, çoğu zaman kaynağı ağızda olan bir sorundur. Nedenlerini ve kalıcı çözüm yollarını anlattık.",
+     "date": "2025-12-09", "read": 5, "img": "gulus-estetigi.jpg",
+     "body": """<p>Ağız kokusu (halitozis) yaygın ve çoğu zaman çözülebilir bir sorundur. Vakaların büyük bölümünde kaynak ağız içindedir ve doğru bakımla giderilebilir.</p>
+<h2>Sık Görülen Nedenler</h2>
+<ul>
+<li>Dil üzerindeki bakteri tabakası ve yetersiz ağız hijyeni</li>
+<li>Diş taşı, çürük ve diş eti hastalıkları</li>
+<li>Ağız kuruluğu (tükürük azlığı)</li>
+<li>Sigara ve bazı besinler</li>
+<li>Daha az sıklıkla sindirim veya sinüs kaynaklı sorunlar</li>
+</ul>
+<h2>Kalıcı Çözüm İçin</h2>
+<p>Günde iki kez fırçalama, diş ipi ve dil temizliği temel adımlardır. Düzenli diş taşı temizliği ve çürük tedavisi kokunun ağızdaki kaynaklarını ortadan kaldırır. Bol su tüketimi ağız kuruluğunu azaltır.</p>
+<p>Bakıma rağmen geçmeyen ağız kokusunda mutlaka değerlendirme yapılmalıdır. <a href="/tedaviler/gulus-estetigi/">Ağız ve diş sağlığı</a> kontrolü için <a href="/iletisim/">bize ulaşın</a>. Diş eti kanamanız da varsa <a href="/blog/dis-eti-kanamasi-nedenleri/">diş eti kanaması</a> yazımıza göz atın.</p>"""},
+    {"slug": "dis-kontrolu-ne-siklikla", "cat": "Koruyucu",
+     "title": "Diş Hekimi Kontrolü Ne Sıklıkla Yapılmalı?",
+     "kw": "diş kontrolü ne sıklıkla",
+     "excerpt": "Şikâyet olmadan diş hekimine gitmek gereksiz mi? Düzenli kontrolün neden önemli olduğunu ve ideal sıklığı açıkladık.",
+     "date": "2025-12-02", "read": 4, "img": "ortodonti.jpg",
+     "body": """<p>Birçok kişi yalnızca ağrı olduğunda diş hekimine gider. Oysa düzenli kontrol, sorunları daha küçük ve ucuzken yakalamanın en etkili yoludur. Önleyici bakım, tedaviden her zaman kolaydır.</p>
+<h2>İdeal Kontrol Sıklığı</h2>
+<ul>
+<li><strong>Genel öneri:</strong> 6 ayda bir kontrol ve gerektiğinde diş taşı temizliği.</li>
+<li><strong>Yüksek risk gruplarında</strong> (diş eti hastalığı, sık çürük, sigara) daha sık takip gerekebilir.</li>
+<li><strong>Çocuklarda</strong> gelişimi izlemek için düzenli kontrol önemlidir.</li>
+</ul>
+<h2>Neden Önemli?</h2>
+<p>Çürük ve diş eti hastalıkları erken evrede çoğu zaman belirti vermez. Düzenli kontrolde küçük bir çürük basit bir dolguyla çözülürken, ihmal edildiğinde kanal tedavisi ya da çekime kadar ilerleyebilir.</p>
+<p>Henüz şikâyetiniz yokken bir kontrol randevusu almak en akıllıca yatırımdır. <a href="/iletisim/">Bize ulaşın</a>, size en yakın <a href="/subeler/meram/">şubemizde</a> sizi ağırlayalım. Çocuğunuzun ilk kontrolü için <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıya</a> bakın.</p>"""},
+    {"slug": "konya-dis-tedavi-fiyatlari", "cat": "Yerel Rehber",
+     "title": "Konya'da Diş Tedavisi Fiyatları Neye Göre Belirlenir?",
+     "kw": "Konya diş tedavi fiyatları",
+     "excerpt": "Diş tedavisi fiyatları neden klinikten kliniğe değişir? Fiyatı belirleyen faktörleri ve doğru kliniği seçerken nelere bakmanız gerektiğini anlattık.",
+     "date": "2025-11-25", "read": 5, "img": "implant.jpg",
+     "body": """<p>"Diş tedavisi ne kadar?" sorusunun tek bir cevabı yoktur; çünkü fiyat, tedavinin türüne ve birçok değişkene bağlıdır. Şeffaf bir klinik, planlamadan önce size net bilgi verir.</p>
+<h2>Fiyatı Belirleyen Faktörler</h2>
+<ul>
+<li><strong>Tedavi türü:</strong> Dolgu, kanal, implant, ortodonti farklı emek ve malzeme gerektirir.</li>
+<li><strong>Kullanılan malzeme:</strong> Örneğin implant markası veya kaplama türü (zirkonyum/lamina).</li>
+<li><strong>Vakanın karmaşıklığı:</strong> Ek işlem (kemik grefti, diş eti tedavisi) gerekip gerekmemesi.</li>
+<li><strong>Klinik teknolojisi ve hekim deneyimi.</strong></li>
+</ul>
+<h2>Sadece Fiyata Göre Karar Vermeyin</h2>
+<p>En düşük fiyat her zaman en iyi seçenek değildir. Yanlış veya eksik tedavi, uzun vadede daha yüksek maliyet doğurabilir. Hijyen, hekim deneyimi, malzeme kalitesi ve sonrası takip de en az fiyat kadar önemlidir.</p>
+<p>Dentual olarak tedavi öncesi net ve şeffaf bilgilendirme yapıyoruz. Size özel tedavi planı ve fiyat bilgisi için <a href="/iletisim/">bize ulaşın</a>. Doğru kliniği seçerken <a href="/blog/selcuklu-dis-hekimi-secimi/">nelere dikkat etmeniz gerektiğini</a> de okuyabilirsiniz.</p>"""},
 ]
 BLOG_MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 def fmt_date(iso):
