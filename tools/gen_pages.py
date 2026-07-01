@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Dentual Konya — static page generator (SEO multi-page build).
+Konya Diş Hekimi — static page generator (SEO multi-page build).
 
 WHY THIS EXISTS
 ---------------
@@ -23,7 +23,7 @@ generator afterwards, or re-apply your edit here.
 import json, os, re, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ORIGIN = "https://dentualkonya.com"
+ORIGIN = "https://konyadishekimi.com"
 
 # ---------------------------------------------------------------- config / env
 # Search-engine ownership tokens. Paste tokens here (or leave empty to omit the
@@ -87,7 +87,7 @@ HEAD_TMPL = """<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{TITLE}}</title>
     <meta name="description" content="{{DESC}}" />
-    <meta name="author" content="Dentual Konya" />
+    <meta name="author" content="Konya Diş Hekimi" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="{{CANON}}" />
     <!-- hreflang: TR is the only published language today; x-default self-refs.
@@ -101,7 +101,7 @@ HEAD_TMPL = """<head>
 
     <!-- Open Graph -->
     <meta property="og:type" content="{{OGTYPE}}" />
-    <meta property="og:site_name" content="Dentual Konya" />
+    <meta property="og:site_name" content="Konya Diş Hekimi" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:title" content="{{TITLE}}" />
     <meta property="og:description" content="{{DESC}}" />
@@ -126,7 +126,7 @@ HEAD_TMPL = """<head>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/theme-navy.css" />
-    <script>try{if(localStorage.getItem('dentual-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
+    <script>try{if(localStorage.getItem('konyadishekimi-ann-closed')==='1')document.documentElement.classList.add('ann-dismissed');}catch(e){}</script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -232,7 +232,7 @@ ROUTES = []  # (route, priority) for sitemap
 
 # ============================================================ HAKKIMIZDA
 about_content = hero(
-    "Konya Diş Kliniği Dentual Hakkında",
+    "Konya Diş Kliniği Konya Diş Hekimi Hakkında",
     "Konya'da gülüşlere değer katıyoruz — tecrübeli kadro, hasta odaklı yaklaşım.",
     [("Ana Sayfa", "/"), ("Hakkımızda", "/hakkimizda/")]
 ) + """
@@ -240,12 +240,12 @@ about_content = hero(
   <div class="about-text reveal">
     <span class="section-tag">Biz Kimiz?</span>
     <h2 class="section-title" style="text-align:left">Güvenle Tedavi Ediyoruz</h2>
-    <p>Dentual, Karatay, Selçuklu ve Meram şubeleriyle Konya'nın güvenilir ağız ve diş sağlığı polikliniğidir. En değerli varlık olan insan, kuruluşumuzun merkezinde yer alır; güven ve mutlu çözümler odak noktamızı oluşturur.</p>
+    <p>Konya Diş Hekimi, Karatay, Selçuklu ve Meram şubeleriyle Konya'nın güvenilir ağız ve diş sağlığı polikliniğidir. En değerli varlık olan insan, kuruluşumuzun merkezinde yer alır; güven ve mutlu çözümler odak noktamızı oluşturur.</p>
     <p>Tecrübeli hekimlerimizle multidisipliner yaklaşıma önem veriyoruz. Ağız ve diş sağlığında teşhis ve tedavide çok yönlü yaklaşım, disiplinli çalışma ve en önemlisi hastanın ne istediği bizim için önceliklidir.</p>
     <p>Hastalarımızı uzun uzun dinler, modern ve güncel tedavi yöntemleriyle mutlu sona ulaşırız. Üstelik <strong>pazar dahil her gün gece 23:00'a kadar</strong> açık olarak, Konya'da gece açık nöbetçi diş hekimi hizmeti sunuyoruz.</p>
   </div>
   <div class="about-image reveal">
-    <img src="/assets/hero/about-dentual.webp" alt="Dentual Konya diş kliniğinde hekim ve hasta" loading="lazy" width="600" height="450" />
+    <img src="/assets/hero/about-dentual.webp" alt="Konya Diş Hekimi diş kliniğinde hekim ve hasta" loading="lazy" width="600" height="450" />
   </div>
 </div></div>
 <div class="section section-alt"><div class="container">
@@ -256,7 +256,7 @@ about_content = hero(
   </div>
 </div></div>
 <div class="section"><div class="container">
-  <div class="section-head reveal"><span class="section-tag">Neden Biz?</span><h2 class="section-title">Dentual Farkı</h2></div>
+  <div class="section-head reveal"><span class="section-tag">Neden Biz?</span><h2 class="section-title">Konya Diş Hekimi Farkı</h2></div>
   <div class="why-grid">
     <div class="why-item reveal"><span>&#10003;</span> <span>Son teknoloji dijital görüntüleme ve tedavi cihazları</span></div>
     <div class="why-item reveal"><span>&#10003;</span> <span>Uluslararası standartlarda sterilizasyon</span></div>
@@ -269,23 +269,23 @@ about_content = hero(
 """ + '<div class="section"><div class="container">' + cta() + '</div></div>'
 ROUTES.append(page(
     "/hakkimizda/", "about",
-    "Hakkımızda – Konya'nın Güvenilir Diş Kliniği | Dentual",
-    "Dentual Konya'nın uzman hekim kadrosu ve hasta odaklı yaklaşımı. 10+ uzman hekim, 9000+ mutlu hasta, 3 şube. Gece açık nöbetçi diş hekimi.",
+    "Hakkımızda – Konya'nın Güvenilir Diş Kliniği | Konya Diş Hekimi",
+    "Konya Diş Hekimi'nın uzman hekim kadrosu ve hasta odaklı yaklaşımı. 10+ uzman hekim, 9000+ mutlu hasta, 3 şube. Gece açık nöbetçi diş hekimi.",
     "Hakkımızda",
     about_content,
     [breadcrumb([("Ana Sayfa", "/"), ("Hakkımızda", "/hakkimizda/")]),
      {"@type": "AboutPage", "@id": ORIGIN + "/hakkimizda/#webpage", "url": ORIGIN + "/hakkimizda/",
-      "name": "Hakkımızda – Dentual Konya", "about": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
+      "name": "Hakkımızda – Konya Diş Hekimi", "about": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
     "/hakkimizda/",
-    title_en="About Us – Konya's Trusted Dental Clinic | Dentual",
-    desc_en="Dentual Konya's expert dentists and patient-focused care. 10+ specialists, 9000+ happy patients, 3 branches. Night-open emergency dentist."))
+    title_en="About Us – Konya's Trusted Dental Clinic | Konya Diş Hekimi",
+    desc_en="Konya Diş Hekimi's expert dentists and patient-focused care. 10+ specialists, 9000+ happy patients, 3 branches. Night-open emergency dentist."))
 
 # ============================================================ TREATMENTS DATA
 TREATMENTS = [
     {"slug": "implant", "title": "İmplant Tedavisi",
      "sub": "Tek diş eksikliğinden tam dişsizliğe kadar en iyi ve kalıcı çözüm.",
      "img": "implant.jpg",
-     "desc": "İmplantlar günümüzde tek diş eksikliklerinin giderilmesinde olduğu kadar, tamamen veya kısmi dişsizliği olan bireylerin tedavisinde de en iyi seçenektir. Çene kemiğine yerleştirilen titanyum yapay kök, kemik dokusuyla kaynaşarak doğal dişe en yakın sağlam bir temel oluşturur. Konya'da implant tedavisi için Dentual'ın üç şubesinde de uzman kadromuzla hizmetinizdeyiz.",
+     "desc": "İmplantlar günümüzde tek diş eksikliklerinin giderilmesinde olduğu kadar, tamamen veya kısmi dişsizliği olan bireylerin tedavisinde de en iyi seçenektir. Çene kemiğine yerleştirilen titanyum yapay kök, kemik dokusuyla kaynaşarak doğal dişe en yakın sağlam bir temel oluşturur. Konya'da implant tedavisi için kliniğimizin üç şubesinde de uzman kadromuzla hizmetinizdeyiz.",
      "candidates": "Bir veya birden fazla dişi eksik olan, çene kemiği implant için yeterli olan ve sabit, doğal bir çözüm isteyen yetişkin hastalar için uygundur.",
      "process": [("Muayene & Görüntüleme", "Röntgen ve tomografi ile çene kemiği değerlendirilerek kişiye özel tedavi planı oluşturulur."),
                  ("Cerrahi Yerleştirme", "Lokal anestezi altında titanyum implant çene kemiğine konforlu şekilde yerleştirilir."),
@@ -295,7 +295,7 @@ TREATMENTS = [
     {"slug": "gulus-estetigi", "title": "Gülüş Estetiği",
      "sub": "Güldüğünüzde ilk göze çarpan ön dişleriniz için kişiye özel estetik planlama.",
      "img": "gulus-estetigi.jpg",
-     "desc": "Gülüş estetiği; yüz şekli, dudak yapısı ve diş eti çizgisi göz önünde bulundurularak kişiye özel planlanan bir uygulamadır. Lamina, zirkonyum kaplama ve diş beyazlatma gibi yöntemlerle dişlerin rengi, formu ve dizilimi yeniden tasarlanır. Konya'da gülüş tasarımı için Dentual'da dijital planlama ile sonucu önceden görebilirsiniz.",
+     "desc": "Gülüş estetiği; yüz şekli, dudak yapısı ve diş eti çizgisi göz önünde bulundurularak kişiye özel planlanan bir uygulamadır. Lamina, zirkonyum kaplama ve diş beyazlatma gibi yöntemlerle dişlerin rengi, formu ve dizilimi yeniden tasarlanır. Konya'da gülüş tasarımı için kliniğimizde dijital planlama ile sonucu önceden görebilirsiniz.",
      "candidates": "Diş renginden, formundan veya diziliminden memnun olmayan; daha estetik ve simetrik bir gülüş isteyen herkes için planlanabilir.",
      "process": [("Analiz & Planlama", "Yüz şekli, dudak yapısı ve diş eti çizgisi incelenerek kişiye özel gülüş planı hazırlanır."),
                  ("Dijital Tasarım", "Yeni gülüşünüz dijital ortamda tasarlanır ve uygulama öncesi sonuç öngörülür."),
@@ -315,7 +315,7 @@ TREATMENTS = [
     {"slug": "kanal-tedavisi", "title": "Kanal Tedavisi (Endodonti)",
      "sub": "İltihaplı dişleri çekmeden kurtaran modern endodonti uygulamaları.",
      "img": "kanal-tedavisi.jpg",
-     "desc": "Kanal tedavisi, dişin merkezindeki canlı dokunun (pulpa) çıkartılarak kanalın uygun dolgu maddeleriyle doldurulması işlemidir. Çürük veya travma nedeniyle iltihaplanan diş sinirinin temizlenmesiyle, çekilmesi gereken dişler kurtarılır ve ağrı ortadan kaldırılır. Gece bastıran şiddetli diş ağrılarında Dentual'ın gece açık şubeleri yanınızdadır.",
+     "desc": "Kanal tedavisi, dişin merkezindeki canlı dokunun (pulpa) çıkartılarak kanalın uygun dolgu maddeleriyle doldurulması işlemidir. Çürük veya travma nedeniyle iltihaplanan diş sinirinin temizlenmesiyle, çekilmesi gereken dişler kurtarılır ve ağrı ortadan kaldırılır. Gece bastıran şiddetli diş ağrılarında kliniğimizin gece açık şubeleri yanınızdadır.",
      "candidates": "Derin çürük, diş ağrısı, sıcak-soğuğa aşırı hassasiyet veya travma nedeniyle siniri iltihaplanan dişe sahip hastalar için uygundur.",
      "process": [("Teşhis & Röntgen", "Dişin ve kök kanallarının durumu röntgenle ayrıntılı olarak değerlendirilir."),
                  ("Kanalların Temizlenmesi", "Lokal anestezi altında iltihaplı doku çıkarılır, kanallar şekillendirilerek temizlenir."),
@@ -335,7 +335,7 @@ TREATMENTS = [
     {"slug": "cocuk-dis-hekimligi", "title": "Pedodonti (Çocuk Diş Hekimliği)",
      "sub": "0-14 yaş çocukların süt ve daimi dişlerinin sağlığı için özel yaklaşım.",
      "img": "pedodonti.jpg",
-     "desc": "Pedodonti, 0-14 yaş çocukların süt ve daimi dişlerinin sağlığını korumanın yanı sıra problemleri tedavi etmeyi amaçlar. Uzman hekimlerimiz, çocukların diş hekimi korkusu yaşamadan sağlıklı dişlere sahip olması için özel teknikler kullanır. Dentual Çocuk kliniğimizde minik hastalarımıza özel, neşeli bir ortam sunuyoruz.",
+     "desc": "Pedodonti, 0-14 yaş çocukların süt ve daimi dişlerinin sağlığını korumanın yanı sıra problemleri tedavi etmeyi amaçlar. Uzman hekimlerimiz, çocukların diş hekimi korkusu yaşamadan sağlıklı dişlere sahip olması için özel teknikler kullanır. KDH Çocuk kliniğimizde minik hastalarımıza özel, neşeli bir ortam sunuyoruz.",
      "candidates": "0-14 yaş aralığındaki, koruyucu diş hekimliği veya süt/daimi diş tedavisi ihtiyacı olan tüm çocuklar için uygundur.",
      "process": [("Tanışma & Muayene", "Çocuğun güven duyması sağlanarak nazik bir şekilde ağız ve diş muayenesi yapılır."),
                  ("Koruyucu Uygulamalar", "Flor ve fissür örtücü gibi koruyucu işlemlerle çürük riski azaltılır."),
@@ -344,25 +344,25 @@ TREATMENTS = [
      "points": ["Ağız hijyeni eğitimi", "Flor ve fissür örtücü uygulamaları", "Süt ve daimi diş dolgu/tedavileri", "Çocuk dostu, korkutmayan yaklaşım"]},
 ]
 T_TITLE = {
-    "implant": "İmplant Tedavisi Konya – Diş İmplantı Süreci & Fiyat | Dentual",
-    "gulus-estetigi": "Gülüş Estetiği Konya – Zirkonyum, Lamina, Diş Beyazlatma | Dentual",
-    "ortodonti": "Ortodonti Konya – Diş Teli & Şeffaf Plak Tedavisi | Dentual",
-    "kanal-tedavisi": "Kanal Tedavisi Konya (Endodonti) – Ağrısız Tedavi | Dentual",
-    "cerrahi": "Ağız & Çene Cerrahisi Konya – 20'lik Diş Çekimi | Dentual",
-    "cocuk-dis-hekimligi": "Çocuk Diş Hekimi Konya (Pedodonti) – Dentual Çocuk",
+    "implant": "İmplant Tedavisi Konya – Diş İmplantı Süreci & Fiyat | Konya Diş Hekimi",
+    "gulus-estetigi": "Gülüş Estetiği Konya – Zirkonyum, Lamina, Diş Beyazlatma | Konya Diş Hekimi",
+    "ortodonti": "Ortodonti Konya – Diş Teli & Şeffaf Plak Tedavisi | Konya Diş Hekimi",
+    "kanal-tedavisi": "Kanal Tedavisi Konya (Endodonti) – Ağrısız Tedavi | Konya Diş Hekimi",
+    "cerrahi": "Ağız & Çene Cerrahisi Konya – 20'lik Diş Çekimi | Konya Diş Hekimi",
+    "cocuk-dis-hekimligi": "Çocuk Diş Hekimi Konya (Pedodonti) – KDH Çocuk",
 }
 T_DESC = {
-    "implant": "Konya'da implant tedavisi: diş implantı süreci, kimlere uygun, avantajları. Dentual'ın uzman kadrosuyla doğal ve kalıcı çözüm. Randevu: 444 34 42.",
-    "gulus-estetigi": "Konya gülüş estetiği: zirkonyum kaplama, lamina ve diş beyazlatma ile kişiye özel gülüş tasarımı. Dijital planlama ile Dentual'da. Randevu: 444 34 42.",
-    "ortodonti": "Konya ortodonti: diş teli ve şeffaf plak tedavisi ile çapraşık dişler ve kapanış sorunlarına çözüm. Her yaşa uygun. Dentual. Randevu: 444 34 42.",
-    "kanal-tedavisi": "Konya kanal tedavisi (endodonti): iltihaplı dişi çekmeden kurtaran ağrısız modern tedavi. Gece açık şubelerle Dentual. Randevu: 444 34 42.",
-    "cerrahi": "Konya ağız ve çene cerrahisi: gömülü 20'lik diş çekimi, kist ve implant cerrahisi. Steril koşullarda uzman kadro. Dentual. Randevu: 444 34 42.",
-    "cocuk-dis-hekimligi": "Konya çocuk diş hekimi (pedodonti): 0-14 yaş süt ve daimi diş tedavisi, koruyucu uygulamalar. Korkutmayan Dentual Çocuk kliniği. Randevu: 444 34 42.",
+    "implant": "Konya'da implant tedavisi: diş implantı süreci, kimlere uygun, avantajları. kliniğimizin uzman kadrosuyla doğal ve kalıcı çözüm. Randevu: 444 34 42.",
+    "gulus-estetigi": "Konya gülüş estetiği: zirkonyum kaplama, lamina ve diş beyazlatma ile kişiye özel gülüş tasarımı. Dijital planlama ile kliniğimizde. Randevu: 444 34 42.",
+    "ortodonti": "Konya ortodonti: diş teli ve şeffaf plak tedavisi ile çapraşık dişler ve kapanış sorunlarına çözüm. Her yaşa uygun. Konya Diş Hekimi. Randevu: 444 34 42.",
+    "kanal-tedavisi": "Konya kanal tedavisi (endodonti): iltihaplı dişi çekmeden kurtaran ağrısız modern tedavi. Gece açık şubelerle Konya Diş Hekimi. Randevu: 444 34 42.",
+    "cerrahi": "Konya ağız ve çene cerrahisi: gömülü 20'lik diş çekimi, kist ve implant cerrahisi. Steril koşullarda uzman kadro. Konya Diş Hekimi. Randevu: 444 34 42.",
+    "cocuk-dis-hekimligi": "Konya çocuk diş hekimi (pedodonti): 0-14 yaş süt ve daimi diş tedavisi, koruyucu uygulamalar. Korkutmayan KDH Çocuk kliniği. Randevu: 444 34 42.",
 }
 
 def treatment_card(t):
     return ('<a href="/tedaviler/%s/" class="treatment-card reveal">'
-            '<div class="treatment-img"><img src="/assets/treatments/%s" alt="%s — Konya Dentual diş kliniği" loading="lazy" width="400" height="190" /></div>'
+            '<div class="treatment-img"><img src="/assets/treatments/%s" alt="%s — Konya Konya Diş Hekimi diş kliniği" loading="lazy" width="400" height="190" /></div>'
             '<div class="treatment-body"><h3>%s</h3><p>%s</p>'
             '<span class="treatment-more">Detayları Gör &rarr;</span></div></a>'
             % (t["slug"], web(t["img"]), t["title"], t["title"], t["sub"]))
@@ -376,16 +376,16 @@ tindex_content = hero(
     "".join(treatment_card(t) for t in TREATMENTS) + '</div>' + cta() + '</div></div>'
 ROUTES.append(page(
     "/tedaviler/", "treatments",
-    "Diş Tedavileri Konya – İmplant, Gülüş Estetiği, Ortodonti | Dentual",
-    "Konya'da implant, gülüş estetiği, ortodonti, kanal tedavisi, cerrahi ve çocuk diş hekimliği. Dentual'da uzman kadroyla güvenli tedavi. Randevu: 444 34 42.",
+    "Diş Tedavileri Konya – İmplant, Gülüş Estetiği, Ortodonti | Konya Diş Hekimi",
+    "Konya'da implant, gülüş estetiği, ortodonti, kanal tedavisi, cerrahi ve çocuk diş hekimliği. kliniğimizde uzman kadroyla güvenli tedavi. Randevu: 444 34 42.",
     "Tedavilerimiz", tindex_content,
     [breadcrumb([("Ana Sayfa", "/"), ("Tedaviler", "/tedaviler/")]),
      {"@type": "CollectionPage", "@id": ORIGIN + "/tedaviler/#webpage", "url": ORIGIN + "/tedaviler/",
-      "name": "Diş Tedavileri – Dentual Konya", "isPartOf": {"@id": ORIGIN + "/#website"},
+      "name": "Diş Tedavileri – Konya Diş Hekimi", "isPartOf": {"@id": ORIGIN + "/#website"},
       "about": ORG_REF}],
     "/tedaviler/",
-    title_en="Dental Treatments Konya – Implants, Smile, Orthodontics | Dentual",
-    desc_en="Implants, smile aesthetics, orthodontics, root canal, surgery and pediatric dentistry in Konya. Expert care at Dentual. Call 444 34 42."))
+    title_en="Dental Treatments Konya – Implants, Smile, Orthodontics | Konya Diş Hekimi",
+    desc_en="Implants, smile aesthetics, orthodontics, root canal, surgery and pediatric dentistry in Konya. Expert care at our clinic. Call 444 34 42."))
 
 # treatment detail pages
 others = TREATMENTS
@@ -397,7 +397,7 @@ for t in TREATMENTS:
     content = hero(t["title"], t["sub"],
                    [("Ana Sayfa", "/"), ("Tedaviler", "/tedaviler/"), (t["title"], "/tedaviler/%s/" % t["slug"])]) + (
         '<div class="section"><div class="container container-narrow">'
-        '<img src="/assets/treatments/%s" alt="%s — Konya Dentual" loading="lazy" width="760" height="360" style="width:100%%;height:auto;border-radius:16px;margin-bottom:1.6rem" />'
+        '<img src="/assets/treatments/%s" alt="%s — Konya Konya Diş Hekimi" loading="lazy" width="760" height="360" style="width:100%%;height:auto;border-radius:16px;margin-bottom:1.6rem" />'
         '<p>%s</p>'
         '<div class="tm-callout" style="margin:1.4rem 0"><strong>Kimler İçin Uygun?</strong> <span>%s</span></div>'
         '<h2 class="section-title" style="text-align:left;margin-top:2rem">Tedavi Süreci</h2>'
@@ -475,7 +475,7 @@ def branch_cta_group(b, note=""):
 
 gece_faq_qa = [
     ("Konya'da gece açık diş kliniği var mı?",
-     "Evet. Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir."),
+     "Evet. Konya Diş Hekimi olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir."),
     ("Gece diş ağrısı için hemen ne yapmalıyım?",
      "Ilık tuzlu su ile gargara yapın, yanağınıza dışarıdan soğuk kompres uygulayın ve hekiminizin önerdiği bir ağrı kesici alın. Kalıcı çözüm için 23:00'a kadar açık şubemizi arayın."),
     ("Acil diş tedavisi için randevu gerekir mi?",
@@ -490,7 +490,7 @@ gece_content = hero(
     [("Ana Sayfa", "/"), ("Gece Açık & Acil", "/gece-acik-dis-klinigi-konya/")]
 ) + """
 <div class="section"><div class="container container-narrow">
-  <p>Diş ağrısı çoğu zaman en kötü anda, akşam veya gece bastırır. <strong>Dentual olarak Konya'da gece açık nöbetçi diş hekimi</strong> hizmetiyle yanınızdayız: Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün 09:00–23:00 arası</strong> acil ve planlı diş tedavileriniz için buradayız.</p>
+  <p>Diş ağrısı çoğu zaman en kötü anda, akşam veya gece bastırır. <strong>Konya Diş Hekimi olarak Konya'da gece açık nöbetçi diş hekimi</strong> hizmetiyle yanınızdayız: Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün 09:00–23:00 arası</strong> acil ve planlı diş tedavileriniz için buradayız.</p>
   <h2 class="section-title" style="text-align:left;margin-top:2rem">Hangi Durumlar Acildir?</h2>
   <ul class="tm-list">
     <li>Şiddetli ve geçmeyen diş ağrısı</li>
@@ -514,7 +514,7 @@ ROUTES.append(page(
     "Gece Açık & Acil Diş", gece_content,
     [breadcrumb([("Ana Sayfa", "/"), ("Gece Açık & Acil", "/gece-acik-dis-klinigi-konya/")]),
      {"@type": "MedicalClinic", "@id": ORIGIN + "/gece-acik-dis-klinigi-konya/#clinic",
-      "name": "Dentual Konya – Gece Açık Nöbetçi Diş Kliniği",
+      "name": "Konya Diş Hekimi – Gece Açık Nöbetçi Diş Kliniği",
       "url": ORIGIN + "/gece-acik-dis-klinigi-konya/",
       "description": "Konya'da pazar dahil her gün gece 23:00'a kadar açık nöbetçi ve acil diş hekimi hizmeti.",
       "parentOrganization": ORG_REF, "telephone": "+90-444-34-42", "priceRange": "₺₺",
@@ -530,19 +530,19 @@ ROUTES.append(page(
 
 # ============================================================ ŞUBELER
 B_TITLE = {
-    "karatay": "Karatay Diş Kliniği Konya – Nöbetçi Diş Hekimi | Dentual",
-    "selcuklu": "Selçuklu Diş Kliniği – Gece Açık Nöbetçi Diş Hekimi | Dentual",
-    "meram": "Meram Diş Kliniği Konya – Diş Hekimi | Dentual",
+    "karatay": "Karatay Diş Kliniği Konya – Nöbetçi Diş Hekimi | Konya Diş Hekimi",
+    "selcuklu": "Selçuklu Diş Kliniği – Gece Açık Nöbetçi Diş Hekimi | Konya Diş Hekimi",
+    "meram": "Meram Diş Kliniği Konya – Diş Hekimi | Konya Diş Hekimi",
 }
 B_DESC = {
-    "karatay": "Karatay diş kliniği Dentual: Çimenlik Mah. Fetih Cad. Pazar dahil her gün 23:00'a kadar açık nöbetçi diş hekimi. Randevu: 0546 733 27 13.",
+    "karatay": "Karatay diş kliniği Konya Diş Hekimi: Çimenlik Mah. Fetih Cad. Pazar dahil her gün 23:00'a kadar açık nöbetçi diş hekimi. Randevu: 0546 733 27 13.",
     "selcuklu": "Selçuklu'da gece açık diş kliniği. Parsana Mah. Kaletaş Cad. Pazar dahil 23:00'a kadar nöbetçi diş hekimi. Randevu ve acil: 0551 342 44 42.",
-    "meram": "Meram diş kliniği Dentual: Melikşah Mah. Akkonak Sk. Pazar dahil her gün 23:00'a kadar açık diş hekimi. Randevu: 0552 599 49 59.",
+    "meram": "Meram diş kliniği Konya Diş Hekimi: Melikşah Mah. Akkonak Sk. Pazar dahil her gün 23:00'a kadar açık diş hekimi. Randevu: 0552 599 49 59.",
 }
 B_H1 = {
-    "karatay": "Karatay Diş Kliniği — Dentual Konya",
+    "karatay": "Karatay Diş Kliniği — Konya Diş Hekimi",
     "selcuklu": "Selçuklu Diş Kliniği — Gece Açık Nöbetçi Diş Hekimi",
-    "meram": "Meram Diş Kliniği — Dentual Konya",
+    "meram": "Meram Diş Kliniği — Konya Diş Hekimi",
 }
 B_SUB = {
     "karatay": "Karatay'da ağız ve diş sağlığı; pazar dahil her gün gece 23:00'a kadar açık.",
@@ -573,7 +573,7 @@ for b in BRANCHES:
         '<p class="branch-addr"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pazar dahil her gün 09:00 – 23:00</p>'
         '<a href="https://wa.me/%s%s" class="branch-link" target="_blank" rel="noopener">WhatsApp ile İletişim &rarr;</a></div></div>'
         '<div class="container container-narrow" style="margin-top:2.4rem">'
-        '<p>%s şubemiz, Dentual güvencesiyle ağız ve diş sağlığınız için hizmetinizdedir. İmplant, gülüş estetiği, ortodonti, kanal tedavisi ve çocuk diş hekimliği dahil tüm tedavilerimiz bu şubemizde sunulur. %s</p>'
+        '<p>%s şubemiz, güvenle ağız ve diş sağlığınız için hizmetinizdedir. İmplant, gülüş estetiği, ortodonti, kanal tedavisi ve çocuk diş hekimliği dahil tüm tedavilerimiz bu şubemizde sunulur. %s</p>'
         '<p>Gece bastıran acil durumlar için <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> sayfamıza bakabilirsiniz.</p>'
         '</div></div></div>'
         % (b["map"], b["name"], b["name"], b["addr"], b["telraw"], b["tel"], b["telraw"].replace("+", ""), WA_TEXT_GENERAL, b["name"],
@@ -581,7 +581,7 @@ for b in BRANCHES:
     ) + bf_html + '<div class="section"><div class="container">' + cta() + '</div></div>'
     dentist_node = {
         "@type": "Dentist", "@id": ORIGIN + "/subeler/%s/#dentist" % b["slug"],
-        "name": "Dentual Diş Kliniği - %s" % b["name"], "url": ORIGIN + "/subeler/%s/" % b["slug"],
+        "name": "Konya Diş Hekimi Kliniği - %s" % b["name"], "url": ORIGIN + "/subeler/%s/" % b["slug"],
         "telephone": b["telraw"], "priceRange": "₺₺", "parentOrganization": ORG_REF,
         "image": ORIGIN + "/assets/hero/hero1.jpg",
         "medicalSpecialty": "Dentistry",
@@ -617,8 +617,8 @@ BLOG = [
 <li><strong>Konum ve şube sayısı:</strong> Size en yakın şube, geç saatte ulaşımı kolaylaştırır.</li>
 <li><strong>Acil müdahale kapasitesi:</strong> Kanal, çekim, apse drenajı gibi işlemlerin yapılabildiğini öğrenin.</li>
 </ul>
-<h2>Dentual: Pazar Dahil Her Gün 23:00'a Kadar</h2>
-<p>Dentual olarak Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün gece 23:00'a kadar</strong> hizmet veriyoruz. Geç saatte bastıran ağrılarda <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Ağrı dayanılmazsa beklemeyin; önce <a href="/blog/gece-dis-agrisi-ne-yapmali/">gece diş ağrısı bastığında ne yapmalı</a> yazımızdaki pratik önerilere göz atın, ardından bizi arayın. Çağrı merkezi: 444 34 42.</p>"""},
+<h2>Konya Diş Hekimi: Pazar Dahil Her Gün 23:00'a Kadar</h2>
+<p>Konya Diş Hekimi olarak Karatay, Selçuklu ve Meram şubelerimizde <strong>pazar dahil her gün gece 23:00'a kadar</strong> hizmet veriyoruz. Geç saatte bastıran ağrılarda <a href="/gece-acik-dis-klinigi-konya/">Konya gece açık nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Ağrı dayanılmazsa beklemeyin; önce <a href="/blog/gece-dis-agrisi-ne-yapmali/">gece diş ağrısı bastığında ne yapmalı</a> yazımızdaki pratik önerilere göz atın, ardından bizi arayın. Çağrı merkezi: 444 34 42.</p>"""},
     {"slug": "acil-dis-tedavisi-gerektiren-durumlar", "cat": "Gece & Acil",
      "title": "Acil Diş Tedavisi Gerektiren 7 Durum",
      "kw": "acil diş tedavisi Konya",
@@ -652,7 +652,7 @@ BLOG = [
 </ul>
 <h2>Sabahı Bekleyebilecek Durumlar</h2>
 <p>Hafif hassasiyet, küçük bir çatlak, takılıp kalan yemek artığı gibi sorunlar genellikle ertesi gün planlı muayene ile çözülebilir. Yine de emin değilseniz aramaktan çekinmeyin; doğru yönlendirmeyi telefonda alabilirsiniz.</p>
-<p>Dentual'da <strong>pazar dahil her gün 23:00'a kadar</strong> hizmet veriyoruz. Şüpheniz olduğunda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hattımızı arayın; durumunuz acil değilse de size en uygun randevu saatini ayarlayalım. <a href="/iletisim/">İletişim bilgilerimize buradan</a> ulaşabilirsiniz.</p>"""},
+<p>kliniğimizde <strong>pazar dahil her gün 23:00'a kadar</strong> hizmet veriyoruz. Şüpheniz olduğunda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hattımızı arayın; durumunuz acil değilse de size en uygun randevu saatini ayarlayalım. <a href="/iletisim/">İletişim bilgilerimize buradan</a> ulaşabilirsiniz.</p>"""},
     {"slug": "pazar-acik-dis-hekimi-konya", "cat": "Gece & Acil",
      "title": "Hafta Sonu ve Pazar Açık Diş Hekimi (Konya)",
      "kw": "pazar açık diş hekimi Konya",
@@ -661,7 +661,7 @@ BLOG = [
      "body": """<p>Diş ağrısı hafta sonu tanımaz. Birçok klinik cumartesi öğleden sonra ve pazar günü kapalıdır; bu da hafta sonu bastıran ağrılarda hasta için zor saatler demektir.</p>
 <h2>Hafta Sonu Diş Hekimi Neden Önemli?</h2>
 <p>Cuma akşamı başlayan bir ağrı, pazartesiye kadar beklediğinde küçük bir çürük büyük bir enfeksiyona dönüşebilir. Erken müdahale hem ağrıyı kısaltır hem de daha kapsamlı (ve maliyetli) tedavilerin önüne geçer.</p>
-<h2>Dentual'da Hafta Sonu</h2>
+<h2>kliniğimizde Hafta Sonu</h2>
 <ul>
 <li>Cumartesi ve <strong>pazar dahil</strong> her gün açığız.</li>
 <li>Çalışma saatimiz gece <strong>23:00</strong>'a kadar uzar.</li>
@@ -716,7 +716,7 @@ BLOG = [
 <li><strong>Hasta yorumları:</strong> Gerçek hasta deneyimleri fikir verir.</li>
 </ul>
 <h2>Selçuklu Şubemiz</h2>
-<p>Dentual Selçuklu şubemizde implanttan ortodontiye, gülüş estetiğinden çocuk diş hekimliğine kadar tüm tedaviler tek çatı altında sunulur. Üstelik <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. <a href="/subeler/selcuklu/">Selçuklu şubemizin</a> konum ve iletişim bilgilerine ulaşabilir, <a href="/iletisim/">bizimle iletişime geçebilirsiniz</a>. Kliniğimiz hakkında daha fazlası için <a href="/hakkimizda/">Hakkımızda</a> sayfamıza bakın.</p>"""},
+<p>Konya Diş Hekimi Selçuklu şubemizde implanttan ortodontiye, gülüş estetiğinden çocuk diş hekimliğine kadar tüm tedaviler tek çatı altında sunulur. Üstelik <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. <a href="/subeler/selcuklu/">Selçuklu şubemizin</a> konum ve iletişim bilgilerine ulaşabilir, <a href="/iletisim/">bizimle iletişime geçebilirsiniz</a>. Kliniğimiz hakkında daha fazlası için <a href="/hakkimizda/">Hakkımızda</a> sayfamıza bakın.</p>"""},
     {"slug": "24-saat-gec-saat-dis-hekimi-sss", "cat": "Gece & Acil",
      "title": "Geç Saat Açık Diş Hekimi Hakkında Merak Edilenler",
      "kw": "24 saat diş hekimi Konya",
@@ -730,7 +730,7 @@ BLOG = [
 <li><strong>Gece ücreti farklı mı?</strong> Tedavi ücretleri işlemin türüne göre belirlenir; süreç öncesinde net bilgilendirme yapılır.</li>
 <li><strong>Çocuğum için de geçerli mi?</strong> Evet, çocuk acil diş durumlarında da hizmet veriyoruz.</li>
 </ul>
-<p>Dentual olarak <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. Tedavi ücretlerinin neye göre belirlendiğini <a href="/blog/konya-dis-tedavi-fiyatlari/">Konya'da diş tedavisi fiyatları</a> yazımızda anlattık. Acil bir durumunuzda <a href="/gece-acik-dis-klinigi-konya/">gece açık diş kliniği</a> hattımızı arayın ya da <a href="/iletisim/">iletişim sayfamızdan</a> bize ulaşın.</p>"""},
+<p>Konya Diş Hekimi olarak <strong>pazar dahil her gün 23:00'a kadar</strong> açığız. Tedavi ücretlerinin neye göre belirlendiğini <a href="/blog/konya-dis-tedavi-fiyatlari/">Konya'da diş tedavisi fiyatları</a> yazımızda anlattık. Acil bir durumunuzda <a href="/gece-acik-dis-klinigi-konya/">gece açık diş kliniği</a> hattımızı arayın ya da <a href="/iletisim/">iletişim sayfamızdan</a> bize ulaşın.</p>"""},
     {"slug": "implant-sonrasi-bakim", "cat": "İmplant",
      "title": "İmplant Tedavisi Sonrası Bakım: 7 Altın Kural",
      "kw": "implant sonrası bakım",
@@ -763,7 +763,7 @@ BLOG = [
 <li>Çene ve diş gelişimi erkenden takip edilir.</li>
 <li>Doğru fırçalama ve beslenme alışkanlıkları kazandırılır.</li>
 </ul>
-<p><a href="/tedaviler/cocuk-dis-hekimligi/">Dentual Çocuk kliniğimizde</a>, minik hastalarımıza özel, neşeli ve korkutmayan bir ortam sunuyoruz. Çocuğunuzun ilk diş deneyimini keyifli bir maceraya dönüştürüyoruz.</p>"""},
+<p><a href="/tedaviler/cocuk-dis-hekimligi/">KDH Çocuk kliniğimizde</a>, minik hastalarımıza özel, neşeli ve korkutmayan bir ortam sunuyoruz. Çocuğunuzun ilk diş deneyimini keyifli bir maceraya dönüştürüyoruz.</p>"""},
     {"slug": "gulus-tasarimi-nedir", "cat": "Estetik",
      "title": "Gülüş Tasarımı Nedir? Kimler İçin Uygundur?",
      "kw": "gülüş tasarımı Konya",
@@ -795,7 +795,7 @@ BLOG = [
 <li>Aspirini doğrudan diş etine koymayın; dokuya zarar verir.</li>
 </ul>
 <h2>Beklemeyin, Bizi Arayın</h2>
-<p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>"""},
+<p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Konya Diş Hekimi olarak pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda <a href="/gece-acik-dis-klinigi-konya/">nöbetçi diş hekimi</a> hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>"""},
     {"slug": "dis-implanti-kimlere-uygun", "cat": "İmplant",
      "title": "Diş İmplantı Kimlere Uygundur?",
      "kw": "implant Konya",
@@ -975,7 +975,7 @@ BLOG = [
 </ul>
 <h2>Korunma</h2>
 <p>Düzenli fırçalama, şekerli atıştırmalıkların sınırlanması, flor ve fissür örtücü uygulamaları çürükleri büyük ölçüde önler. Erken kontrol, küçük çürüğün büyümeden çözülmesini sağlar.</p>
-<p><a href="/tedaviler/cocuk-dis-hekimligi/">Dentual Çocuk kliniğimizde</a> minik hastalarımıza korkutmadan, oyunlaştırarak yaklaşıyoruz. İlk kontrolün zamanlamasını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> anlattık. Randevu için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
+<p><a href="/tedaviler/cocuk-dis-hekimligi/">KDH Çocuk kliniğimizde</a> minik hastalarımıza korkutmadan, oyunlaştırarak yaklaşıyoruz. İlk kontrolün zamanlamasını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> anlattık. Randevu için <a href="/iletisim/">bize ulaşın</a>.</p>"""},
     {"slug": "cocuk-dis-hekimi-korkusu", "cat": "Pedodonti",
      "title": "Çocuklarda Diş Hekimi Korkusu Nasıl Yenilir?",
      "kw": "çocuk diş hekimi korkusu",
@@ -991,7 +991,7 @@ BLOG = [
 </ul>
 <h2>Kliniğin Rolü</h2>
 <p>Çocuk diş hekimliği (pedodonti), çocuğun yaşına uygun iletişim, oyunlaştırma ve sabırlı bir yaklaşım gerektirir. Doğru ortamda çocuk, tedaviyi bir korku değil, keyifli bir deneyim olarak hatırlar.</p>
-<p><a href="/tedaviler/cocuk-dis-hekimligi/">Dentual Çocuk</a> kliniğimiz tam da bunun için tasarlandı. Çocuğunuzun ilk diş deneyimini olumlu kılmak için <a href="/iletisim/">bize ulaşın</a>. İlk kontrol zamanını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> bulabilirsiniz.</p>"""},
+<p><a href="/tedaviler/cocuk-dis-hekimligi/">KDH Çocuk</a> kliniğimiz tam da bunun için tasarlandı. Çocuğunuzun ilk diş deneyimini olumlu kılmak için <a href="/iletisim/">bize ulaşın</a>. İlk kontrol zamanını <a href="/blog/cocuk-ilk-dis-kontrolu/">bu yazıda</a> bulabilirsiniz.</p>"""},
     {"slug": "fissur-ortucu-ve-flor", "cat": "Pedodonti",
      "title": "Fissür Örtücü ve Flor Uygulaması Nedir?",
      "kw": "fissür örtücü",
@@ -1148,7 +1148,7 @@ BLOG = [
 </ul>
 <h2>Sadece Fiyata Göre Karar Vermeyin</h2>
 <p>En düşük fiyat her zaman en iyi seçenek değildir. Yanlış veya eksik tedavi, uzun vadede daha yüksek maliyet doğurabilir. Hijyen, hekim deneyimi, malzeme kalitesi ve sonrası takip de en az fiyat kadar önemlidir.</p>
-<p>Dentual olarak tedavi öncesi net ve şeffaf bilgilendirme yapıyoruz. Size özel tedavi planı ve fiyat bilgisi için <a href="/iletisim/">bize ulaşın</a>. Doğru kliniği seçerken <a href="/blog/selcuklu-dis-hekimi-secimi/">nelere dikkat etmeniz gerektiğini</a> de okuyabilirsiniz.</p>"""},
+<p>Konya Diş Hekimi olarak tedavi öncesi net ve şeffaf bilgilendirme yapıyoruz. Size özel tedavi planı ve fiyat bilgisi için <a href="/iletisim/">bize ulaşın</a>. Doğru kliniği seçerken <a href="/blog/selcuklu-dis-hekimi-secimi/">nelere dikkat etmeniz gerektiğini</a> de okuyabilirsiniz.</p>"""},
 ]
 BLOG_MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 def fmt_date(iso):
@@ -1170,12 +1170,12 @@ blog_index = hero("Diş Sağlığı Blogu — Bilgi Merkezi",
     "".join(blog_card(b) for b in BLOG) + '</div></div></div>'
 ROUTES.append(page(
     "/blog/", "blog",
-    "Diş Sağlığı Blogu – Uzman Tavsiyeleri | Dentual Konya",
-    "Ağız ve diş sağlığı hakkında uzman yazıları: implant bakımı, çocuk diş sağlığı, gülüş tasarımı ve gece diş ağrısı önerileri. Dentual Konya.",
+    "Diş Sağlığı Blogu – Uzman Tavsiyeleri | Konya Diş Hekimi",
+    "Ağız ve diş sağlığı hakkında uzman yazıları: implant bakımı, çocuk diş sağlığı, gülüş tasarımı ve gece diş ağrısı önerileri. Konya Diş Hekimi.",
     "Bilgi Merkezi", blog_index,
     [breadcrumb([("Ana Sayfa", "/"), ("Blog", "/blog/")]),
      {"@type": "Blog", "@id": ORIGIN + "/blog/#blog", "url": ORIGIN + "/blog/",
-      "name": "Dentual Konya Blog", "publisher": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
+      "name": "Konya Diş Hekimi Blog", "publisher": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
     "/blog/"))
 
 for b in BLOG:
@@ -1191,7 +1191,7 @@ for b in BLOG:
         % (web(b["img"]), b["title"], b["body"], cta()))
     ROUTES.append(page(
         "/blog/%s/" % b["slug"], "blog",
-        b["title"] + " | Dentual Konya", b["excerpt"], b["title"], content,
+        b["title"] + " | Konya Diş Hekimi", b["excerpt"], b["title"], content,
         [breadcrumb([("Ana Sayfa", "/"), ("Blog", "/blog/"), (b["title"], "/blog/%s/" % b["slug"])]),
          {"@type": "BlogPosting", "@id": ORIGIN + "/blog/%s/#post" % b["slug"],
           "headline": b["title"], "description": b["excerpt"],
@@ -1204,7 +1204,7 @@ for b in BLOG:
         "/blog/", og_img=ORIGIN + "/assets/treatments/" + b["img"], og_type="article"))
 
 # ============================================================ İLETİŞİM
-contact_content = hero("İletişim – Dentual Konya",
+contact_content = hero("İletişim – Konya Diş Hekimi",
                        "Bize ulaşın, gülüşünüze birlikte yön verelim. Çağrı merkezi: 444 34 42.",
                        [("Ana Sayfa", "/"), ("İletişim", "/iletisim/")]) + """
 <div class="section"><div class="container">
@@ -1236,15 +1236,15 @@ contact_content = hero("İletişim – Dentual Konya",
 """
 ROUTES.append(page(
     "/iletisim/", "contact",
-    "İletişim – Karatay, Selçuklu, Meram Şubeleri | Dentual Konya",
-    "Dentual Konya iletişim: 3 şube telefon ve adresleri. Çağrı merkezi 444 34 42. Pazar dahil 23:00'a kadar açığız. Hemen randevu alın.",
+    "İletişim – Karatay, Selçuklu, Meram Şubeleri | Konya Diş Hekimi",
+    "Konya Diş Hekimi iletişim: 3 şube telefon ve adresleri. Çağrı merkezi 444 34 42. Pazar dahil 23:00'a kadar açığız. Hemen randevu alın.",
     "İletişim", contact_content,
     [breadcrumb([("Ana Sayfa", "/"), ("İletişim", "/iletisim/")]),
      {"@type": "ContactPage", "@id": ORIGIN + "/iletisim/#webpage", "url": ORIGIN + "/iletisim/",
-      "name": "İletişim – Dentual Konya", "about": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
+      "name": "İletişim – Konya Diş Hekimi", "about": ORG_REF, "isPartOf": {"@id": ORIGIN + "/#website"}}],
     "/iletisim/",
-    title_en="Contact – Karatay, Selçuklu, Meram Branches | Dentual Konya",
-    desc_en="Contact Dentual Konya: 3 branch phones and addresses. Call center 444 34 42. Open until 23:00 every day, Sundays included."))
+    title_en="Contact – Karatay, Selçuklu, Meram Branches | Konya Diş Hekimi",
+    desc_en="Contact Konya Diş Hekimi: 3 branch phones and addresses. Call center 444 34 42. Open until 23:00 every day, Sundays included."))
 
 # ============================================================ SITEMAP
 SITEMAP_URLS = [("/", "1.0", "2026-06-11")]
@@ -1280,7 +1280,7 @@ nf_content = hero(
      '<li><a href="/blog/">Blog</a></li>'
      '<li><a href="/iletisim/">İletişim</a></li></ul>' + cta() + '</div></div>')
 nf_head = (HEAD_TMPL
-           .replace("{{TITLE}}", "Sayfa Bulunamadı – Dentual Konya")
+           .replace("{{TITLE}}", "Sayfa Bulunamadı – Konya Diş Hekimi")
            .replace("{{DESC}}", "Aradığınız sayfa bulunamadı. Ana sayfa, tedaviler veya iletişim sayfamızdan devam edebilirsiniz.")
            .replace("{{CANON}}", ORIGIN + "/404.html")
            .replace("{{OGTYPE}}", "website")
@@ -1288,8 +1288,8 @@ nf_head = (HEAD_TMPL
            .replace("{{VERIFY}}", VERIFY_META)
            .replace("{{SCHEMA}}", json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "404 – Sayfa Bulunamadı"}, ensure_ascii=False, indent=2))
            .replace("index, follow", "noindex, follow"))
-nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Dentual Konya" '
-           'data-title-en="Page Not Found – Dentual Konya" '
+nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Konya Diş Hekimi" '
+           'data-title-en="Page Not Found – Konya Diş Hekimi" '
            'data-desc-tr="Aradığınız sayfa bulunamadı." data-desc-en="Page not found."')
 nf_top = CHROME_TOP.replace('class="nav-link active"', 'class="nav-link"')
 nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"navy\">\n" + nf_head + "\n<body " + nf_body +

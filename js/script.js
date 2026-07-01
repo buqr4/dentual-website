@@ -1,5 +1,5 @@
 /* ============================================================
-   DENTUAL KONYA — SCRIPT.JS
+   KONYA DİŞ HEKİMİ — SCRIPT.JS
    Vanilla JS · SPA routing · Preloader · Dark mode · Sliders
    ============================================================ */
 (function () {
@@ -8,42 +8,42 @@
     /* ---------- I18N STATE ---------- */
     const SUPPORTED_LANGS = ['tr', 'en'];
     const RTL_LANGS = ['ar'];
-    let currentLang = localStorage.getItem('dentual-lang') || 'tr';
+    let currentLang = localStorage.getItem('konyadishekimi-lang') || 'tr';
     if (SUPPORTED_LANGS.indexOf(currentLang) === -1) currentLang = 'tr';
 
     /* ---------- DATA ---------- */
     const PAGE_TITLES = {
         tr: {
-            home: 'Dentual Konya | Güvenle Tedavi Ediyoruz',
-            about: 'Hakkımızda - Dentual Konya',
-            treatments: 'Tedaviler - Dentual Konya',
-            blog: 'Bilgi Merkezi (Blog) - Dentual Konya',
-            contact: 'İletişim - Dentual Konya'
+            home: 'Konya Diş Hekimi | Güvenle Tedavi Ediyoruz',
+            about: 'Hakkımızda - Konya Diş Hekimi',
+            treatments: 'Tedaviler - Konya Diş Hekimi',
+            blog: 'Bilgi Merkezi (Blog) - Konya Diş Hekimi',
+            contact: 'İletişim - Konya Diş Hekimi'
         },
         en: {
-            home: 'Dentual Konya | We Treat with Confidence',
-            about: 'About Us - Dentual Konya',
-            treatments: 'Treatments - Dentual Konya',
-            blog: 'Blog - Dentual Konya',
-            contact: 'Contact - Dentual Konya'
+            home: 'Konya Diş Hekimi | We Treat with Confidence',
+            about: 'About Us - Konya Diş Hekimi',
+            treatments: 'Treatments - Konya Diş Hekimi',
+            blog: 'Blog - Konya Diş Hekimi',
+            contact: 'Contact - Konya Diş Hekimi'
         }
     };
 
     // Per-page meta descriptions (SEO for SPA navigation)
     const PAGE_DESCS = {
         tr: {
-            home: 'Dentual Konya - Karatay, Selçuklu ve Meram şubeleriyle ağız ve diş sağlığı polikliniği. Selçuklu şubemiz dahil pazar günleri de gece 23:00\'a kadar açık nöbetçi diş hekimi.',
-            about: 'Dentual Konya hakkında: tecrübeli hekim kadromuz, multidisipliner ve hasta odaklı yaklaşımımızla güvenle tedavi ediyoruz.',
-            treatments: 'İmplant, gülüş estetiği, ortodonti, kanal tedavisi, cerrahi ve pedodonti. Dentual Konya tedavi hizmetleri ve detayları.',
+            home: 'Konya Diş Hekimi - Karatay, Selçuklu ve Meram şubeleriyle ağız ve diş sağlığı polikliniği. Selçuklu şubemiz dahil pazar günleri de gece 23:00\'a kadar açık nöbetçi diş hekimi.',
+            about: 'Konya Diş Hekimi hakkında: tecrübeli hekim kadromuz, multidisipliner ve hasta odaklı yaklaşımımızla güvenle tedavi ediyoruz.',
+            treatments: 'İmplant, gülüş estetiği, ortodonti, kanal tedavisi, cerrahi ve pedodonti. Konya Diş Hekimi tedavi hizmetleri ve detayları.',
             blog: 'Ağız ve diş sağlığı hakkında uzman tavsiyeleri: implant bakımı, çocuk diş sağlığı, gülüş tasarımı ve acil diş ağrısı önerileri.',
-            contact: 'Dentual Konya iletişim: Karatay, Selçuklu ve Meram şube telefon numaraları. Çağrı merkezi 444 34 42.'
+            contact: 'Konya Diş Hekimi iletişim: Karatay, Selçuklu ve Meram şube telefon numaraları. Çağrı merkezi 444 34 42.'
         },
         en: {
-            home: 'Dentual Konya - oral and dental health clinic with Karatay, Selçuklu and Meram branches. Our Selçuklu branch is now open at night, until 23:00 every day including Sundays.',
-            about: 'About Dentual Konya: our experienced dentists treat you with confidence through a multidisciplinary, patient-focused approach.',
-            treatments: 'Implants, smile aesthetics, orthodontics, root canal, surgery and pedodontics. Dentual Konya treatments and details.',
+            home: 'Konya Diş Hekimi - oral and dental health clinic with Karatay, Selçuklu and Meram branches. Our Selçuklu branch is now open at night, until 23:00 every day including Sundays.',
+            about: 'About Konya Diş Hekimi: our experienced dentists treat you with confidence through a multidisciplinary, patient-focused approach.',
+            treatments: 'Implants, smile aesthetics, orthodontics, root canal, surgery and pedodontics. Konya Diş Hekimi treatments and details.',
             blog: 'Expert advice on oral and dental health: implant care, children\'s dental health, smile design and emergency toothache tips.',
-            contact: 'Contact Dentual Konya: Karatay, Selçuklu and Meram branch phone numbers. Call center 444 34 42.'
+            contact: 'Contact Konya Diş Hekimi: Karatay, Selçuklu and Meram branch phone numbers. Call center 444 34 42.'
         }
     };
 
@@ -72,14 +72,14 @@
             'emergency.call': 'Call Now: 444 34 42', 'emergency.wa': 'Message on WhatsApp',
             'stats.doctors': 'Specialist Dentists', 'stats.staff': 'Support Staff', 'stats.patients': 'Happy Patients', 'stats.branches': 'Branches',
             'htreat.tag': 'Our Treatments', 'htreat.title': 'Services We Offer', 'htreat.desc': 'A selection of our treatments that add value to your smile. Click the cards for details.', 'htreat.all': 'See All Treatments',
-            'brands.tag': 'Our Brands', 'brands.title': 'The Dentual Family', 'brands.desc': 'From adults to children, we offer oral and dental health solutions for every member of your family.',
-            'cocuk.tag': 'Dentual Kids', 'cocuk.title': "Little Ones' Dental Friend", 'cocuk.desc': "With our Dentual Kids clinic — specially designed so children reach healthy teeth while having fun and without fear of the dentist — we are by our little guests' side.",
+            'brands.tag': 'Our Brands', 'brands.title': 'Our Clinic Family', 'brands.desc': 'From adults to children, we offer oral and dental health solutions for every member of your family.',
+            'cocuk.tag': 'Kids Dental', 'cocuk.title': "Little Ones' Dental Friend", 'cocuk.desc': "With our Kids dental clinic — specially designed so children reach healthy teeth while having fun and without fear of the dentist — we are by our little guests' side.",
             'cocuk.f1t': 'Reassuring Approach', 'cocuk.f1d': 'A safe experience with our patient and caring dentists.',
             'cocuk.f2t': 'Pedodontics Experts', 'cocuk.f2d': "Expert team in children's dentistry for ages 0-14.",
             'cocuk.f3t': 'Preventive Care', 'cocuk.f3d': 'Protection against cavities with fluoride and fissure sealants.',
             'cocuk.f4t': 'Fun Environment', 'cocuk.f4d': 'A child-friendly, cheerful and relaxing clinic atmosphere.',
             'cocuk.cta': 'Contact Us',
-            'branch.tag': 'Our Branches', 'branch.title': 'The Nearest Dentual to You', 'branch.desc': 'At three central locations in Konya, we serve you with the same quality and trust.',
+            'branch.tag': 'Our Branches', 'branch.title': 'The Branch Nearest to You', 'branch.desc': 'At three central locations in Konya, we serve you with the same quality and trust.',
             'branch.map': 'View Map', 'branch.wa': 'Contact via WhatsApp →',
             'branch.karatay': 'Karatay Branch', 'branch.selcuklu': 'Selçuklu Branch', 'branch.meram': 'Meram Branch',
             'doc.tag': 'Our Dentists', 'doc.title': 'Our Expert Team', 'doc.desc': 'A reliable and comfortable treatment experience with our experienced dentists.',
@@ -98,7 +98,7 @@
             'about.mission': 'Our Mission', 'about.missionTxt': "To become Konya's most trusted dental health center by offering each patient personalized, scientific and ethical treatment plans.",
             'about.vision': 'Our Vision', 'about.visionTxt': 'To become a regional reference point in dentistry by combining technology with a people-focused approach.',
             'about.values': 'Our Values', 'about.valuesTxt': 'Transparency, patient satisfaction, hygiene, continuous education and honesty form the foundation of our work.',
-            'why.tag': 'Why Us?', 'why.title': 'The Dentual Difference',
+            'why.tag': 'Why Us?', 'why.title': 'What Sets Us Apart',
             'why.1': 'State-of-the-art digital imaging and treatment devices',
             'why.2': 'International-standard sterilization',
             'why.3': 'Painless and comfortable treatment methods',
@@ -109,7 +109,7 @@
             'cpage.heroTitle': 'Contact', 'cpage.heroSub': "Get in touch — let's shape your smile together.",
             'cpage.tag': 'Write to Us', 'cpage.title': 'Information Request', 'cpage.desc': 'You can use the form below for all our branches or call our branch numbers directly.',
             'footer.about': "Konya's trusted oral and dental health clinic. We're here for healthy smiles.",
-            'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:00 (Sundays included)', 'footer.copyright': '© 2026 Dentual Konya. All rights reserved.',
+            'footer.quick': 'Quick Links', 'footer.branches': 'Branches', 'footer.contact': 'Contact', 'footer.hours': 'Every day until 23:00 (Sundays included)', 'footer.copyright': '© 2026 Konya Diş Hekimi. All rights reserved.',
             'wa.title': 'Choose a Branch', 'wa.sub': 'How can we help you?',
             'cta.call': 'Call Now', 'cta.wa': 'WhatsApp',
             'cc.title': 'Cookie Preferences',
@@ -128,8 +128,8 @@
 
     // Default prefilled message for all WhatsApp link buttons (per language)
     const WA_MSG = {
-        tr: 'Merhaba, Dentual\'dan randevu ve bilgi almak istiyorum.',
-        en: 'Hello, I would like to get an appointment and information from Dentual.'
+        tr: 'Merhaba, Konya Diş Hekimi\'dan randevu ve bilgi almak istiyorum.',
+        en: 'Hello, I would like to get an appointment and information from our clinic.'
     };
 
     const DOCTORS = [
@@ -167,7 +167,7 @@
         { name: 'M. Raşit TORAMAN', initials: 'MT', color: '#11665f', stars: 5, tag: 'Genel Tedavi', tagEn: 'General Treatment', text: 'Herkese ayrı ayrı teşekkür ediyorum. Çağrı hocamıza ve tüm ekibe başarılar diliyorum.', textEn: 'I thank everyone individually. I wish success to Dr. Çağrı and the whole team.' },
         { name: 'Selin Doğan', initials: 'SD', color: '#14b8a6', stars: 5, tag: 'Gülüş Tasarımı', tagEn: 'Smile Design', text: 'Düğünüm öncesi gülüş tasarımı yaptırdım ve sonuç hayal ettiğimden çok daha iyi oldu! Dişlerimin rengi ve formu artık kusursuz. Hekimime ve tüm ekibe minnettarım, özgüvenim tamamen değişti.', textEn: 'I had a smile design before my wedding and the result was far better than I imagined! The color and shape of my teeth are now flawless. I am grateful to my dentist and the whole team — my confidence has completely changed.' },
         { name: 'Ayşe Vural', initials: 'AV', color: '#0a3f3c', stars: 5, tag: 'Pedodonti', tagEn: 'Pedodontics', text: 'Oğlum diş hekiminden çok korkardı. Pedodonti uzmanı doktor hanım o kadar sabırlı ve sevecen yaklaştı ki, çocuğum artık kontrole gitmek için sabırsızlanıyor. Çocuklarla iletişimleri gerçekten harika.', textEn: 'My son used to be very afraid of the dentist. The pedodontics specialist was so patient and kind that my child now can\'t wait to go for check-ups. Their communication with children is truly wonderful.' },
-        { name: 'Büşra Şen', initials: 'BŞ', color: '#11665f', stars: 5, tag: 'Zirkonyum Kaplama', tagEn: 'Zirconium Crown', text: 'Ön dişlerime zirkonyum kaplama yaptırdım. Doğal görünümü inanılmaz, hiç yapay durmuyor ve renk uyumu mükemmel. İşçilik kalitesi çok yüksek. Dentual ekibine sağlıklı gülüşüm için teşekkür ederim.', textEn: 'I had zirconium crowns on my front teeth. The natural look is incredible — it doesn\'t look artificial at all and the color match is perfect. The craftsmanship is very high quality. Thanks to the Dentual team for my healthy smile.' },
+        { name: 'Büşra Şen', initials: 'BŞ', color: '#11665f', stars: 5, tag: 'Zirkonyum Kaplama', tagEn: 'Zirconium Crown', text: 'Ön dişlerime zirkonyum kaplama yaptırdım. Doğal görünümü inanılmaz, hiç yapay durmuyor ve renk uyumu mükemmel. İşçilik kalitesi çok yüksek. Konya Diş Hekimi ekibine sağlıklı gülüşüm için teşekkür ederim.', textEn: 'I had zirconium crowns on my front teeth. The natural look is incredible — it doesn\'t look artificial at all and the color match is perfect. The craftsmanship is very high quality. Thanks to the Konya Diş Hekimi team for my healthy smile.' },
         { name: 'Kemal Aslan', initials: 'KA', color: '#0d4d4d', stars: 5, tag: 'Geç Saat Hizmeti', tagEn: 'Late-Hours Service', text: 'Akşam geç saatte ani diş ağrımda açık olmaları beni kurtardı. Gece 23:00 gibi gittim, ilgilendiler ve ağrımı dindirdiler. Konya\'da bu saatte hizmet veren güvenilir bir yer olması çok değerli.', textEn: 'Being open late at night saved me during a sudden toothache. I went around 23:00, they took care of me and relieved my pain. It is invaluable to have a trustworthy place serving at this hour in Konya.' }
     ];
 
@@ -301,7 +301,7 @@
             title: 'Pedodonti (Çocuk Diş Hekimliği)',
             img: 'assets/treatments/pedodonti.webp',
             short: '0-14 yaş çocukların süt ve daimi dişlerinin sağlığı için özel yaklaşım.',
-            desc: 'Pedodonti, 0-14 yaş çocukların süt ve daimi dişlerinin sağlığını korumanın yanı sıra meydana gelen problemleri tedavi etmeyi amaçlayan diş hekimliği dalıdır. Uzman hekimlerimiz, çocukların diş hekimi korkusu yaşamadan sağlıklı dişlere sahip olması için özel teknikler kullanır. Dentual Çocuk kliniğimizde minik hastalarımıza özel bir ortam sunuyoruz.',
+            desc: 'Pedodonti, 0-14 yaş çocukların süt ve daimi dişlerinin sağlığını korumanın yanı sıra meydana gelen problemleri tedavi etmeyi amaçlayan diş hekimliği dalıdır. Uzman hekimlerimiz, çocukların diş hekimi korkusu yaşamadan sağlıklı dişlere sahip olması için özel teknikler kullanır. KDH Çocuk kliniğimizde minik hastalarımıza özel bir ortam sunuyoruz.',
             candidates: '0-14 yaş aralığındaki, koruyucu diş hekimliği veya süt/daimi diş tedavisi ihtiyacı olan tüm çocuklar için uygundur.',
             process: [
                 { t: 'Tanışma & Muayene', d: 'Çocuğun güven duyması sağlanarak nazik bir şekilde ağız ve diş muayenesi yapılır.' },
@@ -312,7 +312,7 @@
             points: ['Ağız hijyeni eğitimi', 'Flor ve fissür örtücü uygulamaları', 'Süt ve daimi diş dolgu/tedavileri', 'Çocuk dostu, korkutmayan yaklaşım'],
             titleEn: 'Pedodontics (Pediatric Dentistry)',
             shortEn: 'A special approach for the health of children\'s primary and permanent teeth (ages 0-14).',
-            descEn: 'Pedodontics is the branch of dentistry that aims to protect the health of children\'s primary and permanent teeth (ages 0-14) and to treat problems that arise. Our specialists use special techniques so children can have healthy teeth without fear of the dentist. At our Dentual Kids clinic, we offer a special environment for our little patients.',
+            descEn: 'Pedodontics is the branch of dentistry that aims to protect the health of children\'s primary and permanent teeth (ages 0-14) and to treat problems that arise. Our specialists use special techniques so children can have healthy teeth without fear of the dentist. At our Konya Diş Hekimi Kids clinic, we offer a special environment for our little patients.',
             candidatesEn: 'Suitable for all children aged 0-14 who need preventive dentistry or primary/permanent tooth treatment.',
             processEn: [
                 { t: 'Introduction & Examination', d: 'An oral and dental examination is performed gently, helping the child feel at ease.' },
@@ -327,7 +327,7 @@
     // NOTE: This list must stay in sync with the FAQPage JSON-LD in each page's <head>
     // (Google requires FAQ structured data to match visible on-page content).
     const FAQS = [
-        { q: 'Konya\'da gece açık diş kliniği var mı?', a: 'Evet. Dentual Konya olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00\'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir. Çağrı merkezi: 444 34 42.', qEn: 'Is there a night-open dental clinic in Konya?', aEn: 'Yes. At Dentual Konya, our Karatay, Selçuklu and Meram branches are open until 23:00 every day, Sundays included. Our on-call dentist serves you for night-time toothaches. Call center: 444 34 42.' },
+        { q: 'Konya\'da gece açık diş kliniği var mı?', a: 'Evet. Konya Diş Hekimi olarak Karatay, Selçuklu ve Meram şubelerimizde pazar dahil her gün gece 23:00\'a kadar açığız. Gece bastıran diş ağrılarınızda nöbetçi diş hekimimiz size hizmet verir. Çağrı merkezi: 444 34 42.', qEn: 'Is there a night-open dental clinic in Konya?', aEn: 'Yes. At Konya Diş Hekimi, our Karatay, Selçuklu and Meram branches are open until 23:00 every day, Sundays included. Our on-call dentist serves you for night-time toothaches. Call center: 444 34 42.' },
         { q: 'Selçuklu\'da nöbetçi diş hekimi nerede?', a: 'Selçuklu şubemiz Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi\'nde gece nöbetinde hizmet verir. Pazar dahil her gün 23:00\'a kadar açıktır. Randevu ve acil için: 0551 342 44 42.', qEn: 'Where is the on-call dentist in Selçuklu?', aEn: 'Our Selçuklu branch serves on night duty at Parsana Mah. Kaletaş Cad. Selçuker İş Merkezi. Open until 23:00 every day including Sunday. Appointments & emergencies: 0551 342 44 42.' },
         { q: 'Konya\'da acil diş tedavisi nereden alınır?', a: 'Acil diş tedavisi için üç şubemize de başvurabilirsiniz. Gece geç saatlerde bastıran diş ağrısı, kırık diş veya apse gibi durumlarda 23:00\'a kadar açığız; gelmeden önce size en yakın şubeyi aramanızı öneririz.', qEn: 'Where can I get emergency dental treatment in Konya?', aEn: 'You can visit any of our three branches for emergency dental care. For late-night toothache, a broken tooth or an abscess we are open until 23:00; we recommend calling your nearest branch before coming.' },
         { q: 'Hafta sonu ve pazar günü açık diş hekimi var mı?', a: 'Evet. Cumartesi ve pazar dahil haftanın her günü 09:00–23:00 arası hizmet veriyoruz. Hafta sonu diş ağrınızda da yanınızdayız.', qEn: 'Is there a dentist open on weekends and Sundays?', aEn: 'Yes. We serve every day of the week, including Saturday and Sunday, from 09:00 to 23:00. We are by your side for weekend toothaches too.' },
@@ -373,7 +373,7 @@
                 <li>Çene ve diş gelişimi erkenden takip edilir.</li>
                 <li>Doğru fırçalama ve beslenme alışkanlıkları kazandırılır.</li>
             </ul>
-            <p>Dentual Çocuk kliniğimizde, minik hastalarımıza özel, neşeli ve korkutmayan bir ortam sunuyoruz. Çocuğunuzun ilk diş deneyimini keyifli bir maceraya dönüştürüyoruz.</p>`
+            <p>KDH Çocuk kliniğimizde, minik hastalarımıza özel, neşeli ve korkutmayan bir ortam sunuyoruz. Çocuğunuzun ilk diş deneyimini keyifli bir maceraya dönüştürüyoruz.</p>`
         },
         {
             id: 'gulus-tasarimi-nedir',
@@ -409,7 +409,7 @@
                 <li>Aspirini doğrudan diş etine koymayın; dokuya zarar verir.</li>
             </ul>
             <h3>Beklemeyin, Bizi Arayın</h3>
-            <p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Dentual olarak Pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda nöbetçi diş hekimi hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>`
+            <p>Bu öneriler geçici rahatlama sağlar; ağrının nedeni devam ediyordur. İyi haber şu: <strong>Konya Diş Hekimi olarak Pazar dahil her gün gece 23:00'a kadar açığız.</strong> Geç saatte bastıran diş ağrılarınızda nöbetçi diş hekimi hizmetimizle yanınızdayız. Çağrı merkezi: 444 34 42.</p>`
         }
     ];
 
@@ -438,13 +438,13 @@
     function initTheme() {
         const root = document.documentElement;
         const toggle = $('#themeToggle');
-        const saved = localStorage.getItem('dentual-theme');
+        const saved = localStorage.getItem('konyadishekimi-theme');
         if (saved) root.setAttribute('data-theme', saved);
         if (toggle) {
             toggle.addEventListener('click', () => {
                 const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 root.setAttribute('data-theme', next);
-                localStorage.setItem('dentual-theme', next);
+                localStorage.setItem('konyadishekimi-theme', next);
             });
         }
     }
@@ -685,7 +685,7 @@
         grid.innerHTML = DOCTORS.map(d => {
             const role = en && d.roleEn ? d.roleEn : d.role;
             const photo = d.img
-                ? `<img src="${d.img}" alt="${d.name}${role ? ' — ' + role : ''}, Dentual Konya" loading="lazy" width="320" height="400" />`
+                ? `<img src="${d.img}" alt="${d.name}${role ? ' — ' + role : ''}, Konya Diş Hekimi" loading="lazy" width="320" height="400" />`
                 : `<div class="doctor-photo-ph" aria-hidden="true">${docInitials(d.name)}</div>`;
             const bioTxt = en && d.bioEn ? d.bioEn : d.bio;
             const bio = bioTxt ? `<p class="doctor-bio">${bioTxt}</p>` : '';
@@ -712,7 +712,7 @@
 
     // Emit Physician/Person JSON-LD for the team (single source = DOCTORS).
     // Idempotent: replaces its own <script> on re-render (e.g. language switch).
-    const SCHEMA_ORIGIN = 'https://dentualkonya.com';
+    const SCHEMA_ORIGIN = 'https://konyadishekimi.com';
     function injectDoctorSchema() {
         const nodes = DOCTORS.map((d, i) => {
             const node = {
@@ -744,8 +744,8 @@
             return `
             <article class="ba-card reveal">
                 <div class="ba-compare" style="--p:50%">
-                    <img class="ba-img ba-after" src="${r.after}" alt="${t} — tedavi sonrası, Dentual Konya" loading="lazy" decoding="async" width="900" height="600" />
-                    <img class="ba-img ba-before" src="${r.before}" alt="${t} — tedavi öncesi, Dentual Konya" loading="lazy" decoding="async" width="900" height="600" />
+                    <img class="ba-img ba-after" src="${r.after}" alt="${t} — tedavi sonrası, Konya Diş Hekimi" loading="lazy" decoding="async" width="900" height="600" />
+                    <img class="ba-img ba-before" src="${r.before}" alt="${t} — tedavi öncesi, Konya Diş Hekimi" loading="lazy" decoding="async" width="900" height="600" />
                     <span class="ba-label ba-label-before">${lblB}</span>
                     <span class="ba-label ba-label-after">${lblA}</span>
                     <div class="ba-divider" aria-hidden="true"><span class="ba-handle"></span></div>
@@ -913,7 +913,7 @@
         $('#blogListView').style.display = 'none';
         $('#blogArticleView').style.display = '';
         window.scrollTo({ top: 0, behavior: 'auto' });
-        document.title = b.title + ' - Dentual Konya';
+        document.title = b.title + ' - Konya Diş Hekimi';
         runReveal();
     }
     function showBlogList() {
@@ -1089,7 +1089,7 @@
         if (btn) {
             btn.addEventListener('click', () => {
                 document.documentElement.classList.add('ann-dismissed');
-                try { localStorage.setItem('dentual-ann-closed', '1'); } catch (e) {}
+                try { localStorage.setItem('konyadishekimi-ann-closed', '1'); } catch (e) {}
                 const bar = $('#announceBar');
                 if (bar) bar.classList.remove('marquee-on');
             });
@@ -1123,7 +1123,7 @@
         en: { name: 'Full Name', phone: 'Phone', email: 'E-mail', branch: 'Branch', message: 'Message' }
     };
     const FORM_TITLES = {
-        contact: { tr: 'Dentual İletişim Formu', en: 'Dentual Contact Form' }
+        contact: { tr: 'Konya Diş Hekimi İletişim Formu', en: 'Konya Diş Hekimi Contact Form' }
     };
 
     function initForms() {
@@ -1153,7 +1153,7 @@
                 const loadedAt = parseInt(form.dataset.loadedAt || '0', 10);
                 if (loadedAt && Date.now() - loadedAt < 2500) { showErr(statusId, lang); return; }
                 // 3) Rate limit across submissions (per browser).
-                let lastAt = 0; try { lastAt = parseInt(localStorage.getItem('dentual-last-submit') || '0', 10); } catch (e) {}
+                let lastAt = 0; try { lastAt = parseInt(localStorage.getItem('konyadishekimi-last-submit') || '0', 10); } catch (e) {}
                 if (Date.now() - lastAt < 25000) { showErr(statusId, lang); return; }
 
                 const labels = FIELD_LABELS[lang] || FIELD_LABELS.tr;
@@ -1166,10 +1166,10 @@
                 // 4) Duplicate guard: block resending the exact same payload this session.
                 const sig = formId + '|' + JSON.stringify(data);
                 try {
-                    if (sessionStorage.getItem('dentual-last-sig') === sig) { showErr(statusId, lang); return; }
-                    sessionStorage.setItem('dentual-last-sig', sig);
+                    if (sessionStorage.getItem('konyadishekimi-last-sig') === sig) { showErr(statusId, lang); return; }
+                    sessionStorage.setItem('konyadishekimi-last-sig', sig);
                 } catch (e) {}
-                try { localStorage.setItem('dentual-last-submit', String(Date.now())); } catch (e) {}
+                try { localStorage.setItem('konyadishekimi-last-submit', String(Date.now())); } catch (e) {}
 
                 // Build a readable WhatsApp message
                 const lines = ['*' + (FORM_TITLES[titleKey][lang] || FORM_TITLES[titleKey].tr) + '*'];
@@ -1180,7 +1180,7 @@
                 const num = WA_NUMBERS[data.branch] || WA_DEFAULT;
                 window.open('https://wa.me/' + num + '?text=' + text, '_blank');
                 // Conversion tracking (no-op if analytics.js not configured yet)
-                if (window.dentualTrack) window.dentualTrack('lead_form_submit', { branch: data.branch || 'Bilinmeyen', form: formId });
+                if (window.kdTrack) window.kdTrack('lead_form_submit', { branch: data.branch || 'Bilinmeyen', form: formId });
 
                 const status = $('#' + statusId);
                 if (status) {
@@ -1237,7 +1237,7 @@
     function setLanguage(lang) {
         if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'tr';
         currentLang = lang;
-        localStorage.setItem('dentual-lang', lang);
+        localStorage.setItem('konyadishekimi-lang', lang);
         translateStatic(lang);
         // Re-render dynamic content in the new language
         renderDoctors(); renderResults(); renderReviews(); renderFaq(); renderTreatments(); renderBlog();
@@ -1268,7 +1268,7 @@
     /* ---------- KVKK COOKIE CONSENT (Consent Mode v2) ---------- */
     function initCookieConsent() {
         const banner = $('#cookieConsent');
-        const api = window.dentualConsent;
+        const api = window.kdConsent;
         if (!banner || !api) return;
         const accept = $('#ccAccept'), reject = $('#ccReject'), manage = $('#ccManage'),
               save = $('#ccSave'), panel = $('#ccPanel'), toggle = $('#ccAnalytics'),
@@ -1299,7 +1299,7 @@
         });
     }
 
-    /* ---------- DENTUAL ÇOCUK VIDEO ---------- */
+    /* ---------- KDH ÇOCUK VIDEO ---------- */
     function initCocukVideo() {
         const wrap = $('.cocuk-video-wrap');
         if (!wrap) return;

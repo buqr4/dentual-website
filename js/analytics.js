@@ -1,5 +1,5 @@
 /* ============================================================================
-   DENTUAL KONYA — analytics.js
+   KONYA DİŞ HEKİMİ — analytics.js
    Self-hosted analytics + conversion tracking. No inline snippets (keeps CSP
    strict: this file is 'self'; it loads gtag/clarity/sentry from their domains,
    already allow-listed in _headers CSP).
@@ -13,7 +13,7 @@
    KVKK / Google Consent Mode v2:
    - Consent defaults to DENIED for all storage before any tag loads.
    - With CONSENT_REQUIRED = true (default), GA4 + Clarity do NOT load until the
-     user explicitly accepts via the cookie banner (window.dentualConsent.set).
+     user explicitly accepts via the cookie banner (window.kdConsent.set).
    - First-party conversion events (tel/WhatsApp/map clicks) are cookieless and
      run regardless — they only push to dataLayer (no network until GA loads).
    ============================================================================ */
@@ -30,7 +30,7 @@
     ANONYMIZE_IP:     true,                    // GA4 IP anonymization
     CONSENT_REQUIRED: true                     // KVKK: wait for explicit consent (recommended)
   };
-  var CONSENT_KEY = 'dentual-consent';         // localStorage: 'granted' | 'denied'
+  var CONSENT_KEY = 'konyadishekimi-consent';         // localStorage: 'granted' | 'denied'
 
   var isSet = function (v, ph) { return v && v.indexOf(ph) === -1; };
 
@@ -98,7 +98,7 @@
     try { gtag('event', name, params || {}); } catch (e) {}
     try { if (window.clarity) window.clarity('event', name); } catch (e) {}
   }
-  window.dentualTrack = track; // forms (script.js) call this
+  window.kdTrack = track; // forms (script.js) call this
 
   /* ====================== CONSENT MANAGEMENT (KVKK) ====================== */
   function getConsent() {
@@ -123,7 +123,7 @@
     }
   }
   // Public API used by the cookie banner (script.js → initCookieConsent).
-  window.dentualConsent = {
+  window.kdConsent = {
     get: getConsent,
     set: function (state) {
       state = (state === 'granted') ? 'granted' : 'denied';
@@ -162,5 +162,5 @@
     // Returning visitor who already accepted.
     applyConsent('granted');
   }
-  // Otherwise: stay dormant until the cookie banner calls dentualConsent.set().
+  // Otherwise: stay dormant until the cookie banner calls kdConsent.set().
 })();

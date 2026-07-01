@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dentualkonya.com/sitemap.xml
+Sitemap: https://konyadishekimi.com/sitemap.xml
