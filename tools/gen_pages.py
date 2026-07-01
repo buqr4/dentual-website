@@ -53,7 +53,8 @@ def _asset_ver(*rel_paths):
     for p in rel_paths:
         try:
             with open(os.path.join(ROOT, p), "rb") as fh:
-                h.update(fh.read())
+                # Normalise CRLF→LF so the hash is identical on Windows and Linux CI.
+                h.update(fh.read().replace(b"\r\n", b"\n"))
         except OSError:
             pass
     return h.hexdigest()[:8]
@@ -215,7 +216,7 @@ def page(route, page_id, title_tr, desc_tr, h1, content, schema_graph,
             '<main id="main" tabindex="-1">\n' + content + "\n    " + CHROME_BOTTOM)
     out_dir = os.path.join(ROOT, route.strip("/").replace("/", os.sep))
     os.makedirs(out_dir, exist_ok=True)
-    with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as fh:
+    with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write(_stamp(html))
     return route
 
@@ -1263,7 +1264,7 @@ for u, pr, lm in SITEMAP_URLS:
     sm.append("    <priority>%s</priority>" % pr)
     sm.append("  </url>")
 sm.append("</urlset>")
-with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
+with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as fh:
     fh.write("\n".join(sm) + "\n")
 
 # ============================================================ 404
@@ -1294,7 +1295,7 @@ nf_body = ('data-page="home" data-title-tr="Sayfa Bulunamadı – Konya Diş Hek
 nf_top = CHROME_TOP.replace('class="nav-link active"', 'class="nav-link"')
 nf_html = ("<!DOCTYPE html>\n<html lang=\"tr\" data-skin=\"navy\">\n" + nf_head + "\n<body " + nf_body +
            ">\n\n    " + nf_top + '<main id="main">\n' + nf_content + "\n    " + CHROME_BOTTOM)
-with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as fh:
+with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8", newline="\n") as fh:
     fh.write(_stamp(nf_html))
 
 # ============================================================ home (index.html)
@@ -1309,7 +1310,7 @@ _home = re.sub(r'<!--VERIFY:START-->.*?<!--VERIFY:END-->',
                _home, flags=re.S)
 _home_stamped = _stamp(_home)
 if _home_stamped != _home:
-    with open(_home_path, "w", encoding="utf-8") as fh:
+    with open(_home_path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(_home_stamped)
     print("   index.html -> css/js fingerprint updated (?v=%s)" % ASSET_VER)
 

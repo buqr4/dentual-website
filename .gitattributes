@@ -1,0 +1,26 @@
+# Normalise all text files to LF in the repo and on checkout (all platforms).
+# This keeps generated HTML/XML identical between Windows devs and Linux CI.
+* text=auto eol=lf
+
+# Explicitly mark generated/source text files as LF
+*.html   text eol=lf
+*.xml    text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.py     text eol=lf
+*.txt    text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.toml   text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+
+# Binary assets — never touched
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.avif   binary
+*.ico    binary
+*.woff2  binary
+*.woff   binary
